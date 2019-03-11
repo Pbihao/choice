@@ -9,7 +9,7 @@
 		"newFeature": true
 	},
 	"appid": "wx5027d861eb0079e8",
-	"projectname": "serverv",
+	"projectname": "server",
 	"libVersion": "2.2.5",
 	"condition": {
 		"search": {
