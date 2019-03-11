@@ -5,20 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    color: 'F0F8FF',
-    title: "标题",
     timecardtableID: 40682,
     myChoices: []
-
   },
 
   save: function () {
-    wx.setStorageSync('choices_list', this.data.myChoices)
+    wx.setStorageSync('myChoices_list', this.data.myChoices)
   },
   /**
    * 生命周期函数--监听页面加载
    */
+  load: function () {
+    var myChoices = wx.getStorageSync('myChoices_list')
+    if (myChoices) {
+      this.setData({ myChoices: myChoices})
+      console.log(myChoices)
+    }
+  },
   onLoad: function (options) {
+    
   },
 
   /**
@@ -31,7 +36,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.load()
   },
 
   /**
@@ -73,7 +78,7 @@ Page({
     wx.navigateTo({
       url: '/pages/luck/create/create',
     })
-
+    /*
     var Choice = {
       title: "吃饭",
       color:this.data.color,
@@ -83,9 +88,9 @@ Page({
     myChoices.push(Choice)
     this.setData({
       myChoices:myChoices
-    })
-    this.save()
+    })*/
   },
+ 
   choose: function() {
     wx.navigateTo({
       url: '/pages/luck/choose/choose',

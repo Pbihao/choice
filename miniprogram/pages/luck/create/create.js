@@ -2,32 +2,52 @@
 Page({
   data: {
     input: '',
-    todos: [],
+    choices: [],
     leftCount: 0,
-    allCompleted: false,
-    logs: []
+    title: '',
+    problems: []
   },
 
   save: function () {
-    wx.setStorageSync('todo_list', this.data.todos)
-    wx.setStorageSync('todo_logs', this.data.logs)
+    if(this.data.title!='') {
+    //  wx.setStorageSync('choices_list', this.data.choices)
+      var problems = this.data.problems
+      problems.push({
+        title: this.data.title,
+        choices: this.data.choices,
+        nOfCards: this.data.leftCount
+      })
+      wx.setStorageSync('myChoices_list', problems)
+      wx.navigateBack()
+    }
+
+    /*
+    var myChoices = this.data.myChoices
+    myChoices.push(Choice)
+    this.setData({
+      myChoices: myChoices
+    })
+    this.save()
+    */
   },
 
   load: function () {
-    var todos = wx.getStorageSync('todo_list')
-    if (todos) {
-      var leftCount = todos.filter(function (item) {
-        return !item.completed
-      }).length
-      this.setData({ todos: todos, leftCount: leftCount })
+    //var choices = wx.getStorageSync('choices_list')
+    if (wx.getStorageSync('myChoices_list')!="") {
+      var problems = wx.getStorageSync('myChoices_list')
+      this.setData({
+        //choices: choices, 
+        problems: problems
+      })
     }
-    var logs = wx.getStorageSync('todo_logs')
-    if (logs) {
-      this.setData({ logs: logs })
-    }
+
   },
 
   onLoad: function () {
+    
+  },
+  
+  onShow: function () {
     this.load()
   },
 
@@ -35,86 +55,42 @@ Page({
     this.setData({ input: e.detail.value })
   },
 
-  addTodoHandle: function (e) {
+  addchoiceHandle: function (e) {
     if (!this.data.input || !this.data.input.trim()) return
-    var todos = this.data.todos
-    todos.push({ name: this.data.input, completed: false })
-    var logs = this.data.logs
-    logs.push({ timestamp: new Date(), action: 'Add', name: this.data.input })
+    var choices = this.data.choices
+    choices.push({ name: this.data.input })
     this.setData({
       input: '',
-      todos: todos,
-      leftCount: this.data.leftCount + 1,
-      logs: logs
+      choices: choices,
+      leftCount: this.data.leftCount + 1
     })
-    this.save()
+    //this.save()
   },
 
-  toggleTodoHandle: function (e) {
+
+  removechoiceHandle: function (e) {
     var index = e.currentTarget.dataset.index
-    var todos = this.data.todos
-    todos[index].completed = !todos[index].completed
-    var logs = this.data.logs
-    logs.push({
-      timestamp: new Date(),
-      action: todos[index].completed ? 'Finish' : 'Restart',
-      name: todos[index].name
-    })
+    var choices = this.data.choices
+    var remove = choices.splice(index, 1)[0]
     this.setData({
-      todos: todos,
-      leftCount: this.data.leftCount + (todos[index].completed ? -1 : 1),
-      logs: logs
+      choices: choices,
+      leftCount: this.data.leftCount
     })
-    this.save()
+    //this.save()
   },
 
-  removeTodoHandle: function (e) {
-    var index = e.currentTarget.dataset.index
-    var todos = this.data.todos
-    var remove = todos.splice(index, 1)[0]
-    var logs = this.data.logs
-    logs.push({ timestamp: new Date(), action: 'Remove', name: remove.name })
-    this.setData({
-      todos: todos,
-      leftCount: this.data.leftCount - (remove.completed ? 0 : 1),
-      logs: logs
-    })
-    this.save()
-  },
 
-  toggleAllHandle: function (e) {
-    this.data.allCompleted = !this.data.allCompleted
-    var todos = this.data.todos
-    for (var i = todos.length - 1; i >= 0; i--) {
-      todos[i].completed = this.data.allCompleted
-    }
-    var logs = this.data.logs
-    logs.push({
-      timestamp: new Date(),
-      action: this.data.allCompleted ? 'Finish' : 'Restart',
-      name: 'All todos'
-    })
-    this.setData({
-      todos: todos,
-      leftCount: this.data.allCompleted ? 0 : todos.length,
-      logs: logs
-    })
-    this.save()
-  },
-
-  clearCompletedHandle: function (e) {
-    var todos = this.data.todos
+  clearHandle: function (e) {
+    var choices = this.data.choices
     var remains = []
-    for (var i = 0; i < todos.length; i++) {
-      todos[i].completed || remains.push(todos[i])
-    }
-    var logs = this.data.logs
-    logs.push({
-      timestamp: new Date(),
-      action: 'Clear',
-      name: 'Completed todo'
-    })
-    this.setData({ todos: remains, logs: logs })
+    this.setData({ choices: remains})
     this.save()
+  }, 
+  
+  onChange(event) {
+    // event.detail 为当前输入的值
+    this.setData({title : event.detail})
+    console.log(event.detail)
   }
+
 })

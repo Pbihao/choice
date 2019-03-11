@@ -17,9 +17,12 @@ page {
   margin-top: 450rpx;
 }
 .card{
-  height: 150rpx;
-  width: 700rpx;
-  border-radius: 25rpx;
+  height: 120rpx;
+  width: 94%;
+  border-radius: 5rpx;
+  border-style: outset;
+  border-bottom-color:rgba(0, 0, 0, 0.76);
+  border-top-width: 0rpx;
   padding: 25rpx;
   color: #696969;
   display: flex;
@@ -41,6 +44,7 @@ page {
   border-radius: 30rpx;
   width: 120rpx;
   height: 50rpx;
+  right:50%;
   font-size: 36rpx;
   text-align: center;
   line-height: 50rpx;
