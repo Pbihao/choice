@@ -1,0 +1,3 @@
+<button 
+  bindtap='getDefaultCards'
+>测试</button>

@@ -1,16 +1,35 @@
 // pages/mine/mine.js
+const db = wx.cloud.database()
+const default_cards = db.collection('default_cards')
+var cards = []
 var app = getApp()
 Page({
   data: {
-    
+    cards:[],
     avatarUrl: app.globalData.avatarUrl
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onTest: function(){
+    var that = this
+    var len = cards.length
+    len = 0
+    default_cards
+      .skip(len)
+      .limit(6)
+      .get()
+      .then((res) => {
+        var i
+        for (i of res.data) {
+          cards.push(i)
+        }
+        that.setData({
+          cards
+        })
+        console.log(that.data.cards)
+      })
+      .catch((err) => {
+        console.error
+      })
   },
 
   onGetUserInfo: function (e) {
@@ -20,6 +39,20 @@ Page({
         avatarUrl: e.detail.userInfo.avatarUrl
       })
     }
+  },
+
+  onGetOpenid: function () {
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        console.log('[云函数] [login] user openid: ', res.result.openid)
+        app.globalData.openid = res.result.openid
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
+    })
   },
 
   

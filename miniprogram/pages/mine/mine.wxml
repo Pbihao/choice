@@ -9,4 +9,5 @@
     <button
       bindtap="onGetOpenid"
     >点击获取openid</button>
+    <button bindtap='onTest'>测试</button>
 </view>

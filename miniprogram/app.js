@@ -37,7 +37,7 @@ App({
       this.globalData.avatarUrl = e.userInfo.avatarUrl
     }
   },
-  getOenid: function () {
+  getOpenid: function () {
     wx.cloud.callFunction({
       name: 'login',
       data: {},
