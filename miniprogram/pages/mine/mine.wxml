@@ -1,0 +1,12 @@
+<view>
+  <view>
+    <image src="{{avatarUrl}}"></image>
+  </view>
+  <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+    >点击获取用户信息</button>
+    <button
+      bindtap="onGetOpenid"
+    >点击获取openid</button>
+</view>
