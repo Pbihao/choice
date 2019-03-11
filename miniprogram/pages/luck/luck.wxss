@@ -1,1 +1,79 @@
 /* pages/luck/luck.wxss */
+page {
+  background-color: #fbfbfb;
+  font-family: "黑体";
+}
+.add{
+  position: absolute;
+  width: 120rpx;
+  height: 80rpx;
+  bottom: 70rpx;
+  right: 35rpx;
+}
+.tip{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 450rpx;
+}
+.card{
+  height: 150rpx;
+  width: 700rpx;
+  border-radius: 25rpx;
+  padding: 25rpx;
+  color: #696969;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.title-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.title{
+  font-size: 50rpx;
+  /* font-weight: bolder; */
+}
+.lable{
+  background-color: #AAA;
+  font-size: 28rpx;
+  color: #fff;
+  width: 100rpx;
+  text-align: center;
+  border-radius: 5rpx;
+}
+.period{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 25rpx;
+  color: #DDD;
+}
+.progress-days{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 60rpx;
+}
+.progress{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #DDD;
+}
+.days{
+  font-size: 70rpx;
+  font-weight: bolder;
+  line-height: 60rpx;
+}
+.detail{
+  border: 2rpx solid #fff;
+  border-radius: 30rpx;
+  width: 120rpx;
+  height: 50rpx;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 50rpx;
+}

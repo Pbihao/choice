@@ -3,7 +3,8 @@
     "pages/luck/luck",
     "pages/ask/ask",
     "pages/square/square",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/luck/create/create"
   ],
   "window": {
     "backgroundTextStyle": "light",
