@@ -1,2 +1,26 @@
 <!--pages/luck/luck.wxml-->
-<text>pages/luck/luck.wxml</text>
+<van-cell
+  title="「愿你所选，如你所愿。」"
+  size="large"
+/>
+<view class='tip' hidden='{{myChoices.length > 0}}'>
+  <text class='tip-name'>暂无选择，快去添加吧</text>
+</view>
+<block wx:if="{{ myChoices.length }}">
+  <view wx:for="{{myChoices}}" wx:key="{{index}}">
+    <view class='card' style='background-color:#{{color}}' bindtap='choose'>
+      <view class='title-container'>
+        <text class='title'>{{item.title}}</text>
+        <view class='detail' catchtap='edit'>
+          <text>编辑</text>
+        </view>
+      </view>
+      <view class='progress'>
+        <text>点击开始</text>
+      </view>
+    </view>
+  </view>
+</block>
+<view class='add'>
+  <van-button round type="info" size="large" catchtap='creatChoice'>添加</van-button>
+</view>

@@ -1,0 +1,36 @@
+<!--pages/luck/create/create.wxml-->
+<van-cell-group>
+  <van-field
+    value="{{ value }}"
+    placeholder="请输入题目"
+    border="{{ false }}"
+    bind:change="onChange"
+  />
+</van-cell-group>
+<view class="header">
+  <image class="plus" src="../../../images/plus.png"/>
+  <input class="new-choice" value="{{ input }}" placeholder="你的选项" auto-focus bindinput="inputChangeHandle" bindconfirm="addchoiceHandle" confirm-hold="{{true}}"/>
+</view>
+<block wx:if="{{ choices.length }}">
+  <view class="choices">
+    <!-- List items should get the class `completed` when marked as completed -->
+    <view class="item" wx:for="{{ choices }}" wx:key="{{ index }}" data-index="{{ index }}">
+      <!-- choice: circle -->
+      <text class="name">{{ item.name }}</text>
+      <icon class="remove" type="clear" size="16" catchtap="removechoiceHandle" data-index="{{ index }}"/>
+    </view>
+  </view>
+  <view class="footer">
+    <text wx:if="{{ leftCount }}">共 {{ leftCount }} 项</text>
+  </view>
+</block>
+<block wx:else>
+  <view class="empty">
+    <text class="title">总感觉少了点什么</text>
+    <text class="content">快试试输入选项</text>
+  </view>
+</block>
+<view class='button'>
+  <van-button type="primary" size="large" catchtap='save'>保存</van-button>
+  <van-button type="danger" size="large" catchtap='clearHandle'>撤销</van-button>
+</view>
