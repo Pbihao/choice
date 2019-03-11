@@ -4,7 +4,9 @@
     "pages/ask/ask",
     "pages/square/square",
     "pages/mine/mine",
-    "pages/luck/create/create"
+    "pages/luck/create/create",
+    "pages/luck/choose/choose",
+    "pages/luck/edit/edit"
   ],
   "window": {
     "backgroundTextStyle": "light",
