@@ -46,6 +46,7 @@ Page({
       that.setData({
         myChoices: a.data
       })
+      wx.setStorageSync('myChoices_list', a.data)
       console.log(that.data.myChoices)
     })
   },
