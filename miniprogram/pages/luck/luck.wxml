@@ -28,7 +28,7 @@
       </view>
       <view class='title-container'>
         <text class='title'></text>
-        <view class='delete' catchtap='delete'>
+        <view class='delete' catchtap='ondelete' data-index='{{index}}'>
           <text>删除</text>
         </view>
       </view>

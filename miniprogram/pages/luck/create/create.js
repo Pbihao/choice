@@ -1,4 +1,5 @@
 // pages/luck/create/create.js
+import regeneratorRuntime from '../../../regenerator-runtime/runtime.js';
 const app = getApp()
 Page({
   data: {
@@ -11,7 +12,7 @@ Page({
   },
 
   //保存一个新的卡组同时跟新云服务器中的卡组
-  save: function () {
+  save: async function () {
     if(this.data.title!='') {
     //  wx.setStorageSync('choices_list', this.data.choices)
       var problems = this.data.problems
@@ -20,27 +21,42 @@ Page({
         choices: this.data.choices,
         nOfCards: this.data.leftCount,
         date: new Date,
+        _id: null
       }
+      const db = wx.cloud.database()
       if(this.data.edit) {
+        var index = this.data.edit - 1
+        card._id = problems[index]._id
+        await db.collection('user_cards').doc(problems[index]._id).update({
+          data: card
+        }).then((res) => {
+          console("数据更改成功")
+        }).catch(() => {
+          wx.showToast({
+            title: '卡片更改失败',
+            duration: 1000,
+            icon: 'loading'
+          })
+        })
         problems[this.data.edit-1] = card
       }
       else {
+        await db.collection('user_cards').add({
+          data: card
+        }).then((res) => {
+          card._id = res._id
+          console.log("数据的id  " + card._id)
+
+        }).catch(() => {
+          wx.showToast({
+            title: '卡片上传失败',
+            duration: 1000,
+            icon: 'loading'
+          })
+        })
         problems.push(card)
       }
       wx.setStorageSync('myChoices_list', problems)
-
-      const db = wx.cloud.database()
-      db.collection('user_cards').add({
-        data: card
-      }).then(()=>{
-        console.log('数据上传成功')
-      }).catch(() => {
-        wx.showToast({
-          title: '卡片上传失败',
-          duration: 1000,
-          icon: 'loading'
-        })
-      })
       wx.navigateBack()
     }else{
       wx.showToast({
