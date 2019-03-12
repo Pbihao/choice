@@ -1,6 +1,7 @@
 <!--pages/luck/create/create.wxml-->
   <van-cell-group>
     <van-field
+      input-class='input-class'
       background="#000" 
       size="large"
       value="{{ value }}"

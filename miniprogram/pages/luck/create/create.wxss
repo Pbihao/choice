@@ -1,7 +1,7 @@
 /* pages/luck/create/create.wxss */
 .input-class {
-  font-size: 45rpx;
-  height: 70rpx;
+  font-size: 45rpx !important;
+  height: 70rpx !important;
 }
 .header {
   display: flex;
