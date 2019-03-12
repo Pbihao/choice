@@ -9,7 +9,6 @@ App({
         traceUser: true,
       })
     }
-    this.getOpenid()
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -43,7 +42,6 @@ App({
           name: 'login',
           data: {},
           success: res => {
-            console.log(' [login] user openid: ', res.result.openid)
             that.globalData.openid = res.result.openid
             resolve()
           },
