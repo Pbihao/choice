@@ -3,8 +3,11 @@ page {
   background-color: #fbfbfb;
   font-family: "黑体";
 }
+.top {
+  font-size: 24px !important;
+}
 .add{
-  position: absolute;
+  position: fixed;
   width: 120rpx;
   height: 80rpx;
   bottom: 70rpx;
@@ -35,7 +38,7 @@ page {
   justify-content: space-between;
 }
 .title{
-  font-size: 50rpx;
+  font-size: 40rpx;
   /* font-weight: bolder; */
 }
 
@@ -44,7 +47,15 @@ page {
   border-radius: 30rpx;
   width: 120rpx;
   height: 50rpx;
-  right:50%;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 50rpx;
+}
+.delete {
+  border: 2rpx solid rgb(0, 0, 0);
+  border-radius: 30rpx;
+  width: 120rpx;
+  height: 50rpx;
   font-size: 36rpx;
   text-align: center;
   line-height: 50rpx;
@@ -56,5 +67,5 @@ page {
   justify-content: space-between;
   font-size: 30rpx;
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: #696969;
 }
