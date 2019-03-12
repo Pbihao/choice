@@ -1,4 +1,5 @@
 // pages/luck/luck.js
+import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
 var app = getApp()
 Page({
   data: {
@@ -19,8 +20,34 @@ Page({
     }
   },
 
+  //第一次调用的时候会从云服务器跟新我们的卡牌
   onLoad: function (options) {
-    
+    var that = this
+    app.getOpenid().then(async ()=>{
+      //console.log(app.globalData.openid)
+      const collection = await wx.cloud.database()
+                            .collection('user_cards')
+      const countResult = await collection.where({
+        _openid: app.globalData.openid
+      }).count()
+      const total = countResult.total
+      const batchTimes = Math.ceil(total / 2)
+      var cards = []
+      for (let i = 0; i < batchTimes; i++) {
+          const promise = collection.where({
+                        _openid: app.globalData.openid
+                        }).skip(i * 2).limit(2).get()
+          cards.push(promise)
+      }
+      var a = (await Promise.all(cards)).reduce((acc, cur) => ({
+        data: acc.data.concat(cur.data),
+        errMsg: acc.errMsg,
+      }))
+      that.setData({
+        myChoices: a.data
+      })
+      console.log(that.data.myChoices)
+    })
   },
 
   /**
@@ -75,30 +102,10 @@ Page({
   //跳转添加choice页面
   //如果没有获取openid就提示没有登陆
   creatChoice: function () {
-    app.getOpenid().then(() => {
-      wx.navigateTo({
-        url: '/pages/luck/create/create'
-      })
-    }).catch(() => {
-      wx.showToast({
-        title: '未登陆',
-        icon: 'loading',
-        duration: 1000
-      })
+    wx.navigateTo({
+      url: '/pages/luck/create/create'
     })
-    /*
-    var Choice = {
-      title: "吃饭",
-      color:this.data.color,
-      nOfCards: 10
-    }
-    var myChoices = this.data.myChoices
-    myChoices.push(Choice)
-    this.setData({
-      myChoices:myChoices
-    })*/
   },
- 
   choose: function() {
     wx.navigateTo({
       url: '/pages/luck/choose/choose',
