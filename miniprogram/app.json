@@ -6,8 +6,7 @@
     "pages/mine/mine",
     "pages/luck/default/default",
     "pages/luck/create/create",
-    "pages/luck/choose/choose",
-    "pages/luck/edit/edit"
+    "pages/luck/choose/choose"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -46,5 +45,6 @@
         "selectedIconPath": "images/mine_pressed.png"
       }
     ]
-  }
+  },
+  "cloud": "true"
 }
