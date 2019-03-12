@@ -4,7 +4,7 @@
       input-class='input-class'
       size="large"
       value="{{ value }}"
-      placeholder="题目描述"
+      placeholder="{{edit?'题目描述':title}}"
       bind:input="onChange"
       maxlength="12"
       focus
