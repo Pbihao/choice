@@ -9,6 +9,7 @@ App({
         traceUser: true,
       })
     }
+    this.getOpenid()
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -16,6 +17,7 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
+              that.setglo
               that.globalData.userInfo = res.userInfo
               that.avatarUrl = res.userInfo.avatarUrl
             }
@@ -31,22 +33,25 @@ App({
     avatarUrl: "/images/user-unlogin.png"
   },
 
-  getUserInfo: function(e){
-    if (e.detail.userInfo) {
-      this.globalData.userInfo = e.userInfo
-      this.globalData.avatarUrl = e.userInfo.avatarUrl
-    }
-  },
   getOpenid: function () {
-    wx.cloud.callFunction({
-      name: 'login',
-      data: {},
-      success: res => {
-        console.log('[云函数] [login] user openid: ', res.result.openid)
-        app.globalData.openid = res.result.openid
-      },
-      fail: err => {
-        console.error('[云函数] [login] 调用失败', err)
+    var that = this
+    return new Promise((resolve, reject) => {
+      if(that.globalData.openid){
+        resolve()
+      }else{
+        wx.cloud.callFunction({
+          name: 'login',
+          data: {},
+          success: res => {
+            console.log(' [login] user openid: ', res.result.openid)
+            that.globalData.openid = res.result.openid
+            resolve()
+          },
+          fail: err => {
+            console.error('[云函数] [login] 调用失败', err)
+            reject()
+          }
+        })
       }
     })
   }

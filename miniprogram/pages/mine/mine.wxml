@@ -5,7 +5,7 @@
   <button 
       open-type="getUserInfo" 
       bindgetuserinfo="onGetUserInfo"
-    >点击获取用户信息</button>
+    >点击登陆</button>
     <button
       bindtap="onGetOpenid"
     >点击获取openid</button>

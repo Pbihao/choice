@@ -38,6 +38,9 @@ Page({
       this.setData({
         avatarUrl: e.detail.userInfo.avatarUrl
       })
+      app.globalData.userInfo = e.detail.userInfo
+      app.globalData.avatarUrl = e.detail.avatarUrl
+      app.globalData.loged = true
     }
   },
 
