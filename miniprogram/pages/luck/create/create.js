@@ -1,4 +1,5 @@
 // pages/luck/create/create.js
+const app = getApp()
 Page({
   data: {
     input: '',
@@ -12,13 +13,36 @@ Page({
     if(this.data.title!='') {
     //  wx.setStorageSync('choices_list', this.data.choices)
       var problems = this.data.problems
-      problems.push({
+      var card = {
         title: this.data.title,
         choices: this.data.choices,
-        nOfCards: this.data.leftCount
-      })
+        nOfCards: this.data.leftCount,
+        date: new Date,
+        openid: app.globalData.openid
+      }
+      problems.push(card)
       wx.setStorageSync('myChoices_list', problems)
+
+      const db = wx.cloud.database()
+      db.collection('user_cards').add({
+        data: card
+      }).then(()=>{
+        console.log('数据上传成功')
+      }).catch(() => {
+        wx.showToast({
+          title: '卡片上传失败',
+          duration: 1000,
+          icon: 'loading'
+        })
+      })
+
       wx.navigateBack()
+    }else{
+      wx.showToast({
+        title: '请输入题目',
+        duration: 1000,
+        icon: 'none'
+      })
     }
 
     /*
@@ -80,12 +104,7 @@ Page({
   },
 
 
-  clearHandle: function (e) {
-    var choices = this.data.choices
-    var remains = []
-    this.setData({ choices: remains})
-    this.save()
-  }, 
+
   
   onChange(event) {
     // event.detail 为当前输入的值

@@ -1,19 +1,15 @@
 // pages/luck/luck.js
+var app = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     timecardtableID: 40682,
     myChoices: []
   },
-
   save: function () {
     wx.setStorageSync('myChoices_list', this.data.myChoices)
   },
   /**
-   * 生命周期函数--监听页面加载
+   * 用于加载用户自己的卡片
    */
   load: function () {
     var myChoices = wx.getStorageSync('myChoices_list')
@@ -22,6 +18,7 @@ Page({
       console.log(myChoices)
     }
   },
+
   onLoad: function (options) {
     
   },
@@ -30,6 +27,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
   },
 
   /**
@@ -73,10 +71,20 @@ Page({
   onShareAppMessage: function () {
 
   },
-  // 跳转添加choice页面
+
+  //跳转添加choice页面
+  //如果没有获取openid就提示没有登陆
   creatChoice: function () {
-    wx.navigateTo({
-      url: '/pages/luck/create/create',
+    app.getOpenid().then(() => {
+      wx.navigateTo({
+        url: '/pages/luck/create/create'
+      })
+    }).catch(() => {
+      wx.showToast({
+        title: '未登陆',
+        icon: 'loading',
+        duration: 1000
+      })
     })
     /*
     var Choice = {
