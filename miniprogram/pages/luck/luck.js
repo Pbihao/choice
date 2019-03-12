@@ -103,8 +103,19 @@ Page({
   //跳转添加choice页面
   //如果没有获取openid就提示没有登陆
   creatChoice: function () {
-    wx.navigateTo({
-      url: '/pages/luck/create/create'
+
+    wx.setStorageSync('edit',0)
+    app.getOpenid().then(() => {
+      wx.navigateTo({
+        url: '/pages/luck/create/create'
+      })
+    }).catch(() => {
+      wx.showToast({
+        title: '未登陆',
+        icon: 'loading',
+        duration: 1000
+      })
+
     })
   },
   choose: function() {
@@ -112,9 +123,11 @@ Page({
       url: '/pages/luck/choose/choose',
     })   
   },
-  edit: function() {
+  edit: function(e) {
+    let index = e.currentTarget.dataset.index;
+    wx.setStorageSync('edit',index)
     wx.navigateTo({
-      url: '/pages/luck/edit/edit',
+      url: '/pages/luck/create/create',
     })
   }
 })

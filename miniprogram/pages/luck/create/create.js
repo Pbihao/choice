@@ -6,7 +6,8 @@ Page({
     choices: [],
     leftCount: 0,
     title: '',
-    problems: []
+    problems: [],
+    edit:0
   },
 
   //保存一个新的卡组同时跟新云服务器中的卡组
@@ -20,7 +21,12 @@ Page({
         nOfCards: this.data.leftCount,
         date: new Date,
       }
-      problems.push(card)
+      if(this.data.edit) {
+        problems[this.data.edit-1] = card
+      }
+      else {
+        problems.push(card)
+      }
       wx.setStorageSync('myChoices_list', problems)
 
       const db = wx.cloud.database()
@@ -54,6 +60,13 @@ Page({
         problems: problems
       })
     }
+    if (this.data.edit = wx.getStorageSync('edit')) {
+      this.setData({
+        choices: this.data.problems[this.data.edit-1].choices,
+        title: this.data.problems[this.data.edit-1].title
+      })
+    }
+
   },
   
   onShow: function () {
@@ -91,6 +104,9 @@ Page({
   onChange(event) {
     // event.detail 为当前输入的值
     this.setData({title : event.detail})
-  }
+  },
 
+  begin: function (){
+
+  }
 })

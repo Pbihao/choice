@@ -1,7 +1,15 @@
 <!--pages/luck/luck.wxml-->
 <van-cell
-  title="「愿你所选，如你所愿。」"
+  title-class='top'
+  title="「以为的选择，"
   size="large"
+  border="{{ false }}"
+/>
+<van-cell
+  title-class='top'
+  title="　　　　不过是早已注定」"
+  size="large"
+  border="{{ false }}"
 />
 <view class='tip' hidden='{{myChoices.length > 0}}'>
   <text class='tip-name'>暂无选择，快去添加吧</text>
@@ -11,12 +19,18 @@
     <view class='card' style='background-color:#{{color}}' bindtap='choose'>
       <view class='title-container'>
         <text class='title'>{{item.title}}</text>
-        <view class='detail' catchtap='edit'>
+          <view class='detail' catchtap='edit' data-index="{{index+1}}">
           <text>编辑</text>
-        </view>
+          </view>
       </view>
       <view class='progress'>
         <text>点击开始</text>
+      </view>
+      <view class='title-container'>
+        <text class='title'></text>
+        <view class='delete' catchtap='delete'>
+          <text>删除</text>
+        </view>
       </view>
     </view>
   </view>
