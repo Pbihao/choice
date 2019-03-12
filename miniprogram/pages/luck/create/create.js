@@ -6,13 +6,17 @@ Page({
     input: '',
     choices: [],
     leftCount: 0,
-    title: '',
+    title: '',  
     problems: [],
-    edit:0
+    edit:0,
+    saveDisabled:false
   },
 
   //保存一个新的卡组同时跟新云服务器中的卡组
   save: async function () {
+    this.setData({
+      saveDisabled:true
+    })
     if(this.data.title!='') {
     //  wx.setStorageSync('choices_list', this.data.choices)
       var problems = this.data.problems
@@ -65,6 +69,9 @@ Page({
         icon: 'none'
       })
     }
+    this.setData({
+      saveDisabled: false
+    })
   },
 
  
@@ -76,10 +83,12 @@ Page({
         problems: problems
       })
     }
-    if (this.data.edit = wx.getStorageSync('edit')) {
+    if (wx.getStorageSync('edit')) {
       this.setData({
-        choices: this.data.problems[this.data.edit-1].choices,
-        title: this.data.problems[this.data.edit-1].title
+        edit: wx.getStorageSync('edit'),
+        choices: this.data.problems[wx.getStorageSync('edit')-1].choices,
+        title: this.data.problems[wx.getStorageSync('edit')-1].title,
+        leftCount: this.data.problems[wx.getStorageSync('edit')-1].nOfCards
       })
     }
 

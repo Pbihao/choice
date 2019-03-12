@@ -20,7 +20,7 @@ page {
   margin-top: 450rpx;
 }
 .card{
-  height: 120rpx;
+  height: 140rpx;
   width: 94%;
   border-radius: 5rpx;
   border-style: outset;
@@ -41,24 +41,32 @@ page {
   font-size: 40rpx;
   /* font-weight: bolder; */
 }
+.date{
+  font-size: 20rpx;
+  /* font-weight: bolder; */
+}
 
 .detail{
+  position: absolute;
   border: 2rpx solid rgb(0, 0, 0);
   border-radius: 30rpx;
-  width: 120rpx;
+  width: 150rpx;
   height: 50rpx;
   font-size: 36rpx;
   text-align: center;
   line-height: 50rpx;
+  right: 5%;
 }
 .delete {
+  position: fixed;
   border: 2rpx solid rgb(0, 0, 0);
   border-radius: 30rpx;
-  width: 120rpx;
+  width: 150rpx;
   height: 50rpx;
   font-size: 36rpx;
   text-align: center;
   line-height: 50rpx;
+  right: 5%;
 }
 .progress{
   display: flex;
@@ -66,6 +74,6 @@ page {
   left:50%;
   justify-content: space-between;
   font-size: 30rpx;
-  text-align: center;
+  text-align: left;
   color: #696969;
 }

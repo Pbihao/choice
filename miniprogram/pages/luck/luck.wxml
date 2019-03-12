@@ -7,7 +7,7 @@
 />
 <van-cell
   title-class='top'
-  title="　　　　不过是早已注定」"
+  title="　　　　不过早已注定」"
   size="large"
   border="{{ false }}"
 />
@@ -19,18 +19,18 @@
     <view class='card' style='background-color:#{{color}}' bindtap='choose'>
       <view class='title-container'>
         <text class='title'>{{item.title}}</text>
-          <view class='detail' catchtap='edit' data-index="{{index+1}}">
+          <button class='detail' catchtap='edit' data-index="{{index+1}}">
           <text>编辑</text>
-          </view>
+          </button>
       </view>
       <view class='progress'>
         <text>点击开始</text>
       </view>
       <view class='title-container'>
-        <text class='title'></text>
-        <view class='delete' catchtap='ondelete' data-index='{{index}}'>
+        <text class='date'>{{item.date}}</text>
+        <button class='delete' catchtap='ondelete' data-index='{{index}}' disabled='{{deleteDisabled}}'>
           <text>删除</text>
-        </view>
+        </button>
       </view>
     </view>
   </view>
