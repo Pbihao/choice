@@ -85,8 +85,15 @@
   text-align: center;
 }
 
-.button {
-  width: 100%;
-  position: absolute;
-  bottom: 0rpx;
+.button1 {
+  width: 50%;
+  position: fixed !important;
+  bottom: 0rpx !important;
+}
+
+.button2 {
+  width: 50%;
+  position: fixed !important;
+  bottom: 0rpx !important;
+  right: 0rpx;
 }

@@ -75,6 +75,7 @@ Page({
   //跳转添加choice页面
   //如果没有获取openid就提示没有登陆
   creatChoice: function () {
+    wx.setStorageSync('edit',0)
     app.getOpenid().then(() => {
       wx.navigateTo({
         url: '/pages/luck/create/create'
@@ -104,9 +105,11 @@ Page({
       url: '/pages/luck/choose/choose',
     })   
   },
-  edit: function() {
+  edit: function(e) {
+    let index = e.currentTarget.dataset.index;
+    wx.setStorageSync('edit',index)
     wx.navigateTo({
-      url: '/pages/luck/edit/edit',
+      url: '/pages/luck/create/create',
     })
   }
 })

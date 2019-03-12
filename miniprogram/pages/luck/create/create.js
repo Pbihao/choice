@@ -6,7 +6,8 @@ Page({
     choices: [],
     leftCount: 0,
     title: '',
-    problems: []
+    problems: [],
+    edit:0
   },
 
   save: function () {
@@ -20,7 +21,12 @@ Page({
         date: new Date,
         openid: app.globalData.openid
       }
-      problems.push(card)
+      if(this.data.edit) {
+        problems[this.data.edit-1] = card
+      }
+      else {
+        problems.push(card)
+      }
       wx.setStorageSync('myChoices_list', problems)
 
       const db = wx.cloud.database()
@@ -62,6 +68,13 @@ Page({
       this.setData({
         //choices: choices, 
         problems: problems
+      })
+    }
+    console.log(wx.getStorageSync('edit'))
+    if (this.data.edit = wx.getStorageSync('edit')) {
+      this.setData({
+        choices: this.data.problems[this.data.edit-1].choices,
+        title: this.data.problems[this.data.edit-1].title
       })
     }
 
@@ -110,6 +123,9 @@ Page({
     // event.detail 为当前输入的值
     this.setData({title : event.detail})
     console.log(event.detail)
-  }
+  },
 
+  begin: function (){
+
+  }
 })
