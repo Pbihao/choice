@@ -1,4 +1,8 @@
 /* pages/luck/create/create.wxss */
+.input-class {
+  font-size: 45rpx;
+  height: 70rpx;
+}
 .header {
   display: flex;
   align-items: center;
@@ -6,18 +10,20 @@
   border-radius: 10rpx;
   box-shadow: 0 0 5rpx #e0e0e0;
   margin-bottom: 30rpx;
-  padding: 20rpx;
+  padding: 15rpx;
+  margin-top: 15rpx;
 }
 
 .header .plus {
-  width: 41rpx;
-  height: 41rpx;
+  width: 45rpx;
+  height: 45rpx;
   margin-right: 20rpx;
 }
 
 .header .new-choice {
   flex: 1;
-  font-size: 30rpx;
+  height: 50rpx;
+  font-size: 36rpx;
 }
 
 .choices {

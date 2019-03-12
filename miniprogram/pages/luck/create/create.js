@@ -74,7 +74,7 @@ Page({
     var remove = choices.splice(index, 1)[0]
     this.setData({
       choices: choices,
-      leftCount: this.data.leftCount
+      leftCount: this.data.leftCount - 1
     })
     //this.save()
   },
