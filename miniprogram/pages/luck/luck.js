@@ -3,7 +3,6 @@ import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
 var app = getApp()
 Page({
   data: {
-    timecardtableID: 40682,
     myChoices: []
   },
   save: function () {
@@ -34,10 +33,17 @@ Page({
       const batchTimes = Math.ceil(total / 20)
       var cards = []
       for (let i = 0; i < batchTimes; i++) {
-          const promise = collection.where({
-                        _openid: app.globalData.openid
-                        }).skip(i * 20).limit(20).get()
-          cards.push(promise)
+        var promise = null
+        if(i!=0){
+          promise = collection.where({
+            _openid: app.globalData.openid
+          }).skip(i * 20).limit(20).get()
+        }else{
+          promise = collection.where({
+            _openid: app.globalData.openid
+          }).limit(20).get()
+        }
+        cards.push(promise)
       }
       var a = {}
       if(batchTimes >= 1){
