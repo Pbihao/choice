@@ -66,7 +66,9 @@ Page({
       })
     }
   },
-
+  onSave: function(){
+    this.save()
+  },
  
 
   onLoad: function () {

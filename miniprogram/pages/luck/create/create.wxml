@@ -34,6 +34,6 @@
     <text class="content">快试试输入选项</text>
   </view>
 </block>
-<van-button type="primary" catchtap='save' custom-class='button1'>保存</van-button>
+<van-button type="primary" catchtap='onSave' custom-class='button1'>保存</van-button>
 <van-button type="info" catchtap='begin' custom-class='button2'>开始</van-button>
 
