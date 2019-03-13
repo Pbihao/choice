@@ -9,13 +9,13 @@ Page({
     title: '',  
     problems: [],
     edit:0,
-    saveDisabled:false
+    saveLoading:false
   },
 
   //保存一个新的卡组同时跟新云服务器中的卡组
   save: async function () {
     this.setData({
-      saveDisabled:true
+      saveLoading:true
     })
     if(this.data.title!='') {
     //  wx.setStorageSync('choices_list', this.data.choices)
@@ -71,9 +71,11 @@ Page({
         icon: 'none'
       })
     }
-    this.setData({
-      saveDisabled: false
-    })
+    setTimeout(() => {
+      this.setData({
+        saveLoading: false
+      })
+    }, 500);
   },
 
  

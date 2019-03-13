@@ -22,7 +22,7 @@
 
 .header .new-choice {
   flex: 1;
-  height: 50rpx;
+  height: 60rpx;
   font-size: 36rpx;
 }
 

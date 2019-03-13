@@ -5,7 +5,7 @@ Page({
   data: {
     myChoices: [],
     deleteDisabled: false,
-    creatDisabled: false
+    createLoading: false
 
   },
   save: function () {
@@ -16,9 +16,14 @@ Page({
    */
   load: function () {
     var myChoices = wx.getStorageSync('myChoices_list')
-    this.data.deleteDisabled = false
+    this.setData({
+      deleteDisabled: false,
+      createLoading: false
+    })
     if (myChoices) {
-      this.setData({ myChoices: myChoices})
+      this.setData({
+        myChoices: myChoices
+        })
       console.log(myChoices)
     }
   },
@@ -100,9 +105,9 @@ Page({
 
   //跳转添加choice页面
   //如果没有获取openid就提示没有登陆
-  creatChoice: function () {
+  createChoice: function () {
     this.setData({
-      creatDisabled:true
+      createLoading:true
     })
     wx.setStorageSync('edit',0)
     app.getOpenid().then(() => {
@@ -115,13 +120,8 @@ Page({
         icon: 'loading',
         duration: 1000
       })
-
-    })
-    this.setData({
-      creatDisabled: false
     })
   },
-
 
   choose: function() {
     wx.navigateTo({
