@@ -9,7 +9,9 @@ Page({
     title: '',  
     problems: [],
     edit:0,
-    saveLoading:false
+    saveLoading:false,
+    alpha:"ABCDEFGHIJKLMNOPQRST",
+    inputDisabled:false
   },
 
   //保存一个新的卡组同时跟新云服务器中的卡组
@@ -105,6 +107,15 @@ Page({
   },
 
   addchoiceHandle: function (e) {
+    if (this.leftCount >= 20) {
+      this.setData({
+        inputDisabled: true
+      })
+    } else {
+      this.setData({
+        inputDisabled: false
+      })
+    }
     if (!this.data.input || !this.data.input.trim()) return
     var choices = this.data.choices
     choices.push({ name: this.data.input })
@@ -113,7 +124,6 @@ Page({
       choices: choices,
       leftCount: this.data.leftCount + 1
     })
-    //this.save()
   },
 
 

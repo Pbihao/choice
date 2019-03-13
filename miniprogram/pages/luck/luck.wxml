@@ -16,15 +16,13 @@
 </view>
 <block wx:if="{{ myChoices.length }}">
   <view wx:for="{{myChoices}}" wx:key="{{index}}">
-    <view class='card'>
+    <view class='card' bindtap='edit' data-index="{{index+1}}">
       <view class='title-container'>{{item.title}}</view>
-        <button class='delete' bindtap='ondelete' data-index='{{index}}' disabled='{{deleteDisabled}}'>   
-          <text>删除</text>
-        </button>
+        <image class='img' catchtap='ondelete' data-index='{{index}}' disabled='{{deleteDisabled}}' src="../../images/delete.png"></image>
       <view class='progress'>
         <text>　</text>
       </view>
-      <view class='title-container' bindtap='edit' data-index="{{index+1}}">
+      <view class='title-container'>
         <text class='date'>{{item.date}}</text>
       </view>
     <view class='demo_line_01'>　</view>
