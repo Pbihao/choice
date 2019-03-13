@@ -1,4 +1,5 @@
 <!--pages/luck/create/create.wxml-->
+<view class="container">
   <van-cell-group>
     <van-field
       input-class='input-class'
@@ -7,12 +8,13 @@
       placeholder="{{edit?title:'题目描述'}}"
       bind:input="onChange"
       maxlength="12" 
+      input-align="center"
     />
   </van-cell-group>
 
 <view class="header">
   <image class="plus" src="../../../images/plus.png"/>
-  <input class="new-choice" value="{{ input }}" placeholder="你的选项"  bindinput="inputChangeHandle" bindconfirm="addchoiceHandle" confirm-hold="{{true}}" maxlength="30" disabled='{{inputDisabled}}'/>
+  <input class="new-choice" value="{{ input }}" placeholder="{{inputDisabled?'选项超过上限了哦~':'你的选项'}}"  bindinput="inputChangeHandle" bindconfirm="addchoiceHandle" confirm-hold="{{true}}" maxlength="30" disabled='{{inputDisabled}}'/>
 </view>
 <block wx:if="{{ choices.length }}">
   <view class="choices">
@@ -33,6 +35,7 @@
     <text class="content">快试试输入选项</text>
   </view>
 </block>
+</view>
 <van-button type="primary" bind:click='save' custom-class='button1' loading="{{saveLoading}}" loading-text="保存中...">保存</van-button>
 
 <van-button type="info" bind:click='begin' custom-class='button2'>开始</van-button>
