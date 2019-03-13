@@ -4,6 +4,7 @@ var app = getApp();
 Page({
   data: {
     ok: true,
+    size: 15,
     animationData: {},
     cardInfoList: [{
       cardUrl: '../../../images/card_back.png',
@@ -15,7 +16,7 @@ Page({
         cardUrl: '../../../images/answer.png',
       cardInfo: {
         cardTitle: '「 答 · 案 」',
-        cardInfoMes: ['dfssf']
+        cardInfoMes: ['出错了']
       }
     }]
   },
@@ -25,6 +26,7 @@ Page({
   slidethis: function(e) {
     if(!this.data.ok)return
     this.data.ok = false
+    this.data.size = 30
     console.log(e);
     var animation = wx.createAnimation({
       duration: 300,
@@ -48,7 +50,8 @@ Page({
     }, 350);
   },
 
-  onLoad: function () {
-    
+  onLoad: function (options) {
+    console.log(this.data.cardInfoList[1].cardInfoMes)
+    this.data.cardInfoList[1].cardInfo.cardInfoMes[0]=options.msg
   }
 })

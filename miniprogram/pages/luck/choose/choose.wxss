@@ -38,7 +38,7 @@
 .card_wrap .card_item .card_info .card_info_mes_item {
   margin-left: 25px;
   display: block;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
 }
 
