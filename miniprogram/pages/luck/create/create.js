@@ -1,4 +1,5 @@
 // pages/luck/create/create.js
+var util = require('../../../utils/util.js');
 import regeneratorRuntime from '../../../regenerator-runtime/runtime.js';
 const app = getApp()
 Page({
@@ -26,7 +27,7 @@ Page({
         title: this.data.title,
         choices: this.data.choices,
         nOfCards: this.data.leftCount,
-        date: new Date().toLocaleDateString(),
+        date: util.formatTime(new Date()),
       }
       const db = wx.cloud.database()
       if(this.data.edit) {
@@ -107,7 +108,7 @@ Page({
   },
 
   addchoiceHandle: function (e) {
-    if (this.leftCount >= 20) {
+    if (this.data.leftCount >= 19) {
       this.setData({
         inputDisabled: true
       })

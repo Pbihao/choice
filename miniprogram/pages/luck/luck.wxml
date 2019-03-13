@@ -1,4 +1,5 @@
 <!--pages/luck/luck.wxml-->
+<view class="container">
 <van-cell
   title-class='top'
   title="「以为的选择，"
@@ -31,3 +32,4 @@
 </block>
 
   <van-button custom-class='add' round type="info"  catchtap='createChoice' loading='{{createLoading}}'>+</van-button>
+</view>

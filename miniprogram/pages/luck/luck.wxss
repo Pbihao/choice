@@ -69,13 +69,11 @@ page {
   color: #696969;
 }
 .demo_line_01{
-    position: relative;
-    margin: 20px 0;
+    position: absolute;
     line-height: 1px;
-    border-left: 200px solid #ddd;
-    border-right: 200px solid #ddd;
+    border-left: 400px solid #ddd;
+    border-right: 400px solid #ddd;
     text-align: center;
-    bottom: 0rpx;
 }
 .img {
   position: absolute;
