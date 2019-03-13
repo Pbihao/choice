@@ -6,13 +6,17 @@ Page({
     input: '',
     choices: [],
     leftCount: 0,
-    title: '',
+    title: '',  
     problems: [],
-    edit:0
+    edit:0,
+    saveDisabled:false
   },
 
   //保存一个新的卡组同时跟新云服务器中的卡组
   save: async function () {
+    this.setData({
+      saveDisabled:true
+    })
     if(this.data.title!='') {
     //  wx.setStorageSync('choices_list', this.data.choices)
       var problems = this.data.problems
@@ -21,23 +25,25 @@ Page({
         choices: this.data.choices,
         nOfCards: this.data.leftCount,
         date: new Date,
-        _id: null
       }
       const db = wx.cloud.database()
       if(this.data.edit) {
         var index = this.data.edit - 1
-        card._id = problems[index]._id
-        await db.collection('user_cards').doc(problems[index]._id).update({
+        console.log(card)
+        var _id = problems[index]._id
+        await db.collection('user_cards').doc(problems[index]._id).set({
           data: card
-        }).then((res) => {
-          console("数据更改成功")
-        }).catch(() => {
+        }).then(() => {
+          console.log("数据更改成功")
+        }).catch((res) => {
+          console.log(res)
           wx.showToast({
             title: '卡片更改失败',
             duration: 1000,
             icon: 'loading'
           })
         })
+        card._id = _id
         problems[this.data.edit-1] = card
       }
       else {
@@ -46,7 +52,6 @@ Page({
         }).then((res) => {
           card._id = res._id
           console.log("数据的id  " + card._id)
-
         }).catch(() => {
           wx.showToast({
             title: '卡片上传失败',
@@ -65,9 +70,9 @@ Page({
         icon: 'none'
       })
     }
-  },
-  onSave: function(){
-    this.save()
+    this.setData({
+      saveDisabled: false
+    })
   },
  
 
@@ -78,10 +83,12 @@ Page({
         problems: problems
       })
     }
-    if (this.data.edit = wx.getStorageSync('edit')) {
+    if (wx.getStorageSync('edit')) {
       this.setData({
-        choices: this.data.problems[this.data.edit-1].choices,
-        title: this.data.problems[this.data.edit-1].title
+        edit: wx.getStorageSync('edit'),
+        choices: this.data.problems[wx.getStorageSync('edit')-1].choices,
+        title: this.data.problems[wx.getStorageSync('edit')-1].title,
+        leftCount: this.data.problems[wx.getStorageSync('edit')-1].nOfCards
       })
     }
 
