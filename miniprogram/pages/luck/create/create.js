@@ -24,7 +24,7 @@ Page({
         title: this.data.title,
         choices: this.data.choices,
         nOfCards: this.data.leftCount,
-        date: new Date,
+        date: new Date().toLocaleDateString(),
       }
       const db = wx.cloud.database()
       if(this.data.edit) {

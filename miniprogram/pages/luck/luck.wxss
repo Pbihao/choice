@@ -1,10 +1,11 @@
 /* pages/luck/luck.wxss */
 page {
   background-color: #fbfbfb;
-  font-family: "黑体";
+  font-family: "微软雅黑light";
 }
 .top {
-  font-size: 24px !important;
+  font-size: 20px !important;
+  font-family: "楷体";
 }
 .add{
   position: fixed !important;
@@ -36,7 +37,7 @@ page {
   font-size: 40rpx;
 }
 .date{
-  font-size: 20rpx;
+  font-size: 36rpx;
   /* font-weight: bolder; */
 }
 
