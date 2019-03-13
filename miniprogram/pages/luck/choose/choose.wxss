@@ -1,1 +1,70 @@
-/* miniprogram/pages/luck/choose/choose.wxss */
+/**index.wxss**/
+.container {
+  height: 100%;
+}
+.card_wrap {
+  background: #f2f2f6;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.card_wrap .card_item {
+  position: absolute;
+  width: 80%;
+}
+.card_wrap .card_item span.change_icon image {
+  position: absolute;
+  width: 35px;
+  height: 13px;
+  top: 14px;
+  left: 50%;
+  margin-left: -17px;
+  box-shadow:none;
+
+}
+.card_wrap .card_item .card_info {
+  position: absolute;
+  height: 94px;
+  width: 80%;
+  border: 3px #E3E3E3 solid;
+}
+.card_wrap .card_item .card_info .card_info_mes_title {
+  font-size: 18px;
+  line-height: 24px;
+  margin-left: 1px;
+  position: absolute;
+  top: -30px;
+}
+.card_wrap .card_item .card_info .card_info_mes_item {
+  margin-left: 25px;
+  display: block;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+
+.card_wrap .card_item.card1 {
+  transform: translateY(62px) translateX(25px);
+  z-index: 3
+}
+.card_wrap .card_item.card1 .card_info {
+  top: 75%;
+  left: 20px;
+}
+.card_wrap .card_item.card2 {
+  z-index: 2;
+  transform: translateY(44px) translateX(41px);
+}
+.card_wrap .card_item.card2 .card_info {
+  top: 195px;
+  left: 14px;
+  border-color: #fff;
+}
+
+.card_wrap .card_item image {
+  display: block;
+  width: 100%;
+  height: 500px;
+  border-radius: 6px;
+  box-shadow: 6px 23px 50px 10px #ccc;
+}
