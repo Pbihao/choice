@@ -53,14 +53,11 @@ page {
   right: 5%;
 }
 .delete {
-  position: fixed;
-  border: 2rpx solid rgb(0, 0, 0);
-  border-radius: 30rpx;
-  font-size: 36rpx;
-  text-align: center;
-  line-height: 50rpx;
-  float:top;
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
   right: 5%;
+  opacity:0;
 }
 .progress{
   display: flex;
@@ -79,4 +76,10 @@ page {
     border-right: 200px solid #ddd;
     text-align: center;
     bottom: 0rpx;
+}
+.img {
+  position: absolute;
+  right: 6%;
+  width: 60rpx;
+  height: 60rpx;
 }
