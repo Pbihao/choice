@@ -3,7 +3,10 @@ import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
 var app = getApp()
 Page({
   data: {
-    myChoices: []
+    myChoices: [],
+    deleteDisabled: false,
+    creatDisabled: false
+
   },
   save: function () {
     wx.setStorageSync('myChoices_list', this.data.myChoices)
@@ -13,6 +16,7 @@ Page({
    */
   load: function () {
     var myChoices = wx.getStorageSync('myChoices_list')
+    this.data.deleteDisabled = false
     if (myChoices) {
       this.setData({ myChoices: myChoices})
       console.log(myChoices)
@@ -69,6 +73,9 @@ Page({
 
   //用户删除一张卡片
   ondelete: async function(e){
+    this.setData({
+      deleteDisabled:true
+    })
     let index = e.currentTarget.dataset.index;
     var that = this
     console.log(that.data.myChoices[index])
@@ -77,6 +84,9 @@ Page({
       that.data.myChoices.splice(index, 1)
       wx.setStorageSync('myChoices_list', that.data.myChoices)
       console.log("删除成功")
+      this.setData({
+        deleteDisabled: false
+      })
       that.load()
     }).catch((res)=>{
       console.log(res)
@@ -91,6 +101,9 @@ Page({
   //跳转添加choice页面
   //如果没有获取openid就提示没有登陆
   creatChoice: function () {
+    this.setData({
+      creatDisabled:true
+    })
     wx.setStorageSync('edit',0)
     app.getOpenid().then(() => {
       wx.navigateTo({
@@ -103,6 +116,9 @@ Page({
         duration: 1000
       })
 
+    })
+    this.setData({
+      creatDisabled: false
     })
   },
 
