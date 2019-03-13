@@ -145,8 +145,10 @@ Page({
   },
 
   begin: function (){
-    wx.navigateTo({
-      url: '/pages/luck/choose/choose'
+    var id = Math.floor(Math.random() * this.data.leftCount)
+    var msg = this.data.choices[id]
+    wx.redirectTo({
+      url: '/pages/luck/choose/choose?msg=' + msg.name
     })
   }
 })
