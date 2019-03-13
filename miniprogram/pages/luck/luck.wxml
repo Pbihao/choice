@@ -16,25 +16,20 @@
 </view>
 <block wx:if="{{ myChoices.length }}">
   <view wx:for="{{myChoices}}" wx:key="{{index}}">
-    <view class='card' style='background-color:#{{color}}' bindtap='choose'>
-      <view class='title-container'>
-        <text class='title'>{{item.title}}</text>
-          <button class='detail' catchtap='edit' data-index="{{index+1}}">
-          <text>编辑</text>
-          </button>
-      </view>
-      <view class='progress'>
-        <text>点击开始</text>
-      </view>
-      <view class='title-container'>
-        <text class='date'>{{item.date}}</text>
-        <button class='delete' catchtap='ondelete' data-index='{{index}}' disabled='{{deleteDisabled}}'>
+    <view class='card'>
+      <view class='title-container'>{{item.title}}</view>
+        <button class='delete' bindtap='ondelete' data-index='{{index}}' disabled='{{deleteDisabled}}'>   
           <text>删除</text>
         </button>
+      <view class='progress' bindtap='edit' data-index="{{index+1}}">
+        <text>点击开始</text>
       </view>
+      <view class='title-container' bindtap='edit' data-index="{{index+1}}">
+        <text class='date'>{{item.date}}</text>
+      </view>
+    <view class='demo_line_01'>　</view>
     </view>
   </view>
 </block>
-<view class='add'>
-  <van-button round type="info" size="large" catchtap='creatChoice' disabled='{{creatDisabled}}'>添加</van-button>
-</view>
+
+  <van-button custom-class='add' round type="info"  catchtap='createChoice' loading='{{createLoading}}'>+</van-button>
