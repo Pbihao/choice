@@ -3,6 +3,7 @@
 var app = getApp();
 Page({
   data: {
+    ok: true,
     animationData: {},
     cardInfoList: [{
       cardUrl: '../../../images/card_back.png',
@@ -14,12 +15,16 @@ Page({
         cardUrl: '../../../images/answer.png',
       cardInfo: {
         cardTitle: '「 答 · 案 」',
-        cardInfoMes: ['']
+        cardInfoMes: ['dfssf']
       }
     }]
   },
   //事件处理函数
+  //！！！！！！！！！！！！！！！！！！！！！！！
+  //现在只能翻转一次，之后可能优化
   slidethis: function(e) {
+    if(!this.data.ok)return
+    this.data.ok = false
     console.log(e);
     var animation = wx.createAnimation({
       duration: 300,
@@ -42,6 +47,7 @@ Page({
       });
     }, 350);
   },
+
   onLoad: function () {
     
   }
