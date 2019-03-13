@@ -8,7 +8,7 @@ const formatTime = date => {
   const minute = date.getMinutes()
   const second = date.getSeconds()
 
-  return year + "年" + month + "月" + day + "日 " + hour + "时" + minute + "分"
+  return [year, month, day].map(formatNumber).join('/') + ' ' + hour + "时" + minute + "分"
   //[year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 

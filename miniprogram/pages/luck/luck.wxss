@@ -5,7 +5,7 @@ page {
 }
 .top {
   font-size: 20px !important;
-  font-family: "楷体";
+  font-family: "KaiTi";
 }
 .add{
   position: fixed !important;
@@ -29,6 +29,7 @@ page {
   width: 70%;
   padding: 36rpx;
   color: #696969;
+  background-color: #fff;
 }
 .title-container{
   display: flex;
@@ -37,7 +38,7 @@ page {
   font-size: 40rpx;
 }
 .date{
-  font-size: 36rpx;
+  font-size: 32rpx;
   /* font-weight: bolder; */
 }
 
@@ -71,6 +72,7 @@ page {
 .demo_line_01{
     position: absolute;
     line-height: 1px;
+    border-bottom: 1px solid #ddd;
     border-left: 400px solid #ddd;
     border-right: 400px solid #ddd;
     text-align: center;
