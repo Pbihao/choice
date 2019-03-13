@@ -80,7 +80,7 @@ Page({
     var that = this
     console.log(that.data.myChoices[index])
     const collection = await wx.cloud.database().collection('user_cards')
-    await collection.doc(that.data.myChoices[index]._id).remove().then(() => {
+    collection.doc(that.data.myChoices[index]._id).remove().then(() => {
       that.data.myChoices.splice(index, 1)
       wx.setStorageSync('myChoices_list', that.data.myChoices)
       console.log("删除成功")
@@ -115,7 +115,6 @@ Page({
         icon: 'loading',
         duration: 1000
       })
-
     })
     this.setData({
       creatDisabled: false
