@@ -25,23 +25,25 @@ Page({
         choices: this.data.choices,
         nOfCards: this.data.leftCount,
         date: new Date,
-        _id: null
       }
       const db = wx.cloud.database()
       if(this.data.edit) {
         var index = this.data.edit - 1
-        card._id = problems[index]._id
-        await db.collection('user_cards').doc(problems[index]._id).update({
+        console.log(card)
+        var _id = problems[index]._id
+        await db.collection('user_cards').doc(problems[index]._id).set({
           data: card
-        }).then((res) => {
-          console("数据更改成功")
-        }).catch(() => {
+        }).then(() => {
+          console.log("数据更改成功")
+        }).catch((res) => {
+          console.log(res)
           wx.showToast({
             title: '卡片更改失败',
             duration: 1000,
             icon: 'loading'
           })
         })
+        card._id = _id
         problems[this.data.edit-1] = card
       }
       else {

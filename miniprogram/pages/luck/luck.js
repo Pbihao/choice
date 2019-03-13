@@ -4,7 +4,9 @@ var app = getApp()
 Page({
   data: {
     myChoices: [],
-    deleteDisabled:false
+    deleteDisabled: false,
+    creatDisabled: false
+
   },
   save: function () {
     wx.setStorageSync('myChoices_list', this.data.myChoices)
@@ -99,6 +101,9 @@ Page({
   //跳转添加choice页面
   //如果没有获取openid就提示没有登陆
   creatChoice: function () {
+    this.setData({
+      creatDisabled:true
+    })
     wx.setStorageSync('edit',0)
     app.getOpenid().then(() => {
       wx.navigateTo({
@@ -111,6 +116,9 @@ Page({
         duration: 1000
       })
 
+    })
+    this.setData({
+      creatDisabled: false
     })
   },
 

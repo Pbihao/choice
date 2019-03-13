@@ -36,5 +36,5 @@
   </view>
 </block>
 <view class='add'>
-  <van-button round type="info" size="large" catchtap='creatChoice'>添加</van-button>
+  <van-button round type="info" size="large" catchtap='creatChoice' disabled='{{creatDisabled}}'>添加</van-button>
 </view>
