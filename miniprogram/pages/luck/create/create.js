@@ -134,6 +134,8 @@ Page({
   },
 
   begin: function (){
-
+    wx.navigateTo({
+      url: '/pages/luck/choose/choose'
+    })
   }
 })

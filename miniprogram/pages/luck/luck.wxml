@@ -21,8 +21,8 @@
         <button class='delete' bindtap='ondelete' data-index='{{index}}' disabled='{{deleteDisabled}}'>   
           <text>删除</text>
         </button>
-      <view class='progress' bindtap='edit' data-index="{{index+1}}">
-        <text>点击开始</text>
+      <view class='progress'>
+        <text>　</text>
       </view>
       <view class='title-container' bindtap='edit' data-index="{{index+1}}">
         <text class='date'>{{item.date}}</text>
