@@ -52,7 +52,6 @@ Page({
         }).then((res) => {
           card._id = res._id
           console.log("数据的id  " + card._id)
-
         }).catch(() => {
           wx.showToast({
             title: '卡片上传失败',
@@ -77,7 +76,6 @@ Page({
       })
     }, 500);
   },
-
  
 
   onLoad: function () {
