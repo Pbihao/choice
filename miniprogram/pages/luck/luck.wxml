@@ -5,7 +5,12 @@
   title="「以为的选择，"
   size="large"
   border="{{ false }}"
-/>
+>
+    <image
+      class = "img"
+      src="../../images/app_logo.png"
+    />
+</van-cell>
 <van-cell
   title-class='top'
   title="　　　　不过早已注定」"
@@ -17,19 +22,45 @@
 </view>
 <block wx:if="{{ myChoices.length }}">
   <view wx:for="{{myChoices}}" wx:key="{{index}}">
-    <view class='card' bindtap='edit' data-index="{{index+1}}">
-      <view class='title-container'>{{item.title}}</view>
-        <image class='img' catchtap='ondelete' data-index='{{index}}' disabled='{{deleteDisabled}}' src="../../images/delete.png"></image>
-      <view class='progress'>
-        <text>　</text>
-      </view>
-      <view class='title-container'>
-        <text class='date'>{{item.date}}</text>
-      </view>
-    <view class='demo_line_01'>　</view>
-    </view>
+    <van-cell-group bindtap='edit' data-index="{{index+1}}">
+      <van-cell
+        title="{{item.title}}"
+        title-class='title-container'
+        border="{{ false }}"
+      >
+        <van-icon 
+          slot="icon"
+          name="description"
+          size="45rpx"
+        />
+        <van-icon 
+          slot="right-icon"
+          name="delete"
+          class="van-cell__right-icon"
+          size="50rpx"
+          catchtap='ondelete' 
+          data-index='{{index}}' 
+          disabled='{{deleteDisabled}}'
+        />
+      </van-cell>
+      <van-cell
+        title="{{item.date}}"
+        title-class="date"
+        icon="underway-o"
+      >
+        <van-icon 
+          slot="right-icon"
+          name="arrow"
+          class="van-cell__right-icon"
+          size="50rpx"
+        />
+      </van-cell>
+    </van-cell-group>
   </view>
 </block>
-
-  <van-button custom-class='add' round type="info"  catchtap='createChoice' loading='{{createLoading}}'>+</van-button>
+  <van-button custom-class='add' round type="info"  catchtap='createChoice' loading='{{createLoading}}'>
+        <van-icon 
+          name="plus"
+          size="50rpx"
+        /></van-button>
 </view>

@@ -2,8 +2,8 @@
 <view class="container">
   <view class="card_wrap" style='bottom:40rpx;'>
     <view bindtouchend="slidethis" animation="{{id === 0 ? animationData : ''}}" class="card_item card{{ id + 1 }} " wx:for="{{ cardInfoList }}"  wx:key="unique" wx:for-index="id" wx:for-item="item">
-      <view style = "background: #CDAF95;border-radius: 6px; ">
-        <image src="{{ item.cardUrl }}" style="opacity:0.9;"></image>
+      <view>
+        <image src="{{ item.cardUrl }}"></image>
       </view>
 
       <view class="card_info" wx:if="{{id==0}}">

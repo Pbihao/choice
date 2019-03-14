@@ -1,11 +1,13 @@
 /* pages/luck/luck.wxss */
+@import '../../style/font.wxss';
+@import '../../style/number.wxss';
 page {
-  background-color: #fbfbfb;
-  font-family: "微软雅黑light";
+  background-color: #fff;
+  font-family: "黑体";
 }
 .top {
-  font-size: 20px !important;
-  font-family: "楷体";
+  font-size: 45rpx !important;
+  font-family: "FZHCJW";
 }
 .add{
   position: fixed !important;
@@ -29,15 +31,18 @@ page {
   width: 70%;
   padding: 36rpx;
   color: #696969;
+  background-color: #fff;
+  border-left: 4rpx solid #696969;
 }
 .title-container{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 40rpx;
+  font-size: 45rpx;
 }
 .date{
-  font-size: 36rpx;
+  font-size: 32rpx;
+  font-family: Comfortaa-Light;
   /* font-weight: bolder; */
 }
 
@@ -68,16 +73,9 @@ page {
   text-align: left;
   color: #696969;
 }
-.demo_line_01{
-    position: absolute;
-    line-height: 1px;
-    border-left: 400px solid #ddd;
-    border-right: 400px solid #ddd;
-    text-align: center;
-}
 .img {
   position: absolute;
-  right: 6%;
-  width: 60rpx;
-  height: 60rpx;
+  right: 2%;
+  width: 80rpx;
+  height: 65rpx;
 }
