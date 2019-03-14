@@ -53,5 +53,6 @@ Page({
   onLoad: function (options) {
     console.log(this.data.cardInfoList[1].cardInfoMes)
     this.data.cardInfoList[1].cardInfo.cardInfoMes[0]=options.msg
+    setTimeout(()=>{},350)
   }
 })

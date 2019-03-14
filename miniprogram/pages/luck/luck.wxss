@@ -1,11 +1,11 @@
 /* pages/luck/luck.wxss */
 page {
-  background-color: #fbfbfb;
+  background-color: #fff;
   font-family: "微软雅黑light";
 }
 .top {
-  font-size: 20px !important;
-  font-family: "KaiTi";
+  font-size: 44rpx !important;
+  font-family: "webfont";
 }
 .add{
   position: fixed !important;
@@ -30,12 +30,13 @@ page {
   padding: 36rpx;
   color: #696969;
   background-color: #fff;
+  border-left: 4rpx solid #696969;
 }
 .title-container{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 40rpx;
+  font-size: 45rpx;
 }
 .date{
   font-size: 32rpx;
@@ -68,14 +69,6 @@ page {
   font-size: 30rpx;
   text-align: left;
   color: #696969;
-}
-.demo_line_01{
-    position: absolute;
-    line-height: 1px;
-    border-bottom: 1px solid #ddd;
-    border-left: 400px solid #ddd;
-    border-right: 400px solid #ddd;
-    text-align: center;
 }
 .img {
   position: absolute;

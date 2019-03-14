@@ -11,7 +11,7 @@ Page({
     problems: [],
     edit:0,
     saveLoading:false,
-    alpha:"ABCDEFGHIJKLMNOPQRST",
+    alpha:"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     inputDisabled:false
   },
 

@@ -69,6 +69,9 @@ Page({
       wx.setStorageSync('myChoices_list', a.data)
       console.log(that.data.myChoices)
     })
+      wx.loadFontFace({
+        family: 'webfont', source: 'url("//code.z01.com/font/zFont2.ttf")'
+    })
   },
 
 
@@ -78,9 +81,11 @@ Page({
 
   //用户删除一张卡片
   ondelete: async function(e){
-    this.setData({
-      deleteDisabled:true
-    })
+    if(!this.data.deleteDisabled)
+    {
+      this.setData({
+        deleteDisabled: true
+      })
     let index = e.currentTarget.dataset.index;
     var that = this
     console.log(that.data.myChoices[index])
@@ -101,6 +106,12 @@ Page({
         icon: 'none'
       })
     })
+    }
+    setTimeout(() => {
+      this.setData({
+        deleteDisabled: false
+      })
+    }, 2000)
   },
 
   //跳转添加choice页面

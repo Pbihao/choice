@@ -9,6 +9,7 @@
       bind:input="onChange"
       maxlength="12" 
       input-align="center"
+      focus="{{edit?false:true}}"
     />
   </van-cell-group>
 
