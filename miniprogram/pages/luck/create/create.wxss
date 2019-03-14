@@ -88,6 +88,8 @@
   width: 50%;
   position: fixed !important;
   bottom: 0rpx !important;
+  height: 110rpx !important;
+  font-size: 40rpx !important;
 }
 
 .button2 {
@@ -95,4 +97,6 @@
   position: fixed !important;
   bottom: 0rpx !important;
   right: 0rpx;
+  height: 110rpx !important;
+  font-size: 40rpx !important;
 }
