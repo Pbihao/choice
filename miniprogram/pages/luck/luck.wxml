@@ -26,9 +26,13 @@
       <van-cell
         title="{{item.title}}"
         title-class='title-container'
-        icon="description"
         border="{{ false }}"
       >
+        <van-icon 
+          slot="icon"
+          name="description"
+          size="45rpx"
+        />
         <van-icon 
           slot="right-icon"
           name="delete"

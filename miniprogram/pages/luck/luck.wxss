@@ -6,7 +6,7 @@ page {
   font-family: "黑体";
 }
 .top {
-  font-size: 44rpx !important;
+  font-size: 45rpx !important;
   font-family: "FZHCJW";
 }
 .add{
@@ -75,7 +75,7 @@ page {
 }
 .img {
   position: absolute;
-  right: 6%;
+  right: 2%;
   width: 80rpx;
   height: 65rpx;
 }
