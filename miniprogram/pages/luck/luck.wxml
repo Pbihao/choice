@@ -5,7 +5,12 @@
   title="「以为的选择，"
   size="large"
   border="{{ false }}"
-/>
+>
+    <image
+      class = "img"
+      src="../../images/app_logo.png"
+    />
+</van-cell>
 <van-cell
   title-class='top'
   title="　　　　不过早已注定」"

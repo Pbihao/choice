@@ -69,9 +69,6 @@ Page({
       wx.setStorageSync('myChoices_list', a.data)
       console.log(that.data.myChoices)
     })
-      wx.loadFontFace({
-        family: 'webfont', source: 'url("//code.z01.com/font/zFont2.ttf")'
-    })
   },
 
 

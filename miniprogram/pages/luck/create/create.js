@@ -96,6 +96,11 @@ Page({
         leftCount: this.data.problems[wx.getStorageSync('edit')-1].nOfCards
       })
     }
+    if (this.data.leftCount >= 26) {
+      this.setData({
+        inputDisabled: true
+      })
+    }
 
   },
   
@@ -108,15 +113,6 @@ Page({
   },
 
   addchoiceHandle: function (e) {
-    if (this.data.leftCount >= 19) {
-      this.setData({
-        inputDisabled: true
-      })
-    } else {
-      this.setData({
-        inputDisabled: false
-      })
-    }
     if (!this.data.input || !this.data.input.trim()) return
     var choices = this.data.choices
     choices.push({ name: this.data.input })
@@ -125,6 +121,11 @@ Page({
       choices: choices,
       leftCount: this.data.leftCount + 1
     })
+    if (this.data.leftCount >= 26) {
+      this.setData({
+        inputDisabled: true
+      })
+    }
   },
 
 
@@ -136,6 +137,11 @@ Page({
       choices: choices,
       leftCount: this.data.leftCount - 1
     })
+    if (this.data.leftCount < 26) {
+      this.setData({
+        inputDisabled: false
+      })
+    }
     //this.save()
   },
   

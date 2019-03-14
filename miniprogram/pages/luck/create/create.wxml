@@ -15,7 +15,7 @@
 
 <view class="header">
   <image class="plus" src="../../../images/plus.png"/>
-  <input class="new-choice" value="{{ input }}" placeholder="{{inputDisabled?'选项超过上限了哦~':'你的选项'}}"  bindinput="inputChangeHandle" bindconfirm="addchoiceHandle" confirm-hold="{{true}}" maxlength="30" disabled='{{inputDisabled}}'/>
+  <input class="new-choice" value="{{ input }}" placeholder="{{inputDisabled?'选项达到上限了哦~':'你的选项'}}"  bindinput="inputChangeHandle" bindconfirm="addchoiceHandle" confirm-hold="{{true}}" maxlength="30" disabled='{{inputDisabled}}'/>
 </view>
 <block wx:if="{{ choices.length }}">
   <view class="choices">

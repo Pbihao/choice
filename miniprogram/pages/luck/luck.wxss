@@ -1,11 +1,13 @@
 /* pages/luck/luck.wxss */
+@import '../../style/font.wxss';
+@import '../../style/number.wxss';
 page {
   background-color: #fff;
-  font-family: "微软雅黑light";
+  font-family: "黑体";
 }
 .top {
   font-size: 44rpx !important;
-  font-family: "webfont";
+  font-family: "FZHCJW";
 }
 .add{
   position: fixed !important;
@@ -40,6 +42,7 @@ page {
 }
 .date{
   font-size: 32rpx;
+  font-family: Comfortaa-Light;
   /* font-weight: bolder; */
 }
 
@@ -73,6 +76,6 @@ page {
 .img {
   position: absolute;
   right: 6%;
-  width: 60rpx;
-  height: 60rpx;
+  width: 80rpx;
+  height: 65rpx;
 }
