@@ -1,0 +1,17 @@
+/* miniprogram/pages/ask/edit/edit.wxss */
+.add_image {
+  display: flex;
+  height: 400rpx;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #c0c0c0;
+}
+.add_text {
+  display: flex;
+  flex-direction: column;
+}
+.text {
+  height: 500rpx!important;
+  font-size: 36rpx;
+}

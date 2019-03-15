@@ -29,17 +29,16 @@ Page({
         })
       console.log(myChoices)
     }
+    jinrishici.load(result => {
+      // 下面是处理逻辑示例
+      this.setData({ "jinrishici": result.data.content })
+    })
   },
 
   //第一次调用的时候会从云服务器跟新我们的卡牌
   onLoad: function (options) {
     this.setData({
       date: util.formatTime(new Date())
-    })
-    jinrishici.load(result => {
-      // 下面是处理逻辑示例
-      console.log(result)
-      this.setData({ "jinrishici": result.data.content })
     })
     var that = this
     app.getOpenid().then(async ()=>{

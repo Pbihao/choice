@@ -6,7 +6,8 @@
     "pages/mine/mine",
     "pages/luck/create/create",
     "pages/luck/choose/choose",
-    "pages/luck/default/default"
+    "pages/luck/default/default",
+    "pages/ask/edit/edit"
   ],
   "window": {
     "backgroundTextStyle": "light",

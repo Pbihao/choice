@@ -1,28 +1,28 @@
 <!--pages/luck/luck.wxml-->
 <view class="container">
-  <image
+  <van-icon
     class = "img"
     catchtap='toDefault'
-    src="../../images/app_logo.png"
+    name="friends-o"
+    size='90rpx'
   />
-
   <van-cell
     class="top"
     value-class="title-container"
     value="大家都在选"
     size="large"
     is-link
-    url='/pages/luck/default/default'
-    border="{{false }}"
+    url='/pages/ask/edit/edit'
+    border="{{ false }}"
   >
   </van-cell>
-
   <van-cell
     title="{{jinrishici}}"
     size="large"
     border="{{ false }}"
   >
   </van-cell>
+
 <!--<van-cell
   title-class='top'
   title="　　　　不过早已注定」"
@@ -34,7 +34,7 @@
 </view>
 <block wx:if="{{ myChoices.length }}">
   <view wx:for="{{myChoices}}" wx:key="{{index}}">
-    <van-cell-group bindtap='edit' data-index="{{index+1}}">
+    <van-cell-group bindtap='edit' data-index="{{index+1}}" class='card'>
       <van-cell
         title="{{item.title}}"
         title-class='title-container'
