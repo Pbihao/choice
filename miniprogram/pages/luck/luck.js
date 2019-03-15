@@ -1,12 +1,15 @@
 // pages/luck/luck.js
+const jinrishici = require('../../utils/jinrishici.js')
 import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
+var util = require('../../utils/util.js');
 var app = getApp()
 Page({
   data: {
     myChoices: [],
     deleteDisabled: false,
-    createLoading: false
-
+    createLoading: false,
+    date:'',
+    jinrishici:""
   },
   save: function () {
     wx.setStorageSync('myChoices_list', this.data.myChoices)
@@ -26,10 +29,17 @@ Page({
         })
       console.log(myChoices)
     }
+    jinrishici.load(result => {
+      // 下面是处理逻辑示例
+      this.setData({ "jinrishici": result.data.content })
+    })
   },
 
   //第一次调用的时候会从云服务器跟新我们的卡牌
   onLoad: function (options) {
+    this.setData({
+      date: util.formatTime(new Date())
+    })
     var that = this
     app.getOpenid().then(async ()=>{
       //console.log(app.globalData.openid)
@@ -144,5 +154,11 @@ Page({
     wx.navigateTo({
       url: '/pages/luck/create/create',
     })
+  },
+  toDefault: function () {
+    wx.navigateTo({
+      url: '/pages/luck/default/default',
+    })
+
   }
 })

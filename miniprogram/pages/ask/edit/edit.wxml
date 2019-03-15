@@ -1,0 +1,29 @@
+<!--miniprogram/pages/ask/edit/edit.wxml-->
+<view class='container'>
+
+  <view class='add_image' hidden='{{have_image}}' catchtap='add_image'>
+    <van-icon
+      name="photo-o"
+      size='250%'
+    />
+  </view>
+  <view class='image'>
+  
+  </view>
+  <view class='add_text'>
+    <van-cell-group>
+      <van-field
+        size="large"
+        value="{{ value }}"
+        maxlength="140"
+        type="textarea"
+        autosize=true
+        input-class="text"
+      />
+    </van-cell-group>
+  </view>
+
+
+
+
+</view>
