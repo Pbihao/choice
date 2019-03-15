@@ -5,7 +5,8 @@
     "pages/square/square",
     "pages/mine/mine",
     "pages/luck/create/create",
-    "pages/luck/choose/choose"
+    "pages/luck/choose/choose",
+    "pages/luck/default/default"
   ],
   "window": {
     "backgroundTextStyle": "light",
