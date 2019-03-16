@@ -6,7 +6,8 @@ var app = getApp()
 Page({
   data: {
     cards:[],
-    avatarUrl: app.globalData.avatarUrl
+    avatarUrl: app.globalData.avatarUrl,
+    nickName: '点击登录'
   },
 
   onTest: function(){
@@ -36,10 +37,12 @@ Page({
     if (e.detail.userInfo) {
       console.log(e.detail.userInfo.avatarUrl)
       this.setData({
-        avatarUrl: e.detail.userInfo.avatarUrl
+        avatarUrl: e.detail.userInfo.avatarUrl,
+        nickName: e.detail.userInfo.nickName
       })
       app.globalData.userInfo = e.detail.userInfo
       app.globalData.avatarUrl = e.detail.avatarUrl
+      app.globalData.nickName = e.detail.nickName
       app.globalData.loged = true
     }
   },
@@ -59,7 +62,9 @@ Page({
   },
 
   
-
+  onLoad: function () {
+    
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -85,7 +90,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
   },
 
   /**

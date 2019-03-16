@@ -7,8 +7,8 @@
       size='250%'
     />
   </view>
-  <view class='image'>
-  
+  <view class='image' hidden='{{!have_image}}'>
+    <image src='{{image_path}}'></image>
   </view>
   <view class='add_text'>
     <van-cell-group>
