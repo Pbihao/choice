@@ -27,7 +27,7 @@
   position: absolute;
   height: 94px;
   width: 80%;
-  border: 3px #E3E3E3 solid;
+  border: 1px rgb(51, 47, 47) solid;
 }
 .card_wrap .card_item .card_info .card_info_mes_title {
   font-size: 18px;
