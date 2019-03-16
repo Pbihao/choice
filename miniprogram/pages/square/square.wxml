@@ -1,4 +1,15 @@
-<!--pages/square/square.wxml-->
-<scroll-view scroll-y >
-
-</scroll-view>
+<view>
+  <loading hidden="{{hidden}}">
+    加载中
+  </loading>
+</view>
+<view>
+  <image src='{{image}}' class='background'></image>
+  <block wx:for="{{detail}}" wx:if="{{index==now}}" wx:key='{{item.id}}'>
+    <view class="card ripple {{left?'rotateInDownLeft':'rotateInDownRight'}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+      <image class='img' src='{{image}}'>
+      </image>
+      <scroll-view scroll-y class='text'>{{item}}</scroll-view>
+    </view>
+  </block>
+</view>

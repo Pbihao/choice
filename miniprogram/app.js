@@ -1,5 +1,11 @@
 //app.js
 App({
+  globalData: {
+    userInfo: null,
+    openid: null,
+    avatarUrl: "/images/user-unlogin.png"，
+    nickName:''
+  },
   onLaunch: function () {
     var that = this
     if (!wx.cloud) {
@@ -16,7 +22,6 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
-              that.setglo
               that.globalData.userInfo = res.userInfo
               that.avatarUrl = res.userInfo.avatarUrl
               that.nickName = res.userInfo.nickName
@@ -25,13 +30,6 @@ App({
         }
       }
     })
-  },
-
-  globalData: {
-    userInfo: null,
-    openid: null,
-    avatarUrl: "/images/user-unlogin.png",
-    nickName:''
   },
 
   getOpenid: function () {

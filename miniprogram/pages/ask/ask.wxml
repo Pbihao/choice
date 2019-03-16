@@ -4,11 +4,11 @@
     </loading>
 </view>
 
-<scroll-view class='page'>
+<scroll-view style='height:{{scrollHeight}}px' class='page' bindscrolltolower='load_card'  scroll-y >
   <view class='top'>
     <van-icon name="add-o" size='35px' class='add_ask' bind: add_new_ask/>
     <image src='../../images/top.png' class='top-image'></image>
-    <image src="{{avatar_url}}" class='avatar_url'></image>
+    <open-data type="userAvatarUrl" class='avatar_url'></open-data>
   </view>
 
   <view class='container'>
