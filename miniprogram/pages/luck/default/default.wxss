@@ -1,1 +1,53 @@
 /* miniprogram/pages/luck/default/default.wxss */
+
+.card{
+  color: #696969;
+  background-color: #fff;
+}
+.title-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 45rpx;
+}
+.date{
+  font-size: 32rpx;
+  font-family: Comfortaa-Light;
+  /* font-weight: bolder; */
+}
+
+.detail{
+  position: absolute;
+  border: 2rpx solid rgb(0, 0, 0);
+  border-radius: 30rpx;
+  width: 150rpx;
+  height: 50rpx;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 50rpx;
+  right: 5%;
+}
+.delete {
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  right: 5%;
+  opacity:0;
+}
+.progress{
+  display: flex;
+  flex-direction: column;
+  left:50%;
+  justify-content: space-between;
+  font-size: 30rpx;
+  text-align: left;
+  color: #696969;
+}
+.img {
+  position: absolute;
+  top: 1%;
+  left: 8%;
+  width: 90rpx;
+  height: 75rpx;
+  padding: 25rpx 15rpx;
+}
