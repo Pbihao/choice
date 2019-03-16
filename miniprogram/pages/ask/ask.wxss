@@ -3,7 +3,8 @@ page{
 }
 .page{
   width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column; 
 }
 
 .top{
@@ -41,15 +42,15 @@ page{
 }
 /*在没有图片时候的卡牌布局*/
 .card_noimg{
-  position: relative;
-  width: 90%;
-  left: 5%;
+  display: flex;
+  position: relative !important;
+  width: 80%;
+  left: 10%;
   margin-top: 100rpx;
   height: 500rpx;
   border: 2px solid #ffffff;
   border-radius: 5px;
-  box-shadow: 4px 1px 1px #cccccc;
-  display:flex;                   
+  box-shadow: 4px 1px 1px #cccccc;              
   justify-content: center;
   border-bottom: 4px solid rgb(168, 164, 149);
 }
@@ -67,14 +68,14 @@ page{
   position: absolute !important;
   left: 5px;
   bottom: 5px;
-  height: 100rpx;
+  height: 80rpx;
 }
 .right_button{
   width: 40%;
   position: absolute !important;
   right: 5px;
   bottom: 5px;
-  height: 100rpx;
+  height: 80rpx;
 }
 .vs{
   position: absolute !important;
@@ -102,13 +103,12 @@ page{
 }
 /*有图片的前面都会加上i*/
 .icard{
-  position: relative;
+  position: relative !important;
   width: 80%;
   left: 10%;
   margin-top: 20rpx;
   height: 800rpx;
-  border-radius: 5px;
-  display:flex;                   
+  border-radius: 5px;                
   justify-content: center;
   box-shadow: 4px 1px 1px #cccccc;
 }
