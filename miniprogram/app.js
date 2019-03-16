@@ -3,7 +3,8 @@ App({
   globalData: {
     userInfo: null,
     openid: null,
-    avatarUrl: "/images/user-unlogin.png"
+    avatarUrl: "/images/user-unlogin.png"，
+    nickName:''
   },
   onLaunch: function () {
     var that = this
@@ -22,15 +23,14 @@ App({
           wx.getUserInfo({
             success: res => {
               that.globalData.userInfo = res.userInfo
-              that.globalData.avatarUrl = res.userInfo.avatarUrl
+              that.avatarUrl = res.userInfo.avatarUrl
+              that.nickName = res.userInfo.nickName
             }
           })
         }
       }
     })
   },
-
-  
 
   getOpenid: function () {
     var that = this

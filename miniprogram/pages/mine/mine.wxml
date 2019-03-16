@@ -1,8 +1,38 @@
-<view>
-  <view>
-    <image src="{{avatarUrl}}"></image>
+<view class='body'>
+
+<view class='head_image'>
+  <image class='image' src="../../images/timg.jpg"></image>
+  <image 
+      class='head_portrait'
+      src="{{avatarUrl}}" ></image>
+  <view class='ID'>
+  <van-button 
+      custom-class="login"
+      type="default"  
+      size='large'
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">{{nickName}}</van-button>
   </view>
-  <button 
+</view>
+
+<van-cell-group>
+<van-cell
+  title="我的问问"
+  is-link
+/>
+<van-cell
+  title="发布广场"
+  is-link
+/>
+<van-cell
+  title="关于"
+  is-link
+/>
+</van-cell-group>
+</view>
+<!--
+  <view class='footer'>
+    <button 
       open-type="getUserInfo" 
       bindgetuserinfo="onGetUserInfo"
     >点击登陆</button>
@@ -10,4 +40,6 @@
       bindtap="onGetOpenid"
     >点击获取openid</button>
     <button bindtap='onTest'>测试</button>
-</view>
+  </view>
+
+-->
