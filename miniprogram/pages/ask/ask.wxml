@@ -1,2 +1,59 @@
-<!--pages/ask/ask.wxml-->
-<text>pages/ask/ask.wxml</text>
+<view>
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+</view>
+
+<scroll-view class='page'>
+  <view class='top'>
+    <van-icon name="add-o" size='35px' class='add_ask' bind: add_new_ask/>
+    <image src='../../images/top.png' class='top-image'></image>
+    <image src="{{avatar_url}}" class='avatar_url'></image>
+  </view>
+
+  <view class='container'>
+      <block wx:for="{{content}}" wx:for-item="item" wx:key='unique' >
+        <!-- 如果没有图片，加载第一种布局-->
+        <block wx:if="{{!item.img_path}}" >
+          <view class='card_noimg' bind:tap="click_card">
+            <!--头像-->
+            <image src='{{item.avatar_url}}' class='user_icon'></image>
+
+            <!--内容-->
+            <view class="question">
+              <view class='text'>{{item.detail}}</view>
+            </view>
+
+            <!--下面的头片按钮-->
+            <button  catchtap="click_left"  data-index='{{item.unique}}' loading='{{item.is_loading}}' class='left_button' plain>{{item.left_txt}}</button>
+            <image src='../../images/vs.png' class='vs' ></image>
+            <button  catchtap="click_right"  data-index='{{item.unique}}' loading='{{item.is_loading}}' class='right_button' plain>{{item.right_txt}}</button>
+          </view>
+        </block>
+
+        <!--如果说有图片-->
+        <block wx:else>
+          <view class='icard'>
+            <image src='{{item.img_path}}' class='iimg' mode='aspectFill' bindtap='see_img'></image>
+            <!--用户的头像昵称这些-->
+            <view class='iuser'>
+              <image src='{{item.avatar_url}}' class='iuser_icon'></image>
+              <view class='iuser_name'>{{item.avatar_name}}</view>
+            </view>
+            
+            <view class='icontent'>
+                <view class='itext'>{{item.detail}}</view>
+            </view>
+
+            <!--下面的头片按钮-->
+            <button  catchtap="click_left"  data-index='{{item.unique}}' loading='{{item.is_loading}}' class='left_button' plain>{{item.left_txt}}</button>
+            <image src='../../images/vs.png' class='vs' ></image>
+            <button  catchtap="click_right"  data-index='{{item.unique}}' loading='{{item.is_loading}}' class='right_button' plain>{{item.right_txt}}</button>
+          </view>
+        </block>
+      </block>
+  </view>
+  
+  
+  
+</scroll-view>

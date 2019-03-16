@@ -1,2 +1,5 @@
-<!--miniprogram/pages/luck/default/default.wxml-->
-<text>miniprogram/pages/luck/default/default.wxml</text>
+
+<button 
+  bindtap='getDefaultCards'
+>测试</button>
+
