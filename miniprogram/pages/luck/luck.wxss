@@ -1,13 +1,14 @@
 /* pages/luck/luck.wxss */
-@import '../../style/font.wxss';
 @import '../../style/number.wxss';
 page {
   background-color: #fff;
   font-family: "黑体";
 }
 .top {
+  width:80%;
+  float:right;
   font-size: 45rpx !important;
-  font-family: "FZHCJW";
+  text-align: center;
 }
 .add{
   position: fixed !important;
@@ -26,13 +27,8 @@ page {
   margin-top: 450rpx;
 }
 .card{
-  float:left;
-  height: 120rpx;
-  width: 70%;
-  padding: 36rpx;
   color: #696969;
   background-color: #fff;
-  border-left: 4rpx solid #696969;
 }
 .title-container{
   display: flex;
@@ -75,7 +71,9 @@ page {
 }
 .img {
   position: absolute;
-  right: 2%;
-  width: 80rpx;
-  height: 65rpx;
+  top: 1%;
+  left: 8%;
+  width: 90rpx;
+  height: 75rpx;
+  padding: 25rpx 15rpx;
 }
