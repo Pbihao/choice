@@ -1,7 +1,7 @@
 <view class='body'>
 
 <view class='head_image'>
-  <image class='image' src="../../images/timg.jpg"></image>
+  <image class='top_image' src="../../images/timg.jpg"></image>
   <image 
       class='head_portrait'
       src="{{avatarUrl}}" ></image>
@@ -16,16 +16,35 @@
 </view>
 
 <van-cell-group>
+<view class='icon_block'>
+<image class="icon" src="../../images/myAsk.png"></image>
+</view>
 <van-cell
   title="我的问问"
+  custom-class="cell"
+  title-class="title"
   is-link
 />
+</van-cell-group>
+<van-cell-group>
+<view class='icon_block'>
+<image class="icon" src="../../images/city.png"></image>
+</view>
 <van-cell
   title="发布广场"
+  custom-class="cell"
+  title-class="title"
   is-link
 />
+</van-cell-group>
+<van-cell-group>
+<view class='icon_block'>
+<image class="icon" src="../../images/about.png"></image>
+</view>
 <van-cell
   title="关于"
+  custom-class="cell"
+  title-class="title"
   is-link
 />
 </van-cell-group>
