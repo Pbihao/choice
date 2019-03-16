@@ -5,8 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    have_image : false,
-    
+    question:[],
+    have_image:false,
+    image_path:''
 
   },
 
@@ -76,11 +77,22 @@ Page({
       sourceType: ['album', 'camera'],
 
       success: (res) => {
-        this.setData({ have_image: true });
-        this.showLoading('图片处理中...');
-        that.writeContent(res, IMAGE);
+        this.setData({ 
+          have_image: true ,
+          image_path: res.tempFilePaths
+        });
+        //this.showLoading('图片处理中...');
+        console.log(res.tempFilePaths)
       }
     })
-  }
+  },
+  //writeContent(res) {
+    //let question = this.data.question
+    //res.tempFilePaths.forEach((element, index, array) => {
+      // TODO 内容上传至服务器
+      //diary.list.push(this.makeContent(type, element, ''))
+    //});
+
+  //}
 
 })

@@ -19,6 +19,7 @@ App({
               that.setglo
               that.globalData.userInfo = res.userInfo
               that.avatarUrl = res.userInfo.avatarUrl
+              that.nickName = res.userInfo.nickName
             }
           })
         }
@@ -29,7 +30,8 @@ App({
   globalData: {
     userInfo: null,
     openid: null,
-    avatarUrl: "/images/user-unlogin.png"
+    avatarUrl: "/images/user-unlogin.png",
+    nickName:''
   },
 
   getOpenid: function () {
