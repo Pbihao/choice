@@ -15,7 +15,34 @@ Page({
       avatar_url: 'https://wx.qlogo.cn/mmopen/vi_32/1urhm5wsUW1pSQDlxm16pufu8jWeWyn154ibFHbRNRC2YGd8lqhjJ3ZnpfXOicKyU1iayre0ENDproibgVziciajyMUQ/132',
       avatar_name: '蓄山羊胡的猫的猫',
       unique: '0'
-    }],
+    },
+      {
+        detail: "测试",
+        img_path: null,
+        is_loading: false,
+        used: false,
+        yes: 100,
+        left_txt: '同意',
+        right_txt: '反对',
+        no: 100,
+        avatar_url: 'https://wx.qlogo.cn/mmopen/vi_32/1urhm5wsUW1pSQDlxm16pufu8jWeWyn154ibFHbRNRC2YGd8lqhjJ3ZnpfXOicKyU1iayre0ENDproibgVziciajyMUQ/132',
+        avatar_name: '蓄山羊胡的猫的猫',
+        unique: '0'
+      },
+      {
+        detail: "打发撒旦发",
+        img_path: '../../images/top.png',
+        is_loading: false,
+        used: false,
+        yes: 100,
+        left_txt: '同意',
+        right_txt: '反对',
+        no: 100,
+        avatar_url: 'https://wx.qlogo.cn/mmopen/vi_32/1urhm5wsUW1pSQDlxm16pufu8jWeWyn154ibFHbRNRC2YGd8lqhjJ3ZnpfXOicKyU1iayre0ENDproibgVziciajyMUQ/132',
+        avatar_name: '蓄山羊胡的猫的猫',
+        unique: '0'
+      }
+    ],
     length: 0
   },
   //点击加入新的问问
