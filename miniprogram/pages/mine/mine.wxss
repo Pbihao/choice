@@ -1,9 +1,9 @@
 /* pages/mine/mine.wxss */
 .head_image {
   position: relative;
-  height: 420rpx;
+  height: 500rpx;
 }
-.image {
+.top_image {
   position: absolute;
   left: -75rpx;
   right: -75rpx;
@@ -12,17 +12,17 @@
   border-radius: 0 0 700rpx 700rpx;
 }
 .head_portrait {
-  position: relative;
+  position: absolute!important;
   height: 180rpx;
   width: 180rpx;
   left: 285rpx;
-  top: 130rpx;
+  top: 45%;
   border-radius: 600rpx 600rpx 600rpx 600rpx;
 }
 .ID {
   position: relative;
   text-align: center;
-  top:125rpx;
+  top:80%;
 }
 .login {
   border: 0px!important;
@@ -31,9 +31,32 @@
   line-height: 25px!important;
 }
 .body {
+  height: 40%;
   position: relative;
 }
 .footer {
   position: relative;
 
+}
+.title {
+  line-height: 60rpx;
+  font-size: 22px;
+}
+.cell {
+  float: right;
+  width: 92%!important;
+  height: 100rpx;
+  z-index: -1;
+}
+.icon {
+  position: relative;
+  left: 20rpx;
+  top: 30rpx;
+  height: 40rpx;
+  width: 40rpx;
+}
+.icon_block {
+  float: left;
+  height: 100rpx;
+  width: 5%!important;
 }

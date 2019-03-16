@@ -3,7 +3,7 @@ App({
   globalData: {
     userInfo: null,
     openid: null,
-    avatarUrl: "/images/user-unlogin.png"，
+    avatarUrl: "/images/user-unlogin.png",
     nickName:''
   },
   onLaunch: function () {
