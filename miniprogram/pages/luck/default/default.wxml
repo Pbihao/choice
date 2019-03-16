@@ -1,3 +1,39 @@
+  <view wx:for="{{default_cards}}" wx:key="{{index}}">
+    <van-cell-group bindtap='edit' data-index="{{index+1}}" class='card'>
+      <van-cell
+        title="{{item.title}}"
+        title-class='title-container'
+        border="{{ false }}"
+      >
+        <van-icon 
+          slot="icon"
+          name="description"
+          size="45rpx"
+        />
+        <van-icon 
+          slot="right-icon"
+          name="delete"
+          class="van-cell__right-icon"
+          size="50rpx"
+          catchtap='ondelete' 
+          data-index='{{index}}' 
+          disabled='{{deleteDisabled}}'
+        />
+      </van-cell>
+      <van-cell
+        title="{{item.date}}"
+        title-class="date"
+        icon="underway-o"
+      >
+        <van-icon 
+          slot="right-icon"
+          name="arrow"
+          class="van-cell__right-icon"
+          size="50rpx"
+        />
+      </van-cell>
+    </van-cell-group>
+  </view>
 
 <button 
   bindtap='getDefaultCards'

@@ -5,7 +5,7 @@ var cards = []
 
 Page({
   data: {
-
+    default_cards:[]
   },
   getDefaultCards: function () {
     var that = this
@@ -29,4 +29,10 @@ Page({
         console.error
       })
   },
+  onLoad: function () {
+    this.setData({
+      default_cards: wx.getStorageSync('myChoices_list')
+    })
+    console.log(this.data.default_cards)
+  }
 })

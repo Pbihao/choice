@@ -12,7 +12,7 @@
     value="大家都在选"
     size="large"
     is-link
-    url='/pages/ask/edit/edit'
+    url='/pages/luck/default/default'
     border="{{ false }}"
   >
   </van-cell>
