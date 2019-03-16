@@ -4,7 +4,7 @@ Page({
   data: {
     hidden: true,
     content: [{
-      detail: "打发撒旦发",
+      detail: "叶老板女装",
       img_path: null,
       is_loading: false,
       used: false,
