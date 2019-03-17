@@ -4,7 +4,7 @@ App({
     userInfo: null,
     openid: null,
     avatarUrl: "/images/user-unlogin.png",
-    nickName:''
+    nickName:'登录'
   },
   onLaunch: function () {
     var that = this
@@ -23,8 +23,8 @@ App({
           wx.getUserInfo({
             success: res => {
               that.globalData.userInfo = res.userInfo
-              that.avatarUrl = res.userInfo.avatarUrl
-              that.nickName = res.userInfo.nickName
+              that.globalData.avatarUrl = res.userInfo.avatarUrl
+              that.globalData.nickName = res.userInfo.nickName
             }
           })
         }

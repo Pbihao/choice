@@ -1,28 +1,31 @@
 /* pages/mine/mine.wxss */
 .head_image {
-  position: relative;
-  height: 500rpx;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 .top_image {
   position: absolute;
-  left: -75rpx;
-  right: -75rpx;
-  top:-165rpx;
-  width: 900rpx;
+  left: -10%;
+  right: -10%;
+  top:-30%;
+  height: 80%;
+  width: 120%;
   border-radius: 0 0 700rpx 700rpx;
 }
 .head_portrait {
-  position: absolute!important;
-  height: 180rpx;
-  width: 180rpx;
-  left: 285rpx;
-  top: 45%;
+  position: absolute;
+  height: 160rpx;
+  width: 160rpx;
+  left: 295rpx;
+  top: 30%;
   border-radius: 600rpx 600rpx 600rpx 600rpx;
 }
 .ID {
-  position: relative;
+  position: absolute;
   text-align: center;
-  top:80%;
+  width: 100%;
+  top:60%;
 }
 .login {
   border: 0px!important;
@@ -31,11 +34,14 @@
   line-height: 25px!important;
 }
 .body {
-  height: 40%;
-  position: relative;
+  height: 50%;
+  width: 100%;
+  position: absolute;
 }
 .footer {
-  position: relative;
+  top: 40%;
+  width: 100%;
+  position: absolute;
 
 }
 .title {
@@ -46,7 +52,17 @@
   float: right;
   width: 92%!important;
   height: 100rpx;
-  z-index: -1;
+  border: 0px!important;
+  font-size: 22px!important;
+  text-align: left!important;
+}
+.share {
+  float: right;
+  width: 88%!important;
+  height: 100rpx;
+  border: 0px!important;
+  font-size: 22px!important;
+  text-align: left!important;
 }
 .icon {
   position: relative;

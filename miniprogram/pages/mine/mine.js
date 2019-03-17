@@ -5,9 +5,10 @@ var cards = []
 var app = getApp()
 Page({
   data: {
+    userInfo: app.globalData.userInfo,
     cards:[],
     avatarUrl: app.globalData.avatarUrl,
-    nickName: '点击登录'
+    nickName: app.globalData.nickName
   },
 
   onTest: function(){
@@ -63,7 +64,12 @@ Page({
 
   
   onLoad: function () {
-    
+    console.log("success")
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        avatarUrl: app.globalData.avatarUrl,
+        nickName: app.globalData.nickName
+      })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -109,7 +115,14 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '选择控',
+      path: '/page/mine/mine'
+    }
   }
 })
