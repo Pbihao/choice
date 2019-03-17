@@ -6,7 +6,7 @@
 
 <scroll-view style='height:{{scrollHeight}}px' class='page' bindscrolltolower='load_card'  scroll-y >
   <view class='top'>
-    <van-icon name="add-o" size='35px' class='add_ask' bind: add_new_ask/>
+    <van-icon name="add-o" size='35px' class='add_ask' bindtap='add_new_ask'/>
     <image src='../../images/top.png' class='top-image'></image>
     <open-data type="userAvatarUrl" class='avatar_url'></open-data>
   </view>
@@ -25,9 +25,9 @@
             </view>
 
             <!--下面的头片按钮-->
-            <button  catchtap="click_left"  data-index='{{item.unique}}' loading='{{item.is_loading}}' class='left_button' plain>{{item.left_txt}}</button>
+            <button  catchtap="click_left"  data-index='{{item.unique}}'  class='left_button' plain>{{item.left_txt}}</button>
             <image src='../../images/vs.png' class='vs' ></image>
-            <button  catchtap="click_right"  data-index='{{item.unique}}' loading='{{item.is_loading}}' class='right_button' plain>{{item.right_txt}}</button>
+            <button  catchtap="click_right"  data-index='{{item.unique}}' class='right_button' plain>{{item.right_txt}}</button>
           </view>
         </block>
 

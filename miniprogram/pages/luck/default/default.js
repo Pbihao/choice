@@ -9,11 +9,9 @@ Page({
   },
   getDefaultCards: function () {
     var that = this
-    var len = cards.length
-    len = 0
+    var len = 0
     default_cards
-      .skip(len)
-      .limit(6)
+      .limit(20)
       .get()
       .then((res) => {
         var i
@@ -21,18 +19,15 @@ Page({
           cards.push(i)
         }
         that.setData({
-          cards
+          default_cards: cards
         })
-        console.log(that.data.cards)
+        console.log(that.data.default_cards)
       })
       .catch((err) => {
         console.error
       })
   },
   onLoad: function () {
-    this.setData({
-      default_cards: wx.getStorageSync('myChoices_list')
-    })
-    console.log(this.data.default_cards)
+    this.getDefaultCards()
   }
 })

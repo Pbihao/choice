@@ -46,6 +46,7 @@
   title="关于我们"
   custom-class="cell"
   title-class="title"
+  url="./about/about"
   is-link
 />
 </van-cell-group>

@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/luck/luck",
     "pages/ask/ask",
     "pages/square/square",
@@ -8,7 +9,8 @@
     "pages/luck/choose/choose",
     "pages/luck/default/default",
     "pages/ask/edit/edit",
-    "pages/mine/about/about"
+    "pages/mine/about/about",
+    "pages/ask/watch/watch"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -47,5 +49,6 @@
         "selectedIconPath": "images/mine_pressed.png"
       }
     ]
-  }
+  },
+  "'cloud": true
 }

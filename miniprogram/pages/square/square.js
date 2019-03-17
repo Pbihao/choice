@@ -63,6 +63,7 @@ Page({
     return 360 * Math.atan(_Y / _X) / (2 * Math.PI)
   },
   onLoad: function () {
+    console.log(wx.getStorageSync('square'))
     var db=wx.cloud.database();
     var that=this
     db.collection('square').limit(1).get().then((res)=>{
@@ -72,6 +73,10 @@ Page({
         image: data.img,
         detail: data.detail,
         hidden: true
+      })
+      wx.setStorageSync("square", {
+        image: data.img,
+        detail: data.detail
       })
     })
   }

@@ -33,7 +33,7 @@
   width: 80%;
   left: 10%;
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
   top: 480rpx;
   background-color: #fff;
   opacity: 0.7;
