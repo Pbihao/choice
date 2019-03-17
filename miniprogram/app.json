@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/luck/luck",
     "pages/ask/ask",
     "pages/square/square",
@@ -8,7 +7,8 @@
     "pages/luck/create/create",
     "pages/luck/choose/choose",
     "pages/luck/default/default",
-    "pages/ask/edit/edit"
+    "pages/ask/edit/edit",
+    "pages/mine/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

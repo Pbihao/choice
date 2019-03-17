@@ -1,0 +1,8 @@
+<view class='page'>
+  <image src='../../images/about_background.png' class='background'></image>
+  <image src='../../images/about_top.png' class='top'></image>
+  <view class='first'>随便说两句:</view>
+  <view class='self'>
+  <text space="emsp">😘首先非常感谢你的使用。\n😀我们只是哈工大(深圳)的两名大一学生，每次中午去吃饭都要面临选择吃什么的烦恼，所以萌生了做这个小程序的想法。\n😭但是都只是学生，之前没有接触过程序开发，这个也是我们现学现做，可能还有很多地方不如意，还望多多包涵。\n😋最后，如果你们有高考的需要话，欢迎关注我朋友的知乎专栏《Anki高考》更加效率地备考\n👌最后，让我皮一下，窝工牛逼。</text>
+  </view>
+</view>
