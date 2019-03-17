@@ -1,20 +1,21 @@
 <view class='body'>
-
-<view class='head_image'>
-  <image class='top_image' src="../../images/timg.jpg"></image>
-  <image 
-      class='head_portrait'
-      src="{{avatarUrl}}" ></image>
-  <view class='ID'>
-  <van-button 
-      custom-class="login"
-      type="default"  
-      size='large'
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo">{{nickName}}</van-button>
+  <view class='head_image'>
+    <image class='top_image' src="../../images/timg.jpg"></image>
+    <image 
+        class='head_portrait'
+        src="{{avatarUrl}}" ></image>
+    <view class='ID'>
+    <van-button 
+        custom-class="login"
+        type="default"  
+        size='large'
+        open-type="getUserInfo" 
+        bindgetuserinfo="onGetUserInfo">{{nickName}}
+    </van-button>
+    </view>
   </view>
 </view>
-
+<view class='footer'>
 <van-cell-group>
 <view class='icon_block'>
 <image class="icon" src="../../images/myAsk.png"></image>
@@ -42,11 +43,23 @@
 <image class="icon" src="../../images/about.png"></image>
 </view>
 <van-cell
-  title="关于"
+  title="关于我们"
   custom-class="cell"
   title-class="title"
   is-link
 />
+</van-cell-group>
+
+<van-cell-group>
+<view class='icon_block'>
+<image class="icon" src="../../images/share.png"></image>
+</view>
+    <van-button 
+        custom-class="share"
+        type="default"  
+        size='large'
+        open-type='share'>分享给朋友
+    </van-button>
 </van-cell-group>
 </view>
 <!--

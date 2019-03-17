@@ -9,7 +9,7 @@
   <van-cell
     class="top"
     value-class="title-container"
-    value="大家都在选"
+    value="玩法示例"
     size="large"
     is-link
     url='/pages/luck/default/default'
