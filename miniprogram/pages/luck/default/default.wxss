@@ -10,11 +10,6 @@
   justify-content: space-between;
   font-size: 45rpx;
 }
-.date{
-  font-size: 32rpx;
-  font-family: Comfortaa-Light;
-  /* font-weight: bolder; */
-}
 
 .detail{
   position: absolute;
@@ -26,22 +21,6 @@
   text-align: center;
   line-height: 50rpx;
   right: 5%;
-}
-.delete {
-  position: absolute;
-  width: 60rpx;
-  height: 60rpx;
-  right: 5%;
-  opacity:0;
-}
-.progress{
-  display: flex;
-  flex-direction: column;
-  left:50%;
-  justify-content: space-between;
-  font-size: 30rpx;
-  text-align: left;
-  color: #696969;
 }
 .img {
   position: absolute;

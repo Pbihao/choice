@@ -19,6 +19,7 @@ Page({
    */
   load: function () {
     var myChoices = wx.getStorageSync('myChoices_list')
+    wx.setStorageSync('example', 0)
     this.setData({
       deleteDisabled: false,
       createLoading: false
@@ -127,7 +128,7 @@ Page({
     this.setData({
       createLoading:true
     })
-    wx.setStorageSync('edit',0)
+    wx.setStorageSync('edit', 0)
     app.getOpenid().then(() => {
       wx.navigateTo({
         url: '/pages/luck/create/create'
