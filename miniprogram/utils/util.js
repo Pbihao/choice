@@ -11,6 +11,17 @@ const formatTime = date => {
   return [year, month, day].map(formatNumber).join('/') + ' ' + hour + "h" + minute + "m"
   //[year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
+const formatTime2 = date => {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+  const second = date.getSeconds()
+
+  return [year, month, day].map(formatNumber).join('-') + hour + "h" + minute + "m"
+  //[year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
 const format = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -29,5 +40,6 @@ const formatNumber = n => {
 
 module.exports = {
   formatTime: formatTime,
-  format: format
+  format: format,
+  formatTime2: formatTime2
 }
