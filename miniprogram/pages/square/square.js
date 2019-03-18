@@ -84,33 +84,37 @@ Page({
       await app.getOpenid()
     }
     var log = null
-    await col.where({
-      _openid: app.globalData.openid
-    }).get().then(res => {
-      console.log(res.data)
-      log = res.data[0]
-    })
-    if(pos==1){
-      if(!log)return
-      if(log.date == date)this.data.choose=log.choose
-    }else {
-      console.log("得到的记录",log)
-      if(!log){
-        col.add({
-          data:{
-            date: date,
-            choose: pos
-          }
-        })
-      }else{
-        col.doc(log._id).update({
-          data:{
-            date: date,
-            choose: pos
-          }
-        })
+    new Promise((resolve,reject)=>{
+      col.where({
+        _openid: app.globalData.openid
+      }).get().then(res => {
+        console.log(res.data)
+        log = res.data[0]
+        resolve()
+      })
+    }).then(()=>{
+      if (pos == 1) {
+        if (!log) return
+        if (log.date == date) this.data.choose = log.choose
+      } else {
+        console.log("得到的记录", log)
+        if (!log) {
+          col.add({
+            data: {
+              date: date,
+              choose: pos
+            }
+          })
+        } else {
+          col.doc(log._id).update({
+            data: {
+              date: date,
+              choose: pos
+            }
+          })
+        }
       }
-    }
+    })
     
   }
 

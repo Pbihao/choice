@@ -1,0 +1,41 @@
+.page{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.background{
+  position: absolute !important;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  filter: blur(4px);
+  z-index: -1;
+}
+.top{
+  display: flex;
+  width: 100%;
+  height: 350rpx;
+  top: 0px;
+  align-items: center;
+  justify-content: center;
+  background-color: #c0c0c0;
+}
+
+.first{
+  display: flex;
+  width: 90%;
+  left: 5%;
+  text-align: left;
+  font-size: 13px;
+  top: 380rpx;
+}
+.bottom{
+  margin-top: 90rpx;
+  margin-left: 5%;
+  width: 90% !important;
+}
+

@@ -36,6 +36,7 @@
   custom-class="cell"
   title-class="title"
   is-link
+  url="./input_square/input_square"
 />
 </van-cell-group>
 <van-cell-group>
