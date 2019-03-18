@@ -13,7 +13,8 @@ Page({
     saveLoading:false,
     alpha:"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     inputDisabled:false,
-    example: []
+    example: [],
+    disabled : false
   },
 
   //保存一个新的卡组同时跟新云服务器中的卡组
@@ -31,7 +32,7 @@ Page({
         date: util.formatTime(new Date()),
       }
       const db = wx.cloud.database()
-      if(this.data.edit) {
+      if(this.data.edit ) {
         var index = this.data.edit - 1
         console.log(card)
         var _id = problems[index]._id
@@ -106,7 +107,8 @@ Page({
         example: example,
         choices: example.choices,
         title: example.title,
-        leftCount: example.choices.length
+        leftCount: example.choices.length,
+        disabled: true
       })
 
     }

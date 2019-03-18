@@ -37,7 +37,7 @@
   </view>
 </block>
 </view>
-<van-button type="primary" bind:click='save' custom-class='button1' loading="{{saveLoading}}" loading-text="保存中...">保存</van-button>
+<van-button type="primary" bind:click='save' custom-class='button1' loading="{{saveLoading}}" disabled='{{disabled}}' loading-text="保存中...">保存</van-button>
 
 <van-button type="info" bind:click='begin' custom-class='button2'>开始</van-button>
 
