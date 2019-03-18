@@ -65,10 +65,21 @@ Page({
     this.setData({
       loading: true
     })
+    new Promise((resolve,reject)=>{
+      wx.compressImage({
+        src: this.data.img_path, // 图片路径
+        quality: 60, // 压缩质量
+        success: res => {
+          this.data.img_path = res.tempFilePath
+          console.log(this.data.img_path)
+          resolve()
+        }
+      })
+    }).then(()=>{
     var col = wx.cloud.database().collection("questions")
     var path = this.data.img_path
     if (this.data.img_path){
-      path = 'submit/' + util.formatTime2(new Date) + '.' + this.data.img_path.split('.').pop().toLowerCase()
+      path = 'ask_img/' + util.formatTime2(new Date) + '.' + this.data.img_path.split('.').pop().toLowerCase()
     }
     
     console.log("上传的路径", path)
@@ -89,6 +100,8 @@ Page({
       else {resolve()}
     }).then(() => {
       console.log("上传完成")
+      console.log(app.globalData.nickName)
+      console.log(app.globalData.avatarUrl)
       col.add({
         data: {
           avatar_name: app.globalData.nickName,
@@ -120,6 +133,7 @@ Page({
         }, 700)
       })
     })
+      })
   },
   //用户选择一张图片上传
   chooseImage: function () {
