@@ -10,21 +10,10 @@
           name="description"
           size="45rpx"
         />
-        <van-icon 
-          slot="right-icon"
-          name="delete"
-          class="van-cell__right-icon"
-          size="50rpx"
-          catchtap='ondelete' 
-          data-index='{{index}}' 
-          disabled='{{deleteDisabled}}'
-        />
       </van-cell>
       <van-cell
-        title="{{item.date}}"
-        title-class="date"
-        icon="underway-o"
-      >
+        title="　"
+        >
         <van-icon 
           slot="right-icon"
           name="arrow"
@@ -34,8 +23,4 @@
       </van-cell>
     </van-cell-group>
   </view>
-
-<button 
-  bindtap='getDefaultCards'
->测试</button>
 

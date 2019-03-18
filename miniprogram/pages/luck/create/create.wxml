@@ -22,7 +22,7 @@
     <!-- List items should get the class `completed` when marked as completed -->
     <view class="item" wx:for="{{ choices }}" wx:key="{{ index }}" data-index="{{ index }}">
       <!-- choice: circle -->
-      <text class="name" decode="true">{{alpha[index]}}.{{ item.name }}</text>
+      <text class="name" decode="true">{{alpha[index]}}.{{ item }}</text>
       <icon class="remove" type="clear" size="18" catchtap="removechoiceHandle" data-index="{{ index }}"/>
     </view>
   </view>

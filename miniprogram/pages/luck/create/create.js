@@ -12,7 +12,8 @@ Page({
     edit:0,
     saveLoading:false,
     alpha:"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    inputDisabled:false
+    inputDisabled:false,
+    example: []
   },
 
   //保存一个新的卡组同时跟新云服务器中的卡组
@@ -96,6 +97,19 @@ Page({
         leftCount: this.data.problems[wx.getStorageSync('edit')-1].nOfCards
       })
     }
+    if (wx.getStorageSync('example')) {
+      var example = wx.getStorageSync('defualt_cards')
+      console.log(example)
+      console.log(wx.getStorageSync('example'))
+      this.setData({
+        edit:1,
+        example: example,
+        choices: example.choices,
+        title: example.title,
+        leftCount: example.choices.length
+      })
+
+    }
     if (this.data.leftCount >= 26) {
       this.setData({
         inputDisabled: true
@@ -115,7 +129,7 @@ Page({
   addchoiceHandle: function (e) {
     if (!this.data.input || !this.data.input.trim()) return
     var choices = this.data.choices
-    choices.push({ name: this.data.input })
+    choices.push(this.data.input)
     this.setData({
       input: '',
       choices: choices,
@@ -154,7 +168,7 @@ Page({
     var id = Math.floor(Math.random() * this.data.leftCount)
     var msg = this.data.choices[id]
     wx.redirectTo({
-      url: '/pages/luck/choose/choose?msg=' + msg.name
+      url: '/pages/luck/choose/choose?msg=' + msg
     })
   }
 })

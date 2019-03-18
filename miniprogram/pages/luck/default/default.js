@@ -15,13 +15,14 @@ Page({
       .get()
       .then((res) => {
         var i
+        cards=[]
         for (i of res.data) {
           cards.push(i)
         }
         that.setData({
           default_cards: cards
         })
-        console.log(that.data.default_cards)
+        
       })
       .catch((err) => {
         console.error
@@ -29,5 +30,14 @@ Page({
   },
   onLoad: function () {
     this.getDefaultCards()
-  }
+  },
+  edit: function (e) {
+    let index = e.currentTarget.dataset.index;
+    wx.setStorageSync('defualt_cards', this.data.default_cards[index-1])
+    wx.setStorageSync('example', 1)
+    wx.setStorageSync('edit', 0)
+    wx.navigateTo({
+      url: '/pages/luck/create/create',
+    })
+  },
 })
