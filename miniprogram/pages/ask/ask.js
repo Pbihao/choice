@@ -92,10 +92,12 @@ Page({
     console.log("跳转")
   },
   //点击了查看图片
-  see_img: function () {
-    console.log("查看图片")
+  see_img: function (e) {
+    var that=this
+    var id = e.currentTarget.dataset.index
+    console.log("查看图片",id)
     wx.previewImage({
-      urls: ['../../images/top.png']
+      urls: [that.data.content[id].img_path]
     })
   },
   //加载新的卡片,每次十张
