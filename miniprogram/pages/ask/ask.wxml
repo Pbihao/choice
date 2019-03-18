@@ -34,7 +34,7 @@
         <!--如果说有图片-->
         <block wx:else>
           <view class='icard'>
-            <image src='{{item.img_path}}' class='iimg' mode='aspectFill' bindtap='see_img'></image>
+            <image src='{{item.img_path}}' class='iimg' mode='aspectFill' bindtap='see_img' data-index='{{item.unique}}'></image>
             <!--用户的头像昵称这些-->
             <view class='iuser'>
               <image src='{{item.avatar_url}}' class='iuser_icon'></image>

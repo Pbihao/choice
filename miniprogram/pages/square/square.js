@@ -1,7 +1,8 @@
 //index.js
 //获取应用实例
+var util = require('../../utils/util.js');
 const app = getApp()
-
+import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
 Page({
   data: {
     image: '../../images/no.png',
@@ -38,22 +39,32 @@ Page({
       c = this.data.choose
     //向右滑动
     if (touchMoveX > startX) {
-      if (n == 1 && c == 2) return
+      if (n == 1 && c == 2) {
+        return
+      }
       if (n == 0) return
       this.setData({
         now: n - 1,
         left: true
       })
-      if (this.data.choose == null) this.data.choose = 0
+      if (this.data.choose == null){
+        this.data.choose = 0
+        this.opera_cloud(0)
+      } 
     } else {
-      if (n == 1 && c == 0) return
+      if (n == 1 && c == 0) {
+        return
+      }
       if (n == 2) return
       console.log(n)
       this.setData({
         now: n + 1,
         left: false
       })
-      if (this.data.choose == null) this.data.choose = 2
+      if (this.data.choose == null){
+        this.data.choose = 2
+        this.opera_cloud(2)
+      } 
     }
   },
   /*计算滑动角度*/
@@ -62,10 +73,56 @@ Page({
       _Y = end.Y - start.Y
     return 360 * Math.atan(_Y / _X) / (2 * Math.PI)
   },
-  onLoad: function () {
-    console.log(wx.getStorageSync('square'))
-    var db=wx.cloud.database();
+
+  opera_cloud: async function(pos){
+    var date = new Date()
+    date = util.format(date)
+    var col = wx.cloud.database().collection('choosed');
     var that=this
+    //查询是否在这一天已经选择过了
+    if(!app.globalData.openid){
+      await app.getOpenid()
+    }
+    var log = null
+    await col.where({
+      _openid: app.globalData.openid
+    }).get().then(res => {
+      console.log(res.data)
+      log = res.data[0]
+    })
+    if(pos==1){
+      if(!log)return
+      if(log.date == date)this.data.choose=log.choose
+    }else {
+      console.log("得到的记录",log)
+      if(!log){
+        col.add({
+          data:{
+            date: date,
+            choose: pos
+          }
+        })
+      }else{
+        col.doc(log._id).update({
+          data:{
+            date: date,
+            choose: pos
+          }
+        })
+      }
+    }
+    
+  }
+
+  ,
+  onLoad: function () {
+    var date = new Date()
+    date=util.format(date)
+    console.log("当日时间",date)
+    var db = wx.cloud.database();
+    var that = this
+    this.opera_cloud(1)
+    
     db.collection('square').limit(1).get().then((res)=>{
       var data=res.data[0]
       console.log(data)
