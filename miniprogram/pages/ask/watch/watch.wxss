@@ -130,12 +130,21 @@
 }
 
 .comment{
-  position: fixed;
-  width: 100%;
-  bottom: 0%;
+  width: 98%;
+  display: flex;
+  align-items: center;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 10rpx;
+  box-shadow: 0 0 5rpx #e0e0e0;
+  margin-top: 30rpx;
+  padding: 20rpx;
 }
 
 .input {
-  height: 30px!important;
-  font-size: 16px
+  font-size: 18px;
+  line-height: 20px!important;
+}
+
+.submit {
+  right: 10%
 }

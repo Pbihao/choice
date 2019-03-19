@@ -35,7 +35,7 @@
             <!--下面的头片按钮-->
             <view class='bottom'>
             <button  catchtap="click_left"  data-index='{{item.unique}}' loading='{{item.is_loading}}' class='left_button' plain>{{item.left_txt}}</button>
-            <image src='../../images/vs.png' class='vs' ></image>
+            <image src='../../../images/vs.png' class='vs' ></image>
             <button  catchtap="click_right"  data-index='{{item.unique}}' loading='{{item.is_loading}}' class='right_button' plain>{{item.right_txt}}</button>
             </view>
 
