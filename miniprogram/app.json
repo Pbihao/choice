@@ -10,7 +10,8 @@
     "pages/ask/edit/edit",
     "pages/mine/about/about",
     "pages/ask/watch/watch",
-    "pages/mine/input_square/input_square"
+    "pages/mine/input_square/input_square",
+    "pages/mine/my_ask/my_ask"
   ],
   "window": {
     "backgroundTextStyle": "light",
