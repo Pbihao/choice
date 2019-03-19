@@ -50,7 +50,6 @@
       autosize
       value="{{ value }}"
       placeholder="评论"
-      border="{{ false }}"
       bind:change="comment_detail"
       use-button-slot
     >

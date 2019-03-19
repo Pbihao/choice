@@ -74,6 +74,9 @@ Page({
             this.data.img_path = res.tempFilePath
             console.log(this.data.img_path)
             resolve()
+          },
+          fail: res=>{
+            resolve()
           }
         })
       }else{

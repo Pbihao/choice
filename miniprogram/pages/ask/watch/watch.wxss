@@ -44,7 +44,6 @@
   display: flex;
   position: relative !important;
   width: 100%;
-  left: 10%;
   margin-top: 100rpx;
   height: 500rpx;
   border: 2px solid #ffffff;
