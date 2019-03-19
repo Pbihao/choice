@@ -78,10 +78,12 @@ Page({
     this.data.ask.comment.push({
       date: util.formatTime(new Date()),
       detail: this.data.comment_detail,
-      user_name: app.globalData.nickName,
-      user_avatar: app.globalData.avatarUrl
+      user_avatar: app.globalData.avatarUrl,
+      user_name: app.globalData.nickName
     })
-    
+    var col = wx.cloud.database().collection("questions").where({
+      _id: this.data.ask._id
+    })
     console.log(this.data.ask)
   }, 
     see_img: function () {

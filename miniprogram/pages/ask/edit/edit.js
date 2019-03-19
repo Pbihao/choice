@@ -66,15 +66,20 @@ Page({
       loading: true
     })
     new Promise((resolve,reject)=>{
-      wx.compressImage({
-        src: this.data.img_path, // 图片路径
-        quality: 60, // 压缩质量
-        success: res => {
-          this.data.img_path = res.tempFilePath
-          console.log(this.data.img_path)
-          resolve()
-        }
-      })
+      if(this.data.img_path){
+        wx.compressImage({
+          src: this.data.img_path, // 图片路径
+          quality: 60, // 压缩质量
+          success: res => {
+            this.data.img_path = res.tempFilePath
+            console.log(this.data.img_path)
+            resolve()
+          }
+        })
+      }else{
+        resolve()
+      }
+      
     }).then(()=>{
     var col = wx.cloud.database().collection("questions")
     var path = this.data.img_path
@@ -100,12 +105,12 @@ Page({
       else {resolve()}
     }).then(() => {
       console.log("上传完成")
-      console.log(app.globalData.nickName)
-      console.log(app.globalData.avatarUrl)
+      console.log(app.globalData.userInfo.nickName)
+      console.log(app.globalData.userInfo.avatarUrl)
       col.add({
         data: {
-          avatar_name: app.globalData.nickName,
-          avatar_url: app.globalData.avatarUrl,
+          avatar_name: app.globalData.userInfo.nickName,
+          avatar_url: app.globalData.userInfo.avatarUrl,
           comment:[],
           comment_number:0,
           date: util.formatTime(new Date),
@@ -125,7 +130,7 @@ Page({
           refresh: true
         })
         wx.showToast({
-          title: '感谢您的上传',
+          title: '上传成功',
           duration: 700
         })
         setTimeout(() => {
