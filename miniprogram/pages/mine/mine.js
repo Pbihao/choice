@@ -17,7 +17,7 @@ Page({
     len = 0
     default_cards
       .skip(len)
-      .limit(6)
+      .limit(10)
       .get()
       .then((res) => {
         var i

@@ -15,7 +15,6 @@
       <block wx:for="{{content}}" wx:for-item="item" wx:key='unique' >
         <!--如果说有图片-->
           <view class='card'>
-            
             <!--用户的头像昵称这些-->
             <view class='user'>
               <image src='{{item.avatar_url}}' class='user_icon'></image>
