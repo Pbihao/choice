@@ -38,7 +38,8 @@ Page({
       })
       return
     }*/
-    if (!this.data.detail) {
+    var that=this
+    if (!that.data.detail) {
       wx.showToast({
         title: '请输入问题⊙﹏⊙∥∣°',
         icon: 'none',
@@ -46,7 +47,7 @@ Page({
       })
       return
     }
-    if (!this.data.left) {
+    if (!that.data.left) {
       wx.showToast({
         title: '请输入选项A⊙﹏⊙∥∣°',
         icon: 'none',
@@ -54,7 +55,7 @@ Page({
       })
       return
     }
-    if (!this.data.right) {
+    if (!that.data.right) {
       wx.showToast({
         title: '请输入选项B⊙﹏⊙∥∣°',
         icon: 'none',
@@ -62,39 +63,24 @@ Page({
       })
       return
     }
-    this.setData({
+    that.setData({
       loading: true
     })
-    new Promise((resolve,reject)=>{
-      if(this.data.img_path){
-        wx.compressImage({
-          src: this.data.img_path, // 图片路径
-          quality: 60, // 压缩质量
-          success: res => {
-            this.data.img_path = res.tempFilePath
-            console.log(this.data.img_path)
-            resolve()
-          }
-        })
-      }else{
-        resolve()
-      }
-      
-    }).then(()=>{
+   
     var col = wx.cloud.database().collection("questions")
-    var path = this.data.img_path
-    if (this.data.img_path){
-      path = 'ask_img/' + util.formatTime2(new Date) + '.' + this.data.img_path.split('.').pop().toLowerCase()
+      var path = that.data.img_path
+      if (that.data.img_path){
+        path = 'ask_img/' + util.formatTime2(new Date) + app.globalData.openid + '.' + that.data.img_path.split('.').pop().toLowerCase()
     }
     
     console.log("上传的路径", path)
-    console.log("本地的路径", this.data.img_path)
+      console.log("本地的路径", that.data.img_path)
     var cloud_id = null
     new Promise((resolve, reject) => {
       if(path){
       wx.cloud.uploadFile({
         cloudPath: path, // 上传至云端的路径
-        filePath: this.data.img_path,
+        filePath: that.data.img_path,
         success: res => {
           console.log(res.fileID)
           cloud_id = res.fileID
@@ -114,12 +100,12 @@ Page({
           comment:[],
           comment_number:0,
           date: util.formatTime(new Date),
-          detail: this.data.detail,
+          detail: that.data.detail,
           img_path: cloud_id,
           left: 0,
-          left_txt: this.data.left,
+          left_txt: that.data.left,
           right: 0,
-          right_txt: this.data.right,
+          right_txt: that.data.right,
           used:[]
         }
       }).then(() => {
@@ -138,7 +124,6 @@ Page({
         }, 700)
       })
     })
-      })
   },
   //用户选择一张图片上传
   chooseImage: function () {

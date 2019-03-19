@@ -1,0 +1,48 @@
+<view>
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+</view>
+
+<scroll-view style='height:{{scrollHeight}}px' class='page' bindscrolltolower='load_card'  scroll-y >
+  <view class='top'>
+    <image src='../../../images/top.png' class='top-image'></image>
+    <open-data type="userAvatarUrl" class='avatar_url'></open-data>
+  </view>
+
+  <view class='container'>
+      <block wx:for="{{content}}" wx:for-item="item" wx:key='unique' >
+        <!--如果说有图片-->
+          <view class='card'>
+            
+            <!--用户的头像昵称这些-->
+            <view class='user'>
+              <image src='{{item.avatar_url}}' class='user_icon'></image>
+              <view class='name_date'>
+                <text>{{item.avatar_name}}</text>
+                <text style='font-size:10px; margin-top: 5px'>{{item.date}}</text>
+              </view>
+            </view>
+            
+            <text class='content'>
+                {{item.detail}}
+            </text> 
+            
+            <block wx:if='{{item.img_path}}'>
+            <image src='{{item.img_path}}' class='img' mode='aspectFill' bindtap='see_img' data-index='{{item.unique}}'></image>
+            </block>
+
+            <!--下面的头片按钮-->
+            <view class='bottom'>
+            <button  catchtap="click_left"  data-index='{{item.unique}}' loading='{{item.is_loading}}' class='left_button' plain>{{item.left_txt}}</button>
+            <image src='../../images/vs.png' class='vs' ></image>
+            <button  catchtap="click_right"  data-index='{{item.unique}}' loading='{{item.is_loading}}' class='right_button' plain>{{item.right_txt}}</button>
+            </view>
+
+          </view>
+      </block>
+  </view>
+  
+  
+  
+</scroll-view>

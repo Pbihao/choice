@@ -64,7 +64,7 @@ Page({
       loading: true
     })
     var col=wx.cloud.database().collection("submit")
-    var path = 'submit/' + util.formatTime2(new Date) + '.' + this.data.img_path.split('.').pop().toLowerCase()
+    var path = 'submit/' + util.formatTime2(new Date) + app.globalData.openid + '.' + this.data.img_path.split('.').pop().toLowerCase()
     console.log("上传的路径",path)
     console.log("本地的路径", this.data.img_path)
     var cloud_id = null
