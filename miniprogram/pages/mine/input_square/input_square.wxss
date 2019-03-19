@@ -39,3 +39,6 @@
   width: 90% !important;
 }
 
+.input{
+  font-size: 17px;
+}

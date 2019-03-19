@@ -92,7 +92,7 @@ Page({
       }).then(() => {
         wx.showToast({
           title: '感谢您的上传',
-          duration: 1300
+          duration: 800
         })
         setTimeout(() => {
           wx.navigateBack({

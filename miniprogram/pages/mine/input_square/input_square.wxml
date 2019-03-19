@@ -23,6 +23,8 @@
       bind:change="onChangeFace"
       title-width='50px'
       maxlength='200'
+      input-class='input'
+      size='large'
     />
     <van-field
       type='textarea'
@@ -33,6 +35,8 @@
       title-width='50px'
       input-class='face'
       maxlength='100'
+      input-class='input'
+      size='large'
     />
     <van-field
       type='textarea'
@@ -42,6 +46,8 @@
       bind:change="onChangeLeft"
       title-width='50px'
       maxlength='100'
+      input-class='input'
+      size='large'
     />
     </van-cell-group>
     <view class='bottom'>
