@@ -100,17 +100,19 @@ Page({
   //加载新的卡片,每次十张
   load_card: function(){
     if(this.data.allin)return
-    console.log("从哪里开始",this.data.begin)
     var lt = 10,
         begin = this.data.begin,
         that = this
-    begin -= 10
+    begin -= lt
     if(begin < 0){
       this.data.allin=true
       lt += begin
       begin = 0
     }
+    this.data.begin=begin
     const col = wx.cloud.database().collection('questions')
+    console.log("从哪里开始",begin)
+    console.log("加载多少个",lt)
     col.skip(begin)
        .limit(lt)
        .orderBy('date', 'desc')
