@@ -2,14 +2,15 @@ const app = getApp()
 import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
 Page({
   data: {
-    hidden: true,
+    hidden: false,
     content: [],
     length: 0,
     total: null,
     begin: null,
     allin: false,//数据库中所有的卡片都已经被加载了
     now_unique: -1,
-    refresh: false
+    refresh: false,
+    first_log: true
   },
   //点击加入新的问问
   add_new_ask: function () {
@@ -137,6 +138,13 @@ Page({
           that.setData({
             content: cont
           })
+          if(that.data.first_log){
+            that.data.first_log=false
+            that.setData({
+              first_log: false,
+              hidden: true
+            })
+          }
         }).catch(err=>{
           console.error("获取记录失败：", err)
         })
