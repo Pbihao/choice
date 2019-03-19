@@ -29,7 +29,7 @@
             </text> 
             
             <block wx:if='{{item.img_path}}'>
-            <image src='{{item.img_path}}' class='img' mode='aspectFill' bindtap='see_img' data-index='{{item.unique}}'></image>
+            <image src='{{item.img_path}}' class='img' mode='aspectFill' catchtap='see_img' data-index='{{item.unique}}'></image>
             </block>
 
             <!--下面的头片按钮-->
