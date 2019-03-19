@@ -88,10 +88,6 @@ Page({
       }
     })
   },
-  //点击了卡片跳转
-  click_card: function () {
-    console.log("跳转")
-  },
   //点击了查看图片
   see_img: function (e) {
     var that=this
@@ -196,5 +192,13 @@ Page({
         await app.getOpenid()
       }
     }
+  },
+  //点击了卡片跳转
+  comment: function(e) {
+    console.log(e.currentTarget.dataset.ask)
+    wx.setStorageSync('ask', e.currentTarget.dataset.ask)
+    wx.navigateTo({
+      url: '/pages/ask/watch/watch',
+    })
   }
 })

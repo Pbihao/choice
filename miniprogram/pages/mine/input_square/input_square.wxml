@@ -33,7 +33,6 @@
       placeholder="请输入左滑答案"
       bind:change="onChangeRight"
       title-width='50px'
-      input-class='face'
       maxlength='100'
       input-class='input'
       size='large'

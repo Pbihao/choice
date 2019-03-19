@@ -15,7 +15,7 @@
       <block wx:for="{{content}}" wx:for-item="item" wx:key='unique' >
         <!-- 如果没有图片，加载第一种布局-->
         <block wx:if="{{!item.img_path}}" >
-          <view class='card_noimg' bind:tap="click_card">
+          <view class='card_noimg' catchtap='comment' data-ask='{{item}}'>
             <!--头像-->
             <image src='{{item.avatar_url}}' class='user_icon'></image>
 
@@ -33,7 +33,7 @@
 
         <!--如果说有图片-->
         <block wx:else>
-          <view class='icard'>
+          <view class='icard' catchtap='comment' data-ask='{{item}}'>
             <image src='{{item.img_path}}' class='iimg' mode='aspectFill' bindtap='see_img' data-index='{{item.unique}}'></image>
             <!--用户的头像昵称这些-->
             <view class='iuser'>

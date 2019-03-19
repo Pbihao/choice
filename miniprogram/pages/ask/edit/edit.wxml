@@ -32,7 +32,7 @@
       placeholder="这里是A选项"
       bind:change="onChangeRight"
       title-width='50px'
-      input-class='face'
+      input-class='input'
       maxlength='100'
     />
     <van-field
@@ -43,6 +43,7 @@
       bind:change="onChangeLeft"
       title-width='50px'
       maxlength='100'
+      input-class='input'
     />
     </van-cell-group>
     <view class='bottom'>

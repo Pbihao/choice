@@ -41,4 +41,9 @@
 
 .question{
   height:300rpx!important;
+  font-size: 17px;
+}
+
+.input{
+  font-size: 17px;
 }
