@@ -8,7 +8,8 @@ Page({
     total: null,
     begin: null,
     allin: false,//数据库中所有的卡片都已经被加载了
-    now_unique: -1
+    now_unique: -1,
+    refresh: false
   },
   //点击加入新的问问
   add_new_ask: function () {
@@ -165,6 +166,35 @@ Page({
     })
     if(!app.globalData.openid){
       await app.getOpenid()
+    }
+  },
+  onShow: async function(){
+    var that=this
+    if (that.data.refresh){
+      that.data.refresh=false
+      that.data.hidden = true
+      that.data.length = 0
+      that.data.allin = false
+      that.data.now_unique = -1
+      that.data.content=[]
+      await wx.cloud.callFunction({
+        name: 'get_cards_number',
+        data: {},
+        success: res => {
+          console.log("数据库中的记录个数：", res.result.total)
+          that.setData({
+            total: res.result.total,
+            begin: res.result.total
+          })
+          that.load_card()
+        },
+        fail: err => {
+          console.error("调用失败:", err)
+        }
+      })
+      if (!app.globalData.openid) {
+        await app.getOpenid()
+      }
     }
   }
 })
