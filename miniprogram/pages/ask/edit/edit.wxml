@@ -33,7 +33,7 @@
       bind:change="onChangeRight"
       title-width='50px'
       input-class='input'
-      maxlength='100'
+      maxlength='7'
     />
     <van-field
       type='textarea'
@@ -42,7 +42,7 @@
       placeholder="这里是B选项"
       bind:change="onChangeLeft"
       title-width='50px'
-      maxlength='100'
+      maxlength='7'
       input-class='input'
     />
     </van-cell-group>

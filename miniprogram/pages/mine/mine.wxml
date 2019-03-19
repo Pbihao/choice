@@ -25,6 +25,7 @@
   custom-class="cell"
   title-class="title"
   is-link
+  url="./my_ask/my_ask"
 />
 </van-cell-group>
 <van-cell-group>
