@@ -14,15 +14,14 @@
             <text class='content'>
                 {{ask.detail}}
             </text> 
-            
             <block wx:if='{{ask.img_path}}'>
             <image src='{{ask.img_path}}' class='img' mode='aspectFill' bindtap='see_img' data-index='{{ask.unique}}'></image>
             </block>
-
           </view>
   </view>
-<view style="text-align:center;font-size:14px;color:#ccc;margin-top:20px;">以下是留言内容</view>
+<view style="text-align:center;font-size:14px;color:#ccc;margin-top:20rpx;">以下是留言内容</view>
 <view wx:for="{{ask.comment}}" wx:key="item" class="liuyanview">
+
   <view class="headimg"><image src="{{item.user_avatar}}"></image></view>
   <view class="nickname_liuyantext">
     <view class="nickname">{{item.user_name}} <view class="time">{{item.date}}</view></view>
@@ -31,15 +30,23 @@
   <!-- 占位符 -->
   <view style="width:100%;height:10px;"></view>
 </view>
+<van-panel title="共 {{ask.comment_number}} 条评论">
+  <view>　</view>
+  <view>　</view>
+</van-panel>
+
 <view class='comment'>
   <van-cell-group>
     <van-field
       type='textarea'
       autosize
-      value="{{ value }}"
+      border='{{true}}'
+      value="{{ comment_detail }}"
       placeholder="评论"
       bind:change="comment_detail"
       use-button-slot
+      clearable="{{ true }}"
+      input-class='input'
     >
       <van-button slot="button" size="small" type="primary" bind:click='submit'>发布</van-button>
     </van-field>
