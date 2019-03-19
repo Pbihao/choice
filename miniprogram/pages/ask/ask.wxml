@@ -14,7 +14,7 @@
   <view class='container'>
       <block wx:for="{{content}}" wx:for-item="item" wx:key='unique' >
         <!--如果说有图片-->
-          <view class='card'>
+          <view class='card' bindtap='comment' data-ask='{{item}}'>
             <!--用户的头像昵称这些-->
             <view class='user'>
               <image src='{{item.avatar_url}}' class='user_icon'></image>

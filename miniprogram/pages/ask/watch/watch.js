@@ -1,14 +1,15 @@
-const app = getApp()
+import regeneratorRuntime from '../../../regenerator-runtime/runtime.js';
 var util = require('../../../utils/util.js');
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ask:[],
-    comment_detail:"",
-    comment_date:"",
+    ask: null,
+    comment_detail: "",
+    comment_date: "",
   },
 
   /**
@@ -16,8 +17,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      ask:wx.getStorageSync('ask')
+      ask: wx.getStorageSync('ask')
     })
+    console.log(this.data.ask)
   },
 
   /**
@@ -70,23 +72,41 @@ Page({
   },
   comment_detail: function (e) {
     console.log(e.detail)
-    this.setData({ 
+    this.setData({
       comment_detail: e.detail
-      })
+    })
   },
   submit: function () {
-    this.data.ask.comment.push({
+    if (this.data.comment_detail === '') {
+      wx.showToast({
+        title: '请输入评论',
+        duration: 1000,
+        icon: 'none'
+      })
+      return
+    }
+    var comment={
       date: util.formatTime(new Date()),
       detail: this.data.comment_detail,
       user_avatar: app.globalData.avatarUrl,
       user_name: app.globalData.nickName
+    }
+    this.data.ask.comment.push(comment)
+    wx.cloud.callFunction({
+      name: 'update_comment',
+      data: {
+        id: this.data.ask._id,
+        comment: comment
+      },
+      success: res => {
+        console.log("更改数据库成功", res)
+      },
+      fail: err => {
+        console.error("更改数据失败", err)
+      }
     })
-    var col = wx.cloud.database().collection("questions").where({
-      _id: this.data.ask._id
-    })
-    console.log(this.data.ask)
-  }, 
-    see_img: function () {
+  },
+  see_img: function () {
     wx.previewImage({
       urls: [this.data.ask.img_path]
     })

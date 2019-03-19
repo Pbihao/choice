@@ -66,7 +66,7 @@ Page({
     that.setData({
       loading: true
     })
-   
+
     var col = wx.cloud.database().collection("questions")
       var path = that.data.img_path
       if (that.data.img_path){
