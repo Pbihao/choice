@@ -8,8 +8,7 @@ Page({
    */
   data: {
     ask: null,
-    comment_detail: "",
-    comment_date: "",
+    comment_detail: ""
   },
 
   /**
@@ -92,6 +91,10 @@ Page({
       user_name: app.globalData.nickName
     }
     this.data.ask.comment.push(comment)
+    this.setData({
+      comment_detail: '',
+      ask: this.data.ask
+    })
     wx.cloud.callFunction({
       name: 'update_comment',
       data: {
