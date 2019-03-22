@@ -1,0 +1,98 @@
+<scroll-view  style='width:100%;height:{{scrollHeight}}px;' scroll-y>
+
+  <!--背景-->
+  <view class='back'>
+    <text class='back_txt'>选择控</text>
+    <image src='../../images/ftop.png' class="back_img"></image>
+  </view>
+  <view class='page' style='height:{{scrollHeight-60}}px'>
+    <!-- 用户信息-->
+    <view class='top_user' bindtap='to_mine'>
+      <open-data type="userAvatarUrl" class='avatarUrl'></open-data>
+      <open-data type="userNickName" class='top_name'></open-data>
+      <view style='margin-left:auto;'>
+        <text class='top_mine'>我的</text>
+        <van-icon name='arrow' size='12pt' color='rgb(136,136,136)'/>
+      </view>
+    </view>
+
+    <!--我的牌库单元格-->
+    <van-cell 
+      title="我的选择"
+      value="全部"
+      is-link
+      size="large"
+      border="false"
+      custom-class="cards_cell"
+      title-class='cards_title'
+      value-class="cards_value"
+      url="../luck/luck"
+    />
+    <!--我的选择卡牌-->
+    <scroll-view scroll-x class="my_cards">
+    <view class='in_my_cards'>
+ 
+        <view class='new_card' bindtap='to_create'>
+          <image src='../../images/card_add.png' class='card_add'></image>
+          <text class='new_txt'>新建选择</text>
+        </view>
+
+        <!--判断需不需要示例卡片，如果没有的话-->
+        <block wx:if="{{!has_card}}">
+          <view class='each_card'>
+            <image src='../../images/each_card.png' class='each_card_img'></image>
+            <text class='.each_card_txt'>吃什么\n(玩法示例)</text>
+            <text class='each_card_del'>删除</text>
+          </view>
+        </block>
+
+        <block wx:else>
+        <view wx:for="{{myChoices}}" wx:key="{{index}}">
+          <view class='each_card'  bindtap='edit' data-index="{{index+1}}">
+            <image src='../../images/each_card.png' class='each_card_img'></image>
+            <text class='.each_card_txt'>{{item.title}}</text>
+            <text class='each_card_del' catchtap='ondelete'data-index='{{index}}' >删除</text>
+          </view>
+        </view>
+        </block>
+    </view>
+    </scroll-view>
+
+    <!--广场-->
+    <text class='square_txt'>广场</text>
+
+    <view class='to' bindtap='to_ask' style='background: rgb(146, 173, 187);'>
+      <image src='../../images/to_ask.png' class='to_img'></image>
+      <view class='to_txt'>
+        <text class='to_first'>问问大家</text>
+        <text class='to_second'>看看大家怎么选</text>
+      </view>
+    </view>
+
+    <view class='to' bindtap='to_choose' style='background: rgb(240, 232, 200);'>
+      <image src='../../images/to_choose.png' class='to_img'></image>
+      <view class='to_txt'>
+        <text class='to_first'>选一选</text>
+        <text class='to_second'>滑动卡牌做个选择</text>
+      </view>
+    </view>
+
+    <view class='to' bindtap='to_number' style='background: rgb(255, 255, 2);'>
+      <image src='../../images/to_number.png' class='to_img'></image>
+      <view class='to_txt'>
+        <text class='to_first'>随机数</text>
+        <text class='to_second'>生成随机数</text>
+      </view>
+    </view>
+
+    <view class='to' bindtap='to_default' style='background: rgb(250, 219, 194);'>
+      <image src='../../images/to_default.png' class='to_img'></image>
+      <view class='to_txt'>
+        <text class='to_first'>默认题库</text>
+        <text class='to_second'>一些有趣的卡牌</text>
+      </view>
+    </view>
+
+    <view class="bottom"></view>
+  </view>
+</scroll-view>

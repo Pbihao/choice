@@ -84,6 +84,7 @@ Page({
  
 
   onLoad: function () {
+    app.getOpenid()
     if (wx.getStorageSync('myChoices_list') != "") {
       var problems = wx.getStorageSync('myChoices_list')
       this.setData({

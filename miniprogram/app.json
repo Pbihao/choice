@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/luck/luck",
     "pages/ask/ask",
     "pages/square/square",
@@ -18,37 +19,5 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "选择控",
     "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "color": "#8a8a8a",
-    "selectedColor": "#2c2c2c",
-    "backgroundColor": "#FBFBFB",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/luck/luck",
-        "text": "幸运",
-        "iconPath": "images/luck.png",
-        "selectedIconPath": "images/luck_pressed.png"
-      },
-      {
-        "pagePath": "pages/ask/ask",
-        "text": "问问",
-        "iconPath": "images/ask.png",
-        "selectedIconPath": "images/ask_pressed.png"
-      },
-      {
-        "pagePath": "pages/square/square",
-        "text": "广场",
-        "iconPath": "images/square.png",
-        "selectedIconPath": "images/square_pressed.png"
-      },
-      {
-        "pagePath": "pages/mine/mine",
-        "text": "我的",
-        "iconPath": "images/mine.png",
-        "selectedIconPath": "images/mine_pressed.png"
-      }
-    ]
   }
 }

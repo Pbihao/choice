@@ -39,8 +39,7 @@
 </view>
 <view class='foot'>
 <van-panel title="共 {{comment_number}} 条评论">
-  <view>　</view>
-  <view>　</view>
+  
 </van-panel>
 </view>
 

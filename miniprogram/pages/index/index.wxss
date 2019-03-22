@@ -1,0 +1,193 @@
+/*顶部背景*/
+.back{
+  width: 100%;
+  height: 130px;  
+  background-color:rgb(235,235,235);
+  display: flex;
+  justify-content: space-around;
+}
+.back_img{
+  height: 80px;
+  width: 140px;
+  margin-right: 30px;
+}
+.back_txt{
+  font-size: 20pt;
+  font-family: Microsoft YaHei;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+/*页面以下*/
+.page{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  align-items: center;
+  border-top-right-radius: 50rpx;
+  border-top-left-radius: 50rpx;
+  margin-top: -40px;
+  z-index: 0;
+  box-shadow: gray 0px -2px 4px;
+}
+/*用户头像*/
+.top_user{
+  flex-shrink: 0;
+  width: 85%;
+  height: 130rpx;
+  display: flex;
+  align-items: center;
+  background-color:rgb(255, 255, 255);
+  box-shadow:gray 0px 0px 1px 0px;
+  border-radius: 2px;
+  z-index: 1;
+  margin-top: 30px;
+}
+.avatarUrl{
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  overflow: hidden;
+  margin-left: 15px;
+}
+.top_name{
+  margin-left: 5px;
+}
+.top_mine{
+  margin-right: 2px;
+  font-size: 13pt;
+  color: rgb(136, 136, 136);
+}
+/*我的选择*/
+.cards_cell{
+  width: 750rpx !important;
+  margin-top: 50rpx !important;
+}
+.cards_title{
+  font-size: 20pt !important;
+  font-family: Microsoft YaHei !important;
+  letter-spacing: 2px !important;
+  font-weight: bold !important;
+}
+.cards_value{
+  font-size: 12pt !important;
+  color: gray !important;
+}
+
+.my_cards{
+  margin-top: 2px;
+  width: 100%;
+  height: 410rpx;
+}
+.in_my_cards{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 410rpx;
+}
+.new_card{
+  height: 324rpx;
+  width: 200rpx ;
+  flex-shrink:0;
+  border-radius: 8px;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 30rpx;
+  padding: 10px;
+  box-shadow: gray 0px 0px 4px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center ;
+}
+.card_add{
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 30rpx;
+}
+.new_txt{
+  margin-top: 60rpx;
+  font-size: 13pt;
+  color: #888888;
+}
+.each_card{
+  height: 324rpx;
+  width: 200rpx ;
+  flex-shrink:0;
+  border-radius: 8px;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 30rpx;
+  padding: 10px;
+  box-shadow: black 0px 0px 1px 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center ;
+  background: rgb(255,106,47);
+}
+.each_card_img{
+  width: 150rpx;
+  height: 150rpx;
+}
+.each_card_txt{
+  font-size: 13pt;
+  margin-top: 5px;
+  margin-left: 2px;
+}
+.each_card_del{
+  background: #fff;
+  width: 80%;
+  border-radius: 20px;
+  height: 50rpx;
+  margin-top: auto;
+  box-shadow: black 0px 0px 1px 1px;
+  font-size: 11pt;
+  text-align: center;
+  letter-spacing: 2px;
+}
+/*广场*/
+.square_txt{
+  margin-top: 70rpx;
+  font-size: 20pt;
+  font-family: Microsoft YaHei;
+  letter-spacing: 2px;
+  font-weight: bold;
+  width: 100%;
+  margin-left: 80rpx;
+}
+
+.to{
+  flex-shrink: 0;
+  margin: 30rpx;
+  width: 90%;
+  height: 230rpx;
+  border-radius: 20px;
+  box-shadow: black 0px 0px 2px 2px;
+  display: flex;
+  align-items: center;
+}
+.to_img{
+  height: 200rpx;
+  width: 330rpx;
+  margin-left: 20rpx;
+}
+.to_txt{
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
+}
+.to_first{
+  font-size: 17pt;
+  letter-spacing: 3px;
+  font-family: "SimHei";
+}
+.to_second{
+  font-size: 11pt;
+  margin-top: 20rpx;
+}
+.bottom{
+  width: 100%;
+  height: 50rpx;
+  flex-shrink: 0;
+}

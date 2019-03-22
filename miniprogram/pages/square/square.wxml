@@ -4,10 +4,10 @@
   </loading>
 </view>
 <view>
-  <image src='{{image}}' class='background'></image>
+  <image src='{{img}}' class='background'></image>
   <block wx:for="{{detail}}" wx:if="{{index==now}}" wx:key='{{item.id}}'>
     <view class="card ripple {{left?'rotateInDownLeft':'rotateInDownRight'}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
-      <image class='img' src='{{image}}'>
+      <image class='img' src='{{img}}'>
       </image>
       <scroll-view scroll-y class='con_text'>{{item}}
       </scroll-view>

@@ -5,8 +5,7 @@ const app = getApp()
 import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
 Page({
   data: {
-    image: '../../images/no.png',
-    used: false,
+    img: '../../images/no.png',
     //0右滑 2左滑
     detail: [
       '',
@@ -16,7 +15,8 @@ Page({
     choose: null,
     now: 1,
     left: true,
-    hidden: false
+    hidden: false,
+    date: ""
   },
   //手指触摸动作开始 记录起点X坐标
   touchstart: function (e) {
@@ -74,6 +74,7 @@ Page({
     return 360 * Math.atan(_Y / _X) / (2 * Math.PI)
   },
 
+  //对云端进行操作
   opera_cloud: async function(pos){
     var date = new Date()
     date = util.format(date)
@@ -93,6 +94,7 @@ Page({
         resolve()
       })
     }).then(()=>{
+      //查询用户是否已经选择过了
       if (pos == 1) {
         if (!log) return
         if (log.date == date) this.data.choose = log.choose
@@ -115,29 +117,44 @@ Page({
         }
       }
     })
-    
   }
-
   ,
   onLoad: function () {
     var date = new Date()
     date=util.format(date)
+    this.data.date = date
     console.log("当日时间",date)
+    this.opera_cloud(1)
+    var local_img = wx.getStorageSync('local_img')
+    console.log("本地储存的信息",local_img)
+    if (local_img.date == date) {
+      this.setData({
+        img: local_img.img,
+        detail: local_img.detail,
+        hidden: true,
+        choose: local_img.choose
+      })
+
+      return
+    }
+
     var db = wx.cloud.database();
     var that = this
-    this.opera_cloud(1)
     
+
+    //得到当天的卡牌
     db.collection('square').limit(1).get().then((res)=>{
       var data=res.data[0]
       console.log(data)
       that.setData({
-        image: data.img,
+        img: data.img,
         detail: data.detail,
         hidden: true
       })
-      wx.setStorageSync("square", {
-        image: data.img,
-        detail: data.detail
+      wx.setStorageSync("local_img", {
+        date: that.data.date,
+        img: that.data.img,
+        detail: that.data.detail
       })
     })
   }
