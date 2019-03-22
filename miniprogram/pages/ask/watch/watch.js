@@ -15,7 +15,8 @@ Page({
     comment_number:0,
     comment_detail: '',
     _id:null,
-    img_path: null
+    img_path: null,
+    submit:false
   },
 
   /**
@@ -84,11 +85,11 @@ Page({
 
   },
   comment_detail: function (e) {
-    console.log('3')
-    console.log(e.detail)
+    console.log(e.detail)    
     this.setData({
       comment_detail: e.detail.value
     })
+
   },
   submit: function () {
     if (this.data.comment_detail === '') {
@@ -99,6 +100,9 @@ Page({
       })
       return
     }
+    this.setData({
+      disabled:true
+    })
     var comment={
       date: util.formatTime(new Date()),
       detail: this.data.comment_detail,
@@ -123,6 +127,9 @@ Page({
       fail: err => {
         console.error("更改数据失败", err)
       }
+    })
+    this.setData({
+      disabled: false
     })
   },
   see_img: function () {

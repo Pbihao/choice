@@ -130,9 +130,9 @@
 }
 
 .comment{
-  width: 98%;
-  display: flex;
-  align-items: center;
+  position: fixed;
+  width: 710rpx;
+  bottom: 0%;
   border: 1rpx solid #e0e0e0;
   border-radius: 10rpx;
   box-shadow: 0 0 5rpx #e0e0e0;
@@ -141,10 +141,12 @@
 }
 
 .input {
+  float: left;
   font-size: 18px;
+  margin-bottom: 10rpx;
   line-height: 20px!important;
 }
 
-.submit {
-  right: 10%
+.foot {
+  z-index: -1;
 }
