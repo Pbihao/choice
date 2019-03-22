@@ -4,23 +4,30 @@
           <view class='card'>
             <!--用户的头像昵称这些-->
             <view class='user'>
-              <image src='{{ask.avatar_url}}' class='user_icon'></image>
+              <image src='{{avatar_url}}' class='user_icon'></image>
               <view class='name_date'>
-                <text>{{ask.avatar_name}}</text>
-                <text style='font-size:10px; margin-top: 5px'>{{ask.date}}</text>
+                <text>{{avatar_name}}</text>
+                <text style='font-size:10px; margin-top: 5px'>{{date}}</text>
               </view>
             </view>
-            
             <text class='content'>
-                {{ask.detail}}
+                {{detail}}
             </text> 
-            <block wx:if='{{ask.img_path}}'>
-            <image src='{{ask.img_path}}' class='img' mode='aspectFill' bindtap='see_img' data-index='{{ask.unique}}'></image>
+            <block wx:if='{{j}}'>
+            <image src='{{img_path}}' class='img' mode='aspectFill' bindtap='see_img'></image>
             </block>
           </view>
   </view>
-<view style="text-align:center;font-size:14px;color:#ccc;margin-top:20rpx;">以下是留言内容</view>
-<view wx:for="{{ask.comment}}" wx:key="item" class="liuyanview">
+<view style="text-align:center;font-size:16px;color:#ccc;margin-top:20rpx;">以下是留言内容</view>
+<view class='comment'>
+    <van-icon name="comment-o" size="24px" />
+    <textarea class="input" value="{{ comment_detail }}" placeholder="发布评论"  bindinput="comment_detail" maxlength="140" auto-height='true' fixed='true'/>
+    <van-button 
+        size="large" 
+        type='info' 
+        catchtap='submit'>发布</van-button>
+</view>
+<view wx:for="{{comment}}" wx:key="item" class="liuyanview">
 
   <view class="headimg"><image src="{{item.user_avatar}}"></image></view>
   <view class="nickname_liuyantext">
@@ -30,25 +37,10 @@
   <!-- 占位符 -->
   <view style="width:100%;height:10px;"></view>
 </view>
-<van-panel title="共 {{ask.comment_number}} 条评论">
+<view class='foot'>
+<van-panel title="共 {{comment_number}} 条评论">
   <view>　</view>
   <view>　</view>
 </van-panel>
-
-<view class='comment'>
-  <van-cell-group>
-    <van-field
-      type='textarea'
-      autosize
-      border='{{true}}'
-      value="{{ comment_detail }}"
-      placeholder="评论"
-      bind:change="comment_detail"
-      use-button-slot
-      clearable="{{ true }}"
-      input-class='input'
-    >
-      <van-button slot="button" size="small" type="primary" bind:click='submit'>发布</van-button>
-    </van-field>
-  </van-cell-group>
 </view>
+
