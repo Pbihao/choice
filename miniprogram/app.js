@@ -25,6 +25,7 @@ App({
               that.globalData.userInfo = res.userInfo
               that.globalData.avatarUrl = res.userInfo.avatarUrl
               that.globalData.nickName = res.userInfo.nickName
+              console.log(this.globalData.userInfo)
             }
           })
         }
