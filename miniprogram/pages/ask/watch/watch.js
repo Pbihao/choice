@@ -7,18 +7,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ask: null,
-    comment_detail: ""
+    detail:'',
+    avatar_name:'',
+    date:null,
+    avatar_url:'',
+    comment:null,
+    comment_number:0,
+    comment_detail: '',
+    _id:null,
+    img_path: null,
+    submit:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      ask: wx.getStorageSync('ask')
-    })
-    console.log(this.data.ask)
   },
 
   /**
@@ -32,7 +36,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var ask = wx.getStorageSync('ask')
 
+    this.setData({
+      comment: ask.comment,
+      comment_number: ask.comment.length,
+      avatar_name: ask.avatar_name,
+      avatar_url: ask.avatar_url,
+      date: ask.date,
+      detail: ask.detail,
+      _id: ask._id,
+      img_path: ask.img_path
+    })
   },
 
   /**
@@ -70,10 +85,11 @@ Page({
 
   },
   comment_detail: function (e) {
-    console.log(e.detail)
+    console.log(e.detail)    
     this.setData({
-      comment_detail: e.detail
+      comment_detail: e.detail.value
     })
+
   },
   submit: function () {
     if (this.data.comment_detail === '') {
@@ -84,21 +100,25 @@ Page({
       })
       return
     }
+    this.setData({
+      disabled:true
+    })
     var comment={
       date: util.formatTime(new Date()),
       detail: this.data.comment_detail,
       user_avatar: app.globalData.avatarUrl,
       user_name: app.globalData.nickName
     }
-    this.data.ask.comment.push(comment)
+    this.data.comment.push(comment)
     this.setData({
-      comment_detail: '',
-      ask: this.data.ask
+      comment_detail:'',
+      comment: this.data.comment,
+      comment_number: this.data.comment_number + 1
     })
     wx.cloud.callFunction({
       name: 'update_comment',
       data: {
-        id: this.data.ask._id,
+        id: this.data._id,
         comment: comment
       },
       success: res => {
@@ -107,6 +127,9 @@ Page({
       fail: err => {
         console.error("更改数据失败", err)
       }
+    })
+    this.setData({
+      disabled: false
     })
   },
   see_img: function () {

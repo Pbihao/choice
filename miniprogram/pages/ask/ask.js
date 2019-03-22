@@ -205,10 +205,19 @@ Page({
   },
   //点击了卡片跳转
   comment: function(e) {
-    console.log(e.currentTarget.dataset.ask)
     wx.setStorageSync('ask', e.currentTarget.dataset.ask)
     wx.navigateTo({
       url: '/pages/ask/watch/watch',
     })
+  },
+  onPullDownRefresh: function () {
+    this.onLoad
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    this.onLoad
   }
 })
