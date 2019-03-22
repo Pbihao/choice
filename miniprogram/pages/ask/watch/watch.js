@@ -87,7 +87,7 @@ Page({
   comment_detail: function (e) {
     console.log(e.detail)    
     this.setData({
-      comment_detail: e.detail.value
+      comment_detail: e.detail
     })
 
   },
@@ -100,9 +100,6 @@ Page({
       })
       return
     }
-    this.setData({
-      disabled:true
-    })
     var comment={
       date: util.formatTime(new Date()),
       detail: this.data.comment_detail,
@@ -111,7 +108,6 @@ Page({
     }
     this.data.comment.push(comment)
     this.setData({
-      comment_detail:'',
       comment: this.data.comment,
       comment_number: this.data.comment_number + 1
     })
@@ -128,13 +124,15 @@ Page({
         console.error("更改数据失败", err)
       }
     })
-    this.setData({
-      disabled: false
-    })
+    setTimeout(() => {
+      this.setData({
+        comment_detail: ''
+      })
+    }, 500)
   },
   see_img: function () {
     wx.previewImage({
       urls: [this.data.ask.img_path]
     })
-  },
+  }
 })

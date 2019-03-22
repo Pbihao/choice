@@ -33,7 +33,6 @@
   justify-content: center;
   align-items: center;
   margin-top: 50rpx;
-  margin-bottom: 50rpx;
   width: 100%;
   padding: 0px;
 }
@@ -127,26 +126,26 @@
   color: #666;
   letter-spacing: 1px;
   line-height: 20px;
+  word-break:break-all;
 }
 
 .comment{
   position: fixed;
-  width: 710rpx;
+  width: 740rpx;
+  height: 100rpx;
   bottom: 0%;
   border: 1rpx solid #e0e0e0;
   border-radius: 10rpx;
   box-shadow: 0 0 5rpx #e0e0e0;
   margin-top: 30rpx;
-  padding: 20rpx;
+  padding: 5rpx;
+  background-color: #fff;
 }
 
 .input {
-  float: left;
-  font-size: 18px;
-  margin-bottom: 10rpx;
-  line-height: 20px!important;
+  font-size: 32rpx !important;
 }
 
-.foot {
-  z-index: -1;
+.page_container {
+  margin-bottom: 20rpx;
 }

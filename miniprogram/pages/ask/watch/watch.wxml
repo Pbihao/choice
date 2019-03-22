@@ -1,5 +1,5 @@
 <!-- 如果没有图片，加载第一种布局-->
-  <view class='container'>
+  <view class='page_container'>
         <!--如果说有图片-->
           <view class='card'>
             <!--用户的头像昵称这些-->
@@ -17,16 +17,41 @@
             <image src='{{img_path}}' class='img' mode='aspectFill' bindtap='see_img'></image>
             </block>
           </view>
-  </view>
+
 <view style="text-align:center;font-size:16px;color:#ccc;margin-top:20rpx;">以下是留言内容</view>
+<block>
 <view class='comment'>
+<van-cell-group>
+  <van-field
+    left-icon='comment-o'
+    value="{{ comment_detail }}"
+    bind:change='comment_detail'
+    input-class='input'
+    clearable
+    fixed=true
+    autosize=true
+    type='textarea'
+    placeholder="发布评论"
+    border="{{ false }}"
+    use-button-slot
+  >
+    <van-button 
+        slot="button" 
+        size="small" 
+        type='info' 
+        catchtap='submit'>发布</van-button>
+  </van-field>
+</van-cell-group>
+</view>
+</block>
+<!--<view class='comment'>
     <van-icon name="comment-o" size="24px" />
     <textarea class="input" value="{{ comment_detail }}" placeholder="发布评论"  bindinput="comment_detail" maxlength="140" auto-height='true' fixed='true'/>
     <van-button 
         size="large" 
         type='info' 
         catchtap='submit'>发布</van-button>
-</view>
+</view>-->
 <view wx:for="{{comment}}" wx:key="item" class="liuyanview">
 
   <view class="headimg"><image src="{{item.user_avatar}}"></image></view>
@@ -37,9 +62,8 @@
   <!-- 占位符 -->
   <view style="width:100%;height:10px;"></view>
 </view>
-<view class='foot'>
-<van-panel title="共 {{comment_number}} 条评论">
-  
-</van-panel>
+<text style='font-size: 12pt;color:grey;'>共 {{comment_number}} 条评论</text>
+<view style='height: 120rpx;width:100%'></view>
 </view>
+
 
