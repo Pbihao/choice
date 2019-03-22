@@ -40,9 +40,30 @@ Page({
     var that = this
     var id = e.currentTarget.dataset.index
     console.log("点击了左边的按钮",this.data.content[id])
-    if (this.data.content[id].hased) return
-    this.data.content[id].hased = true
     var mcontent = this.data.content
+    if (this.data.content[id].hased) {
+      //当前显示的
+      if(this.data.content[id].status==1){
+        mcontent[id].right_txt = mcontent[id].or_right
+        mcontent[id].left_txt = mcontent[id].or_left
+        mcontent[id].status = 0 //1表示现在显示的是题目
+      }else{
+        mcontent[id].right_txt = that.data.content[id].right + '票'
+        mcontent[id].left_txt = that.data.content[id].left + 1 + '票'
+        mcontent[id].status = 1 //1表示现在显示的是票数
+      }
+      this.setData({
+        content: mcontent
+      })
+      return
+    }
+    this.data.content[id].hased = true
+    
+
+    mcontent[id].or_right = mcontent[id].right_txt
+    mcontent[id].or_left = mcontent[id].left_txt
+    mcontent[id].status = 1 //1表示现在显示的是票数
+
     mcontent[id].right_txt = that.data.content[id].right + '票'
     mcontent[id].left_txt = that.data.content[id].left + 1 + '票'
     this.setData({
@@ -69,9 +90,31 @@ Page({
     var that = this
     var id = e.currentTarget.dataset.index
     console.log(this.data.content[id])
-    if(this.data.content[id].hased)return
-    this.data.content[id].hased = true
+    
     var mcontent = this.data.content
+    if (this.data.content[id].hased) {
+      //当前显示的
+      if (this.data.content[id].status == 1) {
+        mcontent[id].right_txt = mcontent[id].or_right
+        mcontent[id].left_txt = mcontent[id].or_left
+        mcontent[id].status = 0 //1表示现在显示的是题目
+      } else {
+        mcontent[id].right_txt = that.data.content[id].right + '票'
+        mcontent[id].left_txt = that.data.content[id].left + 1 + '票'
+        mcontent[id].status = 1 //1表示现在显示的是票数
+      }
+      this.setData({
+        content: mcontent
+      })
+      return
+    }
+    this.data.content[id].hased = true
+    
+
+    mcontent[id].or_right = mcontent[id].right_txt
+    mcontent[id].or_left = mcontent[id].left_txt
+    i.status = 1 //1表示现在显示的是票数
+
     mcontent[id].right_txt = that.data.content[id].right + 1 + '票'
     mcontent[id].left_txt = that.data.content[id].left +  '票'
     this.setData({
@@ -195,6 +238,11 @@ load_card: function () {
           i.unique = that.data.now_unique
           //加载的时候之前就已经投过票了
           if (i.used.includes(app.globalData.openid)) {
+
+            i.or_right = i.right_txt
+            i.or_left = i.left_txt
+            i.status=1 //1表示现在显示的是票数
+
             i.left_txt = i.left + '票'
             i.right_txt = i.right + '票'
             i.hased = true;
