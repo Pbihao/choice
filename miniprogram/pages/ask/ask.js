@@ -49,7 +49,7 @@ Page({
         mcontent[id].status = 0 //1表示现在显示的是题目
       }else{
         mcontent[id].right_txt = that.data.content[id].right + '票'
-        mcontent[id].left_txt = that.data.content[id].left + 1 + '票'
+        mcontent[id].left_txt = that.data.content[id].left + '票'
         mcontent[id].status = 1 //1表示现在显示的是票数
       }
       this.setData({
@@ -65,7 +65,7 @@ Page({
     mcontent[id].status = 1 //1表示现在显示的是票数
 
     mcontent[id].right_txt = that.data.content[id].right + '票'
-    mcontent[id].left_txt = that.data.content[id].left + 1 + '票'
+    mcontent[id].left_txt = that.data.content[id].left + '票'
     this.setData({
       content: mcontent
     })
