@@ -8,15 +8,16 @@ Page({
     deleteDisabled: false,
     createLoading: false,
     date: '',
-    has_card: false
+    has_card: false,
+    vis: true
   },
   //跳转到创建卡牌界面
   to_create: function () {
+    wx.setStorageSync('edit', 0)
     wx.navigateTo({
       url: '../luck/create/create',
     })
-  }
-  ,
+  },
   //跳转到我的界面
   to_mine: function () {
     wx.navigateTo({
@@ -36,6 +37,18 @@ Page({
   },
   to_number: function () {
     console.log("跳转到随机数")
+    wx.navigateTo({
+      url: '../number/number',
+    })
+  },
+  to_example: function(){
+    wx.setStorageSync('defualt_cards',{
+      choices: ["广东烧腊","酸菜鱼","饺子","蒸功夫", "开饭啦","麻辣烫","麻辣香锅","烤肉"],
+      title: "吃什么(玩法示例)"
+    })
+    wx.navigateTo({
+      url: '../luck/create/create?data=1',
+    })
   },
   to_default: function () {
     wx.navigateTo({
@@ -62,13 +75,11 @@ Page({
       }).count()
       const total = countResult.total
       var cards = []
-
       var promise = null
       promise = collection.where({
         _openid: app.globalData.openid
       }).limit(20).get()
       cards.push(promise)
-      
       var a = {}
       console.log("toltle:", total)
       if (total >= 1) {
@@ -107,8 +118,13 @@ Page({
     })
     if (myChoices) {
       this.setData({
-        myChoices: myChoices
+        myChoices: myChoices,
       })
+      if(myChoices[0]){
+        this.setData({
+          has_card: true
+        })
+      }
       console.log("load:",myChoices)
     }
   },

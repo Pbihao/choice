@@ -13,7 +13,7 @@
             <text class='content'>
                 {{detail}}
             </text> 
-            <block wx:if='{{j}}'>
+            <block wx:if='{{img_path}}'>
             <image src='{{img_path}}' class='img' mode='aspectFill' bindtap='see_img'></image>
             </block>
           </view>

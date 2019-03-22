@@ -83,9 +83,9 @@ Page({
   },
  
 
-  onLoad: function () {
+  onLoad: function (e) {
     app.getOpenid()
-    if (wx.getStorageSync('myChoices_list') != "") {
+    if (wx.getStorageSync('myChoices_list')) {
       var problems = wx.getStorageSync('myChoices_list')
       this.setData({
         problems: problems
@@ -99,7 +99,7 @@ Page({
         leftCount: this.data.problems[wx.getStorageSync('edit')-1].nOfCards
       })
     }
-    if (wx.getStorageSync('example')) {
+    if (wx.getStorageSync('example')||e.data==1) {
       var example = wx.getStorageSync('defualt_cards')
       console.log(example)
       console.log(wx.getStorageSync('example'))

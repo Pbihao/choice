@@ -39,7 +39,7 @@
 
         <!--判断需不需要示例卡片，如果没有的话-->
         <block wx:if="{{!has_card}}">
-          <view class='each_card'>
+          <view class='each_card' bindtap='to_example'>
             <image src='../../images/each_card.png' class='each_card_img'></image>
             <text class='.each_card_txt'>吃什么\n(玩法示例)</text>
             <text class='each_card_del'>删除</text>

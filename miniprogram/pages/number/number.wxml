@@ -1,0 +1,20 @@
+<view class='page'>
+  <image src="/images/bk.png" class="background"></image>
+  <text class='number'>{{now}}</text>
+  <view class='input'>
+    <van-cell-group>
+    <van-field
+      placeholder="请输入最小值"
+      border="{{ true }}"
+      bind:change="onChangebg"
+    />
+    <van-field
+      placeholder="请输入最大值"
+      border="{{ true }}"
+      bind:change="onChangeed"
+    />
+  </van-cell-group>
+  </view>
+  <button class='bg' bindtap='change'>开始</button>
+</view>
+
