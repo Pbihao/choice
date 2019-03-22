@@ -1,3 +1,4 @@
+const forbidden = require('../../../utils/forbidden.js')
 import regeneratorRuntime from '../../../regenerator-runtime/runtime.js';
 var util = require('../../../utils/util.js');
 const app = getApp()
@@ -100,9 +101,10 @@ Page({
       })
       return
     }
+    var detail = forbidden.replaceForbiddenWords(this.data.comment_detail)
     var comment={
       date: util.formatTime(new Date()),
-      detail: this.data.comment_detail,
+      detail: detail,
       user_avatar: app.globalData.avatarUrl,
       user_name: app.globalData.nickName
     }
