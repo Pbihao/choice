@@ -148,6 +148,11 @@ Page({
     })   
   },
 
+  random: function() {
+    wx.navigateTo({
+      url: '/pages/random/random',
+    })
+  },
 
   edit: function(e) {
     let index = e.currentTarget.dataset.index;

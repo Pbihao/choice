@@ -1,0 +1,21 @@
+/* miniprogram/pages/random/random.wxss */
+.top {
+  width: 750rpx;
+  height: 562.5rpx;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
+  box-shadow: 0px 7px 7px -7px #5E5E5E
+}
+.result {
+  position: absolute;
+  left: 10%;
+  top: 20%;
+  font-size: 30px;
+}
+.input {
+  display: flex;
+  direction: com;
+  height: 50rpx;
+  width: 80%;
+  font-size: 40rpx;
+  border-radius: 3rpx;
+  }

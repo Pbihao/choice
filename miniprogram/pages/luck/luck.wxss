@@ -77,3 +77,14 @@ page {
   height: 75rpx;
   padding: 25rpx 15rpx;
 }
+
+.random {
+  position: fixed !important;
+  width: 120rpx;
+  height: 120rpx !important;
+  font-size: 90rpx !important;
+  bottom: 70rpx;
+  left: 35rpx;
+  line-height: 100rpx !important;
+  padding: 0rpx 0rpx !important;
+}

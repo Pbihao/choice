@@ -1,0 +1,21 @@
+<!--miniprogram/pages/random/random.wxml-->
+<image src='../../images/about_background.png' class='top'></image>
+<text class='result'>随机数：{{random_result}}</text>
+
+<input 
+  class="input" 
+  value="{{ min }}" 
+  type='number'
+  placeholder="输入随机数范围下界"  
+  bindinput="input_min" 
+  bindconfirm="addchoiceHandle" 
+  maxlength="30" />
+<input 
+  class="input" 
+  value="{{ max }}" 
+  type='number'
+  placeholder="输入随机数范围上界"  
+  bindinput="input_max" 
+  bindconfirm="addchoiceHandle" 
+  maxlength="30" />
+<van-button type="primary" bind:click='generate_random'>生成随机数</van-button>

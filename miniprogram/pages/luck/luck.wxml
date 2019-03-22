@@ -75,4 +75,9 @@
           name="plus"
           size="50rpx"
         /></van-button>
+    <van-button custom-class='random' round type="info"  catchtap='random'>
+        <van-icon 
+          name="plus"
+          size="50rpx"
+        /></van-button>        
 </view>
