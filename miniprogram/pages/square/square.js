@@ -40,6 +40,7 @@ Page({
     //向右滑动
     if (touchMoveX > startX) {
       if (n == 1 && c == 2) {
+        
         return
       }
       if (n == 0) return
@@ -53,6 +54,7 @@ Page({
       } 
     } else {
       if (n == 1 && c == 0) {
+        
         return
       }
       if (n == 2) return
