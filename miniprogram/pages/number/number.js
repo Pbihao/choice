@@ -5,7 +5,8 @@ Page({
     begin: 0,
     end: 100,
     u: 0,
-    max: 15
+    max: 15,
+    scrollHeight: null
   },
   onChangebg: function (e) {
     console.log(e.detail)
@@ -20,7 +21,11 @@ Page({
     })
   },
   onLoad: function () {
-
+    let scrollHeight = wx.getSystemInfoSync().windowHeight;
+    this.setData({
+      scrollHeight: scrollHeight,
+    });
+    console.log(scrollHeight)
   },
   change: function () {
     this.data.u = 0

@@ -1,29 +1,50 @@
 .background{
-  position: absolute;
   width: 100%;
-  height: 100%;
 }
 .page{
   display: flex;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
   align-items: center;
 }
 .number{
   position: absolute;
   z-index: 3;
-  top: 47%;
+  top: 40%;
   font-size: 40pt;
   font-family: Microsoft YaHei;
 }
-.input{
-  position: absolute !important;
-  bottom: 50px;
-  left: 0px;
+.back{
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.bottom{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  bottom: 0px;
+}
+
+.input{
+  display: flex;
+  width: 100%;
+  height: 40px;
+}
+.left{
+  height: 40px;
+  width: 100% !important;
+  font-size: 10pt;
+}
+.right{
+  height: 40px;
+  width: 100% !important;
+  font-size: 10pt;
 }
 .bg{
-  position: absolute !important;
   bottom: 0px;
-  height: 50px;
+  height: 40px;
   width: 100%
 }
