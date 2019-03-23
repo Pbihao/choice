@@ -1,6 +1,7 @@
 // miniprogram/pages/ask/edit/edit.js
 //index.js
 //获取应用实例
+const forbidden = require('../../../utils/forbidden.js')
 const app = getApp()
 import regeneratorRuntime from '../../../regenerator-runtime/runtime.js';
 var util = require('../../../utils/util.js');
@@ -100,12 +101,12 @@ Page({
           comment:[],
           comment_number:0,
           date: util.formatTime(new Date),
-          detail: that.data.detail,
+          detail: forbidden.replaceForbiddenWords(that.data.detail),
           img_path: cloud_id,
           left: 0,
-          left_txt: that.data.left,
+          left_txt: forbidden.replaceForbiddenWords(that.data.left),
           right: 0,
-          right_txt: that.data.right,
+          right_txt: forbidden.replaceForbiddenWords(that.data.right),
           used:[]
         }
       }).then(() => {
