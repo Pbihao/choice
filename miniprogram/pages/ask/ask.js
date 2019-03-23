@@ -323,7 +323,7 @@ load_card: function () {
     wx.navigateTo({
       url: '/pages/ask/watch/watch',
     })
-  },
+  },/*
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading()
     this.setData({
@@ -337,7 +337,7 @@ load_card: function () {
 
   /**
    * 页面上拉触底事件的处理函数
-   */
+   *//*
   onReachBottom: function () {
     console.log('bottum')
     wx.showNavigationBarLoading()
@@ -348,5 +348,5 @@ load_card: function () {
     this.onShow()
     wx.hideNavigationBarLoading() //完成停止加载
     wx.stopPullDownRefresh() //停止下拉刷新
-  }
+  }*/
 })
