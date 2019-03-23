@@ -30,7 +30,7 @@ Page({
     if(this.data.loading)return
     if(!this.data.img_path){
       wx.showToast({
-        title: '提交广场必须要有一张图片哦o(╯□╰)o',
+        title: '提交选一选必须要有一张图片哦o(╯□╰)o',
         icon: 'none',
         duration: 1000
       })

@@ -85,13 +85,13 @@ Page({
 
   onLoad: function (e) {
     app.getOpenid()
-    if (wx.getStorageSync('myChoices_list')) {
+    if (wx.getStorageSync('myChoices_list') && e.data != 1) {
       var problems = wx.getStorageSync('myChoices_list')
       this.setData({
         problems: problems
       })
     }
-    if (wx.getStorageSync('edit')) {
+    if (wx.getStorageSync('edit') && e.data != 1) {
       this.setData({
         edit: wx.getStorageSync('edit'),
         choices: this.data.problems[wx.getStorageSync('edit')-1].choices,
@@ -168,7 +168,8 @@ Page({
   },
 
   begin: function (){
-    if(!this.leftCount){
+
+    if(!this.data.leftCount){
       wx.showToast({
         title: '请输入选项，输入后点击键盘右下角完成添加子选项',
         duration: 4000,

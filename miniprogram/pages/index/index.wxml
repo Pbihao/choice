@@ -73,7 +73,7 @@
       <image src='../../images/to_choose.png' class='to_img'></image>
       <view class='to_txt'>
         <text class='to_first'>选一选</text>
-        <text class='to_second'>滑动卡牌做个选择</text>
+        <text class='to_second'>选左还是选右？</text>
       </view>
     </view>
 
