@@ -168,6 +168,14 @@ Page({
   },
 
   begin: function (){
+    if(!this.leftCount){
+      wx.showToast({
+        title: '请输入选项，输入后点击键盘右下角完成添加子选项',
+        duration: 4000,
+        icon: 'none'
+      })
+      return
+    }
     var id = Math.floor(Math.random() * this.data.leftCount)
     var msg = this.data.choices[id]
     wx.redirectTo({
