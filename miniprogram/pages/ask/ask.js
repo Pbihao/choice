@@ -252,15 +252,16 @@ load_card: function () {
           cont.push(i)
         }
         that.setData({
-          content: cont
-        })
+          content: cont,
+          hidden: true
+        })/*
         if (that.data.first_log) {
           that.data.first_log = false
           that.setData({
             first_log: false,
             hidden: true
           })
-        }
+        }*/
       }).catch(err => {
         console.error("获取记录失败：", err)
       })
@@ -324,13 +325,28 @@ load_card: function () {
     })
   },
   onPullDownRefresh: function () {
-    this.onLoad
+    wx.showNavigationBarLoading()
+    this.setData({
+      hidden: false,
+      refresh: true
+    })
+    this.onShow()
+    wx.hideNavigationBarLoading() //完成停止加载
+    wx.stopPullDownRefresh() //停止下拉刷新
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.onLoad
+    console.log('bottum')
+    wx.showNavigationBarLoading()
+    this.setData({
+      hidden: false,
+      refresh: true
+    })
+    this.onShow()
+    wx.hideNavigationBarLoading() //完成停止加载
+    wx.stopPullDownRefresh() //停止下拉刷新
   }
 })
