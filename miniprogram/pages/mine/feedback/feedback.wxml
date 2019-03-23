@@ -1,0 +1,33 @@
+<!--miniprogram/pages/mine/feedback/feedback.wxml-->
+<view class='page'>
+  <image src='../../../images/about_background.png' class='background'></image>
+  <view class='top' bindtap='chooseImage'>
+    <block wx:if="{{img_path}}">
+      <image style="height:350rpx;" src="{{img_path}}" mode='center'></image>
+    </block>
+    <block wx:else>
+    <van-icon
+      name="photo-o"
+      size='300%'
+    />
+    </block>
+  </view>
+  <view class='first'><text>欢迎向开发者提交小程序使用中遇到的问题，我们尽快解决</text></view>
+  <scrool-view style='margin-top:20rpx;width:100%;height:750rpx;'>
+    <van-cell-group>
+    <van-field
+      type='textarea'
+      autosize
+      label='问题'
+      placeholder="这里是你遇到的问题"
+      bind:change="onChangeFace"
+      title-width='50px'
+      maxlength='200'
+      input-class='question'
+    />
+    </van-cell-group>
+    <view class='bottom'>
+      <button type='primary' bindtap='submit' loading='{{loading}}'>提交反馈</button>
+    </view>
+  </scrool-view>
+</view>

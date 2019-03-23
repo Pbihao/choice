@@ -52,7 +52,18 @@
   is-link
 />
 </van-cell-group>
-
+<van-cell-group>
+<view class='icon_block'>
+<image class="icon" src="../../images/feedback.png"></image>
+</view>
+<van-cell
+  title="问题反馈"
+  custom-class="cell"
+  title-class="title"
+  url="./feedback/feedback"
+  is-link
+/>
+</van-cell-group>
 <van-cell-group>
 <view class='icon_block'>
 <image class="icon" src="../../images/share.png"></image>
