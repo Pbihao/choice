@@ -31,10 +31,10 @@ Page({
       loading: true
     })
 
-    var col = wx.cloud.database().collection("questions")
+    var col = wx.cloud.database().collection("feedback")
     var path = that.data.img_path
     if (that.data.img_path) {
-      path = 'ask_img/' + util.formatTime2(new Date) + app.globalData.openid + '.' + that.data.img_path.split('.').pop().toLowerCase()
+      path = 'feedback/' + util.formatTime2(new Date) + app.globalData.openid + '.' + that.data.img_path.split('.').pop().toLowerCase()
     }
 
     console.log("上传的路径", path)

@@ -85,13 +85,13 @@ Page({
 
   onLoad: function (e) {
     app.getOpenid()
-    if (wx.getStorageSync('myChoices_list')) {
+    if (wx.getStorageSync('myChoices_list') && e.data != 1) {
       var problems = wx.getStorageSync('myChoices_list')
       this.setData({
         problems: problems
       })
     }
-    if (wx.getStorageSync('edit')) {
+    if (wx.getStorageSync('edit') && e.data != 1) {
       this.setData({
         edit: wx.getStorageSync('edit'),
         choices: this.data.problems[wx.getStorageSync('edit')-1].choices,
