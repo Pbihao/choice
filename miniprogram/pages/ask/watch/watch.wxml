@@ -36,6 +36,8 @@
     use-button-slot
   >
     <van-button 
+        open-type='getUserInfo'
+        bindgetuserinfo="onGetUserInfo"
         slot="button" 
         size="small" 
         type='info' 
