@@ -122,7 +122,7 @@ Page({
     }
     return {
       title: '选择控',
-      path: '/page/mine/mine'
+      path: '/pages/index/index'
     }
   }
 })
