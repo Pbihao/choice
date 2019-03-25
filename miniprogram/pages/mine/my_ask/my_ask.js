@@ -46,7 +46,7 @@ Page({
       if (this.data.content[id].status == 1) {
         mcontent[id].right_txt = mcontent[id].or_right
         mcontent[id].left_txt = mcontent[id].or_left
-        mcontent[id].status = 0 //1表示现在显示的是题目
+        mcontent[id].status = 0 //0表示现在显示的是题目
       } else {
         mcontent[id].right_txt = that.data.content[id].right + '票'
         mcontent[id].left_txt = that.data.content[id].left + '票'
@@ -60,12 +60,11 @@ Page({
     this.data.content[id].hased = true
 
 
-    mcontent[id].or_right = mcontent[id].right_txt
-    mcontent[id].or_left = mcontent[id].left_txt
-    mcontent[id].status = 1 //1表示现在显示的是票数
 
+    mcontent[id].status = 1 //1表示现在显示的是票数
     mcontent[id].right_txt = that.data.content[id].right + '票'
-    mcontent[id].left_txt = that.data.content[id].left + '票'
+    mcontent[id].left_txt = that.data.content[id].left + 1 + '票'
+    mcontent[id].left += 1
     this.setData({
       content: mcontent
     })
@@ -97,10 +96,10 @@ Page({
       if (this.data.content[id].status == 1) {
         mcontent[id].right_txt = mcontent[id].or_right
         mcontent[id].left_txt = mcontent[id].or_left
-        mcontent[id].status = 0 //1表示现在显示的是题目
+        mcontent[id].status = 0 //0表示现在显示的是题目
       } else {
         mcontent[id].right_txt = that.data.content[id].right + '票'
-        mcontent[id].left_txt = that.data.content[id].left + 1 + '票'
+        mcontent[id].left_txt = that.data.content[id].left + '票'
         mcontent[id].status = 1 //1表示现在显示的是票数
       }
       this.setData({
@@ -111,12 +110,10 @@ Page({
     this.data.content[id].hased = true
 
 
-    mcontent[id].or_right = mcontent[id].right_txt
-    mcontent[id].or_left = mcontent[id].left_txt
-    i.status = 1 //1表示现在显示的是票数
-
+    mcontent[id].status = 1 //1表示现在显示的是票数
     mcontent[id].right_txt = that.data.content[id].right + 1 + '票'
     mcontent[id].left_txt = that.data.content[id].left + '票'
+    mcontent[id].right += 1
     this.setData({
       content: mcontent
     })
@@ -146,6 +143,59 @@ Page({
     })
   },
 
+  /*
+  //加载新的卡片,每次十张
+  load_card: function(){
+    if(this.data.allin)return
+    var lt = 10,
+        begin = this.data.begin,
+        that = this
+    begin -= lt
+    if(begin < 0){
+      this.data.allin=true
+      lt += begin
+      begin = 0
+    }
+    this.data.begin=begin
+    const col = wx.cloud.database().collection('questions')
+    console.log("从哪里开始",begin)
+    console.log("加载多少个",lt)
+    col.skip(begin)
+       .limit(lt)
+       .orderBy('date', 'desc')
+        .get()
+        .then(res=>{
+          console.log(res.data)
+          var cont = that.data.content,
+              i
+          for(i of res.data){
+            that.data.now_unique+=1
+            i.unique=that.data.now_unique
+            //加载的时候之前就已经投过票了
+            if(i.used.includes(app.globalData.openid)){
+              i.left_txt = i.left + '票'
+              i.right_txt = i.right + '票'
+              i.hased=true;
+            }else{
+              i.hased=false
+            }
+            cont.push(i)
+          }
+          that.setData({
+            content: cont
+          })
+          if(that.data.first_log){
+            that.data.first_log=false
+            that.setData({
+              first_log: false,
+              hidden: true
+            })
+          }
+        }).catch(err=>{
+          console.error("获取记录失败：", err)
+        })
+  },
+  */
   //加载卡片 一次十张
   load_card: function () {
     var lt = 10,
@@ -187,13 +237,11 @@ Page({
           for (i of res.data) {
             that.data.now_unique += 1
             i.unique = that.data.now_unique
+            i.or_right = i.right_txt
+            i.or_left = i.left_txt
             //加载的时候之前就已经投过票了
             if (i.used.includes(app.globalData.openid)) {
-
-              i.or_right = i.right_txt
-              i.or_left = i.left_txt
               i.status = 1 //1表示现在显示的是票数
-
               i.left_txt = i.left + '票'
               i.right_txt = i.right + '票'
               i.hased = true;

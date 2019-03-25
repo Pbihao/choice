@@ -11,6 +11,11 @@ Page({
     has_card: false,
     vis: true
   },
+  to_prefer: function(){
+    wx.navigateTo({
+      url: '../prefer/prefer',
+    })
+  },
   //跳转到创建卡牌界面
   to_create: function () {
     wx.setStorageSync('edit', 0)

@@ -1,0 +1,17 @@
+<view class='page' style='height:{{scrollHeight}}px'>
+  <text class='txt'>请选择一个你更喜欢的选项\n它将获得更大的被选中概率</text>
+
+  <block wx:for="{{show}}" wx:key="id" wx:if="{{now==index}}">
+    <view class="topv ripple fadeIn" bindtap="top">
+      <image src='../../../images/number.png' class="top"></image>
+      <text class='top_txt'>{{item.top}}</text>
+    </view>
+  
+    <view class='topv ripple fadeIn' bindtap='bottom'>
+      <image src='../../../images/number.png' class='top'></image>
+      <text class='top_txt'>{{item.bottom}}</text>
+    </view>
+
+  </block>
+    
+</view>
