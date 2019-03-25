@@ -142,7 +142,7 @@ Page({
   },
   see_img: function () {
     wx.previewImage({
-      urls: [this.data.ask.img_path]
+      urls: [this.data.img_path]
     })
   },
   onGetUserInfo: function (e) {
