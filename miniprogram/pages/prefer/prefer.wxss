@@ -1,0 +1,86 @@
+/* pages/luck/luck.wxss */
+@import '../../style/number.wxss';
+page {
+  background-color: #fff;
+  font-family: "黑体";
+}
+.top {
+  width:80%;
+  float:right;
+  font-size: 45rpx !important;
+  text-align: center;
+}
+.add{
+  position: fixed !important;
+  width: 120rpx;
+  height: 120rpx !important;
+  font-size: 90rpx !important;
+  bottom: 70rpx;
+  right: 35rpx;
+  line-height: 100rpx !important;
+  padding: 0rpx 0rpx !important;
+}
+.tip{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 450rpx;
+}
+.card{
+  color: #696969;
+  background-color: #fff;
+}
+.title-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 45rpx;
+}
+.date{
+  font-size: 32rpx;
+  font-family: Comfortaa-Light;
+  /* font-weight: bolder; */
+}
+
+.detail{
+  position: absolute;
+  border: 2rpx solid rgb(0, 0, 0);
+  border-radius: 30rpx;
+  width: 150rpx;
+  height: 50rpx;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 50rpx;
+  right: 5%;
+}
+.delete {
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  right: 5%;
+  opacity:0;
+}
+.progress{
+  display: flex;
+  flex-direction: column;
+  left:50%;
+  justify-content: space-between;
+  font-size: 30rpx;
+  text-align: left;
+  color: #696969;
+}
+.img {
+  position: absolute;
+  top: 1%;
+  left: 8%;
+  width: 90rpx;
+  height: 75rpx;
+  padding: 25rpx 15rpx;
+}
+.tip_txt{
+  width: 90%;
+  font-size: 12pt;
+  color: #888888;
+  letter-spacing: 1px;
+  line-height: 14pt;
+}

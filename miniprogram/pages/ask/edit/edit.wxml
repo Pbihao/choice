@@ -30,7 +30,7 @@
       autosize
       label='选项A'
       placeholder="这里是A选项"
-      bind:change="onChangeRight"
+      bind:change="onChangeLeft"
       title-width='50px'
       input-class='input'
       maxlength='7'
@@ -40,7 +40,7 @@
       autosize
       label='选项B'
       placeholder="这里是B选项"
-      bind:change="onChangeLeft"
+      bind:change="onChangeRight"
       title-width='50px'
       maxlength='7'
       input-class='input'

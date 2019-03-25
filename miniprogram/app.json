@@ -14,7 +14,8 @@
     "pages/mine/input_square/input_square",
     "pages/mine/my_ask/my_ask",
     "pages/number/number",
-    "pages/mine/feedback/feedback"
+    "pages/mine/feedback/feedback",
+    "pages/prefer/prefer"
   ],
   "window": {
     "backgroundTextStyle": "light",

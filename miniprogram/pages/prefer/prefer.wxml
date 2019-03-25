@@ -1,0 +1,55 @@
+<!--pages/luck/luck.wxml-->
+<view class="container">
+<!--<van-cell
+  title-class='top'
+  title="　　　　不过早已注定」"
+  size="large"
+  border="{{ false }}"
+/>-->
+<view class='tip' hidden='{{myChoices.length > 0}}'>
+  <text class='tip-txt'>创建新的选择以后，会询问您的偏好，并根据您的偏好，适当调整每个选项被选中的概率，帮您找到自己更想要的结果</text>
+</view>
+<block wx:if="{{ myChoices.length }}">
+  <view wx:for="{{myChoices}}" wx:key="{{index}}">
+    <van-cell-group bindtap='edit' data-index="{{index+1}}" class='card'>
+      <van-cell
+        title="{{item.title}}"
+        title-class='title-container'
+        border="{{ false }}"
+      >
+        <van-icon 
+          slot="icon"
+          name="description"
+          size="45rpx"
+        />
+        <van-icon 
+          slot="right-icon"
+          name="delete"
+          class="van-cell__right-icon"
+          size="50rpx"
+          catchtap='ondelete' 
+          data-index='{{index}}' 
+          disabled='{{deleteDisabled}}'
+        />
+      </van-cell>
+      <van-cell
+        title="{{item.date}}"
+        title-class="date"
+        icon="underway-o"
+      >
+        <van-icon 
+          slot="right-icon"
+          name="arrow"
+          class="van-cell__right-icon"
+          size="50rpx"
+        />
+      </van-cell>
+    </van-cell-group>
+  </view>
+</block>
+  <van-button custom-class='add' round type="info"  catchtap='createChoice' loading='{{createLoading}}'>
+        <van-icon 
+          name="plus"
+          size="50rpx"
+        /></van-button>
+</view>
