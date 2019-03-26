@@ -20,12 +20,6 @@ Page({
 
   //保存一个新的卡组同时跟新云服务器中的卡组
   save: async function () {
-    if(!this.data.weight){
-      wx.navigateTo({
-        url: '../index/index',
-      })
-      return
-    }
     this.setData({
       saveLoading:true
     })
@@ -41,6 +35,14 @@ Page({
       return
     }
     if(this.data.title!='') {
+      if (!this.data.weight) {
+        console.log(this.data.choices)
+        wx.setStorageSync("prefer_index", this.data.choices)
+        wx.redirectTo({
+          url: '../index/index?title=' + this.data.title + '&edit=' + this.data.edit
+        })
+        return
+      }
     //  wx.setStorageSync('choices_list', this.data.choices)
       var problems = this.data.problems
       var card = {
@@ -55,7 +57,7 @@ Page({
         var index = this.data.edit - 1
         console.log(card)
         var _id = problems[index]._id
-        await db.collection('user_cards').doc(problems[index]._id).set({
+        await db.collection('prefer_cards').doc(problems[index]._id).set({
           data: card
         }).then(() => {
           console.log("数据更改成功")
@@ -71,7 +73,7 @@ Page({
         problems[this.data.edit-1] = card
       }
       else {
-        await db.collection('user_cards').add({
+        await db.collection('prefer_cards').add({
           data: card
         }).then((res) => {
           card._id = res._id
@@ -85,7 +87,7 @@ Page({
         })
         problems.push(card)
       }
-      wx.setStorageSync('myChoices_list', problems)
+      wx.setStorageSync('myChoices_list_prefer', problems)
       wx.navigateBack()
     }else{
       wx.showToast({
@@ -104,8 +106,8 @@ Page({
 
   onLoad: function (e) {
     app.getOpenid()
-    if (wx.getStorageSync('myChoices_list') && e.data != 1) {
-      var problems = wx.getStorageSync('myChoices_list')
+    if (wx.getStorageSync('myChoices_list_prefer') && e.data != 1) {
+      var problems = wx.getStorageSync('myChoices_list_prefer')
       this.setData({
         problems: problems
       })
@@ -191,10 +193,20 @@ Page({
       })
       return
     }
-    var id = Math.floor(Math.random() * this.data.leftCount)
-    var msg = this.data.choices[id]
     wx.redirectTo({
-      url: '/pages/luck/choose/choose?msg=' + msg
+      url: '/pages/luck/choose/choose?msg=' + this.getMsg()
     })
+  },
+  getMsg: function(){
+    var sum = 0
+    var i
+    for(i of this.data.weight){
+      sum+=i
+    }
+    var ans =  Math.random() * sum
+    for(i=0; i<this.data.leftCount;i++){
+      ans-=this.data.weight[i]
+      if(ans<=0)return this.data.choices[i]
+    }
   }
 })
