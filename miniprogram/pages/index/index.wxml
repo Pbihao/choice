@@ -77,19 +77,21 @@
       </view>
     </view>
 
-    <view class='to' bindtap='to_prefer' style='background: rgb(243, 88, 92);'>
-      <image src='../../images/to_prefer.png' class='to_img'></image>
-      <view class='to_txt'>
-        <text class='to_first'>偏好选择</text>
-        <text class='to_second'>根据偏好调整选中概率</text>
-      </view>
-    </view>
+    
 
     <view class='to' bindtap='to_number' style='background: rgb(255, 255, 2);'>
       <image src='../../images/to_number.png' class='to_img'></image>
       <view class='to_txt'>
         <text class='to_first'>随机数</text>
         <text class='to_second'>生成随机数</text>
+      </view>
+    </view>
+
+    <view class='to' bindtap='to_prefer' style='background: rgb(243,88,92);'>
+      <image src='../../images/to_prefer.png' class='to_img'></image>
+      <view class='to_txt'>
+        <text class='to_first'>偏好选择</text>
+        <text class='to_second'>根据偏好调整选中概率</text>
       </view>
     </view>
 
