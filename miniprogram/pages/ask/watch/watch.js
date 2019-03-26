@@ -101,6 +101,14 @@ Page({
       })
       return
     }
+    if (!app.globalData.userInfo) {
+      wx.showToast({
+        title: '评论前先登录哦~',
+        duration: 1000,
+        icon: 'none'
+      })
+      return
+    }
     var detail = forbidden.replaceForbiddenWords(this.data.comment_detail)
     var comment={
       date: util.formatTime(new Date()),
@@ -134,7 +142,16 @@ Page({
   },
   see_img: function () {
     wx.previewImage({
-      urls: [this.data.ask.img_path]
+      urls: [this.data.img_path]
     })
+  },
+  onGetUserInfo: function (e) {
+    if (e.detail.userInfo) {
+      app.globalData.userInfo = e.detail.userInfo
+      app.globalData.avatarUrl = e.detail.userInfo.avatarUrl
+      app.globalData.nickName = e.detail.userInfo.nickName
+      app.globalData.loged = true
+    }
+    console.log(app.globalData)
   }
 })
