@@ -7,7 +7,7 @@
     <view class='input'> 
     <van-field
       placeholder="请输入最小值"
-      type='number'
+      type="number"
       border="{{ true }}"
       bind:change="onChangebg"
       input-class="left"
@@ -15,7 +15,7 @@
     />
     <van-field
       placeholder="请输入最大值"
-      type='number'
+      type="number"
       border="{{ true }}"
       bind:change="onChangeed"
       input-class="right"
