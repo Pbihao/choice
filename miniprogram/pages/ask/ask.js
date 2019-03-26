@@ -249,7 +249,8 @@ load_card: function () {
         that.setData({
           content: cont,
           hidden: true
-        })/*
+        })
+        console.log(this.data.content)/*
         if (that.data.first_log) {
           that.data.first_log = false
           that.setData({
@@ -316,7 +317,7 @@ load_card: function () {
   comment: function(e) {
     wx.setStorageSync('ask', e.currentTarget.dataset.ask)
     wx.navigateTo({
-      url: '/pages/ask/watch/watch',
+      url: '/pages/ask/watch/watch?index=' + e.currentTarget.dataset.index,
     })
   },/*
   onPullDownRefresh: function () {

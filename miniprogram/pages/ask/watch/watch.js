@@ -17,13 +17,17 @@ Page({
     comment_detail: '',
     _id:null,
     img_path: null,
-    submit:false
+    submit:false,
+    index:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      index: options.index
+    })
   },
 
   /**
@@ -139,6 +143,13 @@ Page({
         comment_detail: ''
       })
     }, 500)
+    var pages = getCurrentPages();
+    var currPage = pages[pages.length - 1];   //当前页面
+    var prevPage = pages[pages.length - 2];  //上一个页面
+    var update = "content[" + this.data.index +"].comment"
+    prevPage.setData({
+      [update]: this.data.comment
+    })
   },
   see_img: function () {
     wx.previewImage({
