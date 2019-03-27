@@ -11,13 +11,13 @@ Page({
     date: ''
   },
   save: function () {
-    wx.setStorageSync('myChoices_list', this.data.myChoices)
+    wx.setStorageSync('myChoices_list_prefer', this.data.myChoices)
   },
   /**
    * 用于加载用户自己的卡片
    */
   load: function () {
-    var myChoices = wx.getStorageSync('myChoices_list')
+    var myChoices = wx.getStorageSync('myChoices_list_prefer')
     wx.setStorageSync('example', 0)
     this.setData({
       deleteDisabled: false,
@@ -72,7 +72,7 @@ Page({
       that.setData({
         myChoices: a.data
       })
-      wx.setStorageSync('myChoices_list', a.data)
+      wx.setStorageSync('myChoices_list_prefer', a.data)
       console.log(that.data.myChoices)
     })
   },
@@ -94,7 +94,7 @@ Page({
       const collection = await wx.cloud.database().collection('prefer_cards')
       collection.doc(that.data.myChoices[index]._id).remove().then(() => {
         that.data.myChoices.splice(index, 1)
-        wx.setStorageSync('myChoices_list', that.data.myChoices)
+        wx.setStorageSync('myChoices_list_prefer', that.data.myChoices)
         console.log("删除成功")
         this.setData({
           deleteDisabled: false
