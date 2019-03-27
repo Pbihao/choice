@@ -1,32 +1,44 @@
 /* miniprogram/pages/luck/default/default.wxss */
-
+page{
+  background-color: #f6f6f6;
+}
+.border{
+  position: relative;
+  padding: 2px;
+  margin-bottom: 10px;
+  width: 95%;
+  left: 2%;
+}
 .card{
-  color: #696969;
-  background-color: #fff;
+  color: #000;
+}
+.detailCard{
+  border-radius: 10px;
+  opacity: 0.9;
+  text-shadow: rgba(0,0,0,0.1) 0px 1px 1px;
+  height: 180rpx!important;
 }
 .title-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  color: #000;
+  line-height: 75rpx!important;
   font-size: 45rpx;
 }
-
-.detail{
-  position: absolute;
-  border: 2rpx solid rgb(0, 0, 0);
-  border-radius: 30rpx;
-  width: 150rpx;
-  height: 50rpx;
-  font-size: 36rpx;
-  text-align: center;
-  line-height: 50rpx;
-  right: 5%;
+.label-container{
+  color:#5f5f5f!important;
+  line-height: 65rpx!important;
+  width: 550rpx;
 }
-.img {
+.img-left {
   position: absolute;
-  top: 1%;
-  left: 8%;
-  width: 90rpx;
-  height: 75rpx;
-  padding: 25rpx 15rpx;
+  top: 24%;
+  left: 3%;
+  width: 80rpx;
+  height: 80rpx;
+}
+.img-right {
+  position: absolute;
+  top: 35%;
+  right: 4%;
+  width: 50rpx;
+  height: 50rpx;
 }

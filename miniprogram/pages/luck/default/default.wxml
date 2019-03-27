@@ -1,26 +1,18 @@
-  <view wx:for="{{default_cards}}" wx:key="{{index}}">
-    <van-cell-group bindtap='edit' data-index="{{index+1}}" class='card'>
-      <van-cell
-        title="{{item.title}}"
-        title-class='title-container'
-        border="{{ false }}"
-      >
-        <van-icon 
-          slot="icon"
-          name="description"
-          size="45rpx"
-        />
-      </van-cell>
-      <van-cell
-        title="　"
+<view wx:for="{{default_cards}}" wx:key="{{index}}" class='border'>
+  <van-transition name='slide-down'>
+      <van-cell-group bindtap='edit' data-index="{{index+1}}" class='card'>
+        <van-cell
+          custom-class="detailCard"
+          title="　　{{item.title}}"
+          label="　　　　{{item.choices.length}} 种选择"
+          title-class='title-container'
+          label-class='label-container'
+          border="{{ false }}"
         >
-        <van-icon 
-          slot="right-icon"
-          name="arrow"
-          class="van-cell__right-icon"
-          size="50rpx"
-        />
-      </van-cell>
-    </van-cell-group>
-  </view>
+          <image class='img-left' src="../../../images/card.png"/>
+          <image class='img-right' src="../../../images/arrow.png"/>
+        </van-cell>
+      </van-cell-group>
+  </van-transition>
+</view>
 
